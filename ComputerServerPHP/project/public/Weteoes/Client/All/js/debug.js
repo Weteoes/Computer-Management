@@ -1,0 +1,1 @@
+//if(window.Weteoes == undefined) window.Weteoes={};

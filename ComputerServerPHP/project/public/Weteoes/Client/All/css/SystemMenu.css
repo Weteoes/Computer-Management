@@ -1,0 +1,22 @@
+.SystemMenu{
+    width: 100%;
+    height: 24px;
+}
+.SystemMenu .menu{
+    width: 30px;
+    height: 24px;
+    line-height:24px;
+    text-align: center;
+    float: right;
+    border-radius: 1px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.SystemMenu .exit{
+    font-size: 26px;
+    line-height:24px;
+}
+.SystemMenu .mini{
+    font-size: 26px;
+    line-height:24px;
+}

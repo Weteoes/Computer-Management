@@ -1,0 +1,15 @@
+<resources>
+    /*
+        软件显示名称通过dlg_start_title
+        软件属性名称通过app_name
+        app_name用于start page
+    */
+    <string name="app_name">Computer Management</string>
+
+    /* Dlg Title  */
+    <string name="dlg_start_title">电脑控制台</string>
+    <string name="dlg_title">dlg Page</string>
+
+    /* Start Page */
+    <string name="dlg_string_imageview">dlg_string_imageview</string>
+</resources>

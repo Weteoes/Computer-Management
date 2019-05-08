@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shortcut_Key", "Weteoes\Weteoes.vcxproj", "{0912ADDE-7F59-450F-8A44-AD36D837AB55}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mouse_event", "Mouse_event\Mouse_event.vcxproj", "{05EFF450-6D22-4E23-B3FF-48E56A0ADBFE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mouse", "Mouse\Mouse.vcxproj", "{41651B70-CDAD-41EE-9E0B-42A6C16F5B0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0912ADDE-7F59-450F-8A44-AD36D837AB55}.Debug|x64.ActiveCfg = Debug|x64
+		{0912ADDE-7F59-450F-8A44-AD36D837AB55}.Debug|x64.Build.0 = Debug|x64
+		{0912ADDE-7F59-450F-8A44-AD36D837AB55}.Debug|x86.ActiveCfg = Debug|Win32
+		{0912ADDE-7F59-450F-8A44-AD36D837AB55}.Debug|x86.Build.0 = Debug|Win32
+		{0912ADDE-7F59-450F-8A44-AD36D837AB55}.Release|x64.ActiveCfg = Release|x64
+		{0912ADDE-7F59-450F-8A44-AD36D837AB55}.Release|x64.Build.0 = Release|x64
+		{0912ADDE-7F59-450F-8A44-AD36D837AB55}.Release|x86.ActiveCfg = Release|Win32
+		{0912ADDE-7F59-450F-8A44-AD36D837AB55}.Release|x86.Build.0 = Release|Win32
+		{05EFF450-6D22-4E23-B3FF-48E56A0ADBFE}.Debug|x64.ActiveCfg = Debug|x64
+		{05EFF450-6D22-4E23-B3FF-48E56A0ADBFE}.Debug|x64.Build.0 = Debug|x64
+		{05EFF450-6D22-4E23-B3FF-48E56A0ADBFE}.Debug|x86.ActiveCfg = Debug|Win32
+		{05EFF450-6D22-4E23-B3FF-48E56A0ADBFE}.Debug|x86.Build.0 = Debug|Win32
+		{05EFF450-6D22-4E23-B3FF-48E56A0ADBFE}.Release|x64.ActiveCfg = Release|x64
+		{05EFF450-6D22-4E23-B3FF-48E56A0ADBFE}.Release|x64.Build.0 = Release|x64
+		{05EFF450-6D22-4E23-B3FF-48E56A0ADBFE}.Release|x86.ActiveCfg = Release|Win32
+		{05EFF450-6D22-4E23-B3FF-48E56A0ADBFE}.Release|x86.Build.0 = Release|Win32
+		{41651B70-CDAD-41EE-9E0B-42A6C16F5B0D}.Debug|x64.ActiveCfg = Debug|x64
+		{41651B70-CDAD-41EE-9E0B-42A6C16F5B0D}.Debug|x64.Build.0 = Debug|x64
+		{41651B70-CDAD-41EE-9E0B-42A6C16F5B0D}.Debug|x86.ActiveCfg = Debug|Win32
+		{41651B70-CDAD-41EE-9E0B-42A6C16F5B0D}.Debug|x86.Build.0 = Debug|Win32
+		{41651B70-CDAD-41EE-9E0B-42A6C16F5B0D}.Release|x64.ActiveCfg = Release|x64
+		{41651B70-CDAD-41EE-9E0B-42A6C16F5B0D}.Release|x64.Build.0 = Release|x64
+		{41651B70-CDAD-41EE-9E0B-42A6C16F5B0D}.Release|x86.ActiveCfg = Release|Win32
+		{41651B70-CDAD-41EE-9E0B-42A6C16F5B0D}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

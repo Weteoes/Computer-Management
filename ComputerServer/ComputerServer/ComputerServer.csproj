@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63331336-1D46-407B-833F-CD52A60CA424}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ComputerServer</RootNamespace>
+    <AssemblyName>ComputerServer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Weteoes\Server\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Weteoes\Server\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dll\Dll_Config\Dll_Config.csproj">
+      <Project>{fbff1b0e-83a1-4b2f-94a5-70c142efbb59}</Project>
+      <Name>Dll_Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dll\Dll_Message\Dll_Message.csproj">
+      <Project>{1603a7e5-3adf-4e9d-82dc-5036db46aa17}</Project>
+      <Name>Dll_Message</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dll\Dll_Socket\Dll_Socket.csproj">
+      <Project>{5f5ebcf6-848d-44a5-8db7-947abcc651ec}</Project>
+      <Name>Dll_Socket</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dll\Dll_WinApi\Dll_WinApi.csproj">
+      <Project>{8c8aecd8-2457-4a1e-9034-15a101a8dcc1}</Project>
+      <Name>Dll_WinApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dll\Dll_Xml\Dll_Xml.csproj">
+      <Project>{1419a978-270d-4f8b-990f-9db41ce080b0}</Project>
+      <Name>Dll_Xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="2.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

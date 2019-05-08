@@ -1,0 +1,11 @@
+Apache需要include
+LoadModule rewrite_module modules/mod_rewrite.so
+
+PHP需要
+extension_dir="SO路径"
+extension=curl.so(需要用相同版本的php源代码进行编译)
+variables_order = "EGPCS"
+版本需要7.2以下
+
+Linux需要
+runtime目录777 -R
