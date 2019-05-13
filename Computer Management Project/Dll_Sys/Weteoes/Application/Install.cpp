@@ -7,12 +7,14 @@
 //Dll
 #include <Dll/Management.h>
 
-void InstallClass::Install() { //安装
+void InstallClass::Install() { //掳虏脳掳
 	if (!WeteoesDll().Loading()) { return; }
 	if (!ManagementDll().Loading()) { return; }
-	Service(); //安装服务
+	Service(); //掳虏脳掳路镁脦帽
 }
-void InstallClass::Service() { //安装服务
+void InstallClass::Service() { //掳虏脳掳路镁脦帽
+	// 鍒涘缓鏈嶅姟闇�瑕佸姞绌烘牸锛屼緥濡俛= 1
+	std::string a = "sc create " + ConfigClass::ServiceName + " binPath= \"" + ServerDllPath + " -k Weteoes -p -s Computer\" type= share";
 	std::string b = "sc start " + ConfigClass::ServiceName;
 	std::string c = "sc stop " + ConfigClass::ServiceName;
 	std::string d = "sc delete " + ConfigClass::ServiceName;
@@ -38,13 +40,12 @@ void InstallClass::Service() { //安装服务
 	MessageClass::WriteFileLog("Copy File OK");
 
 	/* Install Service */
-	std::string a = "sc create " + ConfigClass::ServiceName + " binPath= \"" + ServerDllPath + " -k Weteoes -p -s Computer\" type=share";
 	WeteoesDll::CMD_Run((char*)a.c_str());
 	MessageClass::WriteFileLog("Install Service OK");
 	Sleep(300);
 
 	/* Modify Service */
-	Regedit(); //注册表
+	Regedit(); //脳垄虏谩卤铆
 	MessageClass::WriteFileLog("Modify Service OK");
 	Sleep(300);
 
@@ -53,12 +54,12 @@ void InstallClass::Service() { //安装服务
 	MessageClass::WriteFileLog("Start Service OK");
 	MessageClass::WriteFileLog("----------------");
 }
-void InstallClass::Regedit() //注册表
+void InstallClass::Regedit() //脳垄虏谩卤铆
 {
-	RegeditListLoading(); //初始化RegeditList
+	RegeditListLoading(); //鲁玫脢录禄炉RegeditList
 	RegeditClass().CreateRegedit(MainPathArray);
 }
-void InstallClass::RegeditListLoading() { //初始化RegeditList
+void InstallClass::RegeditListLoading() { //鲁玫脢录禄炉RegeditList
 	static std::string ServicDll_ = ConfigClass::ConfigPath + "\\Sys\\Sys.dll";
 	RegeditClass::RegeditMainArray Parameters({ (char*)"Parameters",{},{ { (char*)"ServiceDll", (char*)ServicDll_.c_str(),REG_EXPAND_SZ ,false,1 } } });
 
