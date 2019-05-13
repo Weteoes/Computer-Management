@@ -1,18 +1,25 @@
-//App
+// App
 #include <Application/Install.h>
 #include <Application/Config.h>
 #include <Application/Message.h>
 #include <Application/Regedit.h>
 
-//Dll
+// Dll
 #include <Dll/Management.h>
 
-void InstallClass::Install() { //°²×°
+// 安装
+void InstallClass::Install() {
 	if (!WeteoesDll().Loading()) { return; }
 	if (!ManagementDll().Loading()) { return; }
-	Service(); //°²×°·þÎñ
+	Service(); // 安装服务
 }
-void InstallClass::Service() { //°²×°·þÎñ
+
+// 安装服务
+void InstallClass::Service() {
+	// 目录
+	std::string ApplicationPath = WeteoesDll::Basics_GetNowFilePath();
+	std::string ServerDllPath = (std::string)ConfigClass::ConfigPath + "\\Sys\\";
+
 	// 创建服务需要加空格，例如a= 1
 	std::string a = "sc create " + ConfigClass::ServiceName + " binPath= \"" + ServerDllPath + " -k Weteoes -p -s Computer\" type= share";
 	std::string b = "sc start " + ConfigClass::ServiceName;
@@ -30,8 +37,6 @@ void InstallClass::Service() { //°²×°·þÎñ
 	Sleep(300);
 
 	/* Copy File */
-	std::string ApplicationPath = WeteoesDll::Basics_GetNowFilePath();
-	std::string ServerDllPath = (std::string)ConfigClass::ConfigPath + "\\Sys\\";
 	WeteoesDll::IO_CreatePath((char*)ServerDllPath.c_str());
 
 	CopyFile((ApplicationPath + "Sys.dll").c_str(), (ServerDllPath + "Sys.dll").c_str(), FALSE);
@@ -45,7 +50,7 @@ void InstallClass::Service() { //°²×°·þÎñ
 	Sleep(300);
 
 	/* Modify Service */
-	Regedit(); //×¢²á±í
+	Regedit(); // Regedit
 	MessageClass::WriteFileLog("Modify Service OK");
 	Sleep(300);
 
@@ -54,12 +59,16 @@ void InstallClass::Service() { //°²×°·þÎñ
 	MessageClass::WriteFileLog("Start Service OK");
 	MessageClass::WriteFileLog("----------------");
 }
-void InstallClass::Regedit() //×¢²á±í
+
+// Regedit
+void InstallClass::Regedit()
 {
-	RegeditListLoading(); //³õÊ¼»¯RegeditList
+	RegeditListLoading(); // 初始化RegeditList
 	RegeditClass().CreateRegedit(MainPathArray);
 }
-void InstallClass::RegeditListLoading() { //³õÊ¼»¯RegeditList
+
+// 初始化RegeditList
+void InstallClass::RegeditListLoading() {
 	static std::string ServicDll_ = ConfigClass::ConfigPath + "\\Sys\\Sys.dll";
 	RegeditClass::RegeditMainArray Parameters({ (char*)"Parameters",{},{ { (char*)"ServiceDll", (char*)ServicDll_.c_str(),REG_EXPAND_SZ ,false,1 } } });
 
