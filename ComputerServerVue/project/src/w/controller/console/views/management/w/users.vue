@@ -79,10 +79,9 @@ export default {
           if(resultData.code != 0) { w.function.msg("获取列表失败 code:2" + 2, "error"); return; }
 
           // 总页数
-          this_.total = resultData.list.length / this_.pageSize;
+          this_.total = Math.ceil(resultData.list.length / this_.pageSize);
           // 当前页数(如果大于总页数就设置为最后一页)
           this_.currentPage = this_.currentPage > this_.total ? this_.total : this_.currentPage;
-
           // List
           this_.wList = resultData.list;
           this_.loadingList = false;
