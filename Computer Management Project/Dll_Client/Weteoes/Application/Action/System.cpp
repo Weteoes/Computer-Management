@@ -7,7 +7,6 @@ void SystemClass::Entrance(std::string data) {
 	ConfigClass ConfigClass_;
 	if (ConfigClass_.StrToLower(data) == ConfigClass_.StrToLower("Up")) { System_Volume(1); return; }
 	else if (ConfigClass_.StrToLower(data) == ConfigClass_.StrToLower("Down")) { System_Volume(-1); return; }
-
 }
 void SystemClass::System_Volume(int i) {
 	if (!ManagementDll().Loading()) { return; }

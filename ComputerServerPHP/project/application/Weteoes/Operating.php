@@ -22,6 +22,9 @@ class OperatingClass{
             case "EexBxB": return "CMD_Shutdown -s -t 3600";
             case "Gdoenq": return "CMD_Shutdown -r -t 1";
             case "zpiwBh": return "CMD_Shutdown -a";
+            /* 学校操作 */
+            case "iAzsFD": return "School_YiStart_Close";
+            case "cwyeIA": return "School_YiStart_Start|C:\\Windows\\System32\\notepad.exe";
             /* default */
             default: return "";
         }

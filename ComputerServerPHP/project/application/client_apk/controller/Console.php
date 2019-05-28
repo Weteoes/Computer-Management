@@ -23,14 +23,17 @@ class Console
         }
         /* switch */
         switch($features) {
-            case "1": //网易云音乐
+            case "1": // 网易云音乐
                 $json = $this->console_Music_CloudMusic();
                 break;
-            case "2": //通用音乐
+            case "2": // 通用音乐
                 $json = $this->console_Music();
                 break;
-            case "3": //系统操作
+            case "3": // 系统操作
                 $json = $this->console_System();
+                break;
+            case "4": // 学校操作
+                $json = $this->console_School();
                 break;
             default: 
                 $json = array('code'=>-1,'msg'=>'features is not found');
@@ -61,7 +64,8 @@ class Console
             'menu'=>array(
                 array('title'=>'网易云音乐', 'png'=>"Music_CloudMusic", 'data'=>"1" ),
                 array('title'=>'通用音乐', 'png'=>"Music", 'data'=>"2" ),
-                array('title'=>'系统操作', 'png'=>"System", 'data'=>"3" )
+                array('title'=>'系统操作', 'png'=>"System", 'data'=>"3" ),
+                array('title'=>'学校操作', 'png'=>"System", 'data'=>"4" ),
             )
         );
         
@@ -70,6 +74,12 @@ class Console
 		return json($json);
     }
 
+    // 生成随机码
+    public function addConsole() {
+        include_once(Define_Weteoes_PATH."Operating.php");
+        $OperatingClass_ = new \Weteoes\OperatingClass();
+        return $OperatingClass_->getOperatingCode();
+    }
 
     // Private
 
@@ -84,19 +94,20 @@ class Console
                         array('title'=>'上一首','data'=>'GdHpHz'),
                         array('title'=>'暂停/播放','data'=>'sqEvAt'),
                         array('title'=>'喜欢','data'=>'ItxqHm'),
-                        array('title'=>'下一首','data'=>'nnJotw')
+                        array('title'=>'下一首','data'=>'nnJotw'),
                     )
                 ),
                 array(
                     'column'=>array(
                         array('title'=>'音量+','data'=>'cxaaHu'),
-                        array('title'=>'音量-','data'=>'wxmEIe')
+                        array('title'=>'音量-','data'=>'wxmEIe'),
                     )
-                )
+                ),
             )   
         );
         return $result;
     }
+
     /* 通用音乐 */
     private function console_Music() {
         $result = array(
@@ -107,19 +118,20 @@ class Console
                     'column'=>array(
                         array('title'=>'上一首','data'=>'qJgjHF'),
                         array('title'=>'暂停/播放','data'=>'nrzbyj'),
-                        array('title'=>'下一首','data'=>'CqznGI')
+                        array('title'=>'下一首','data'=>'CqznGI'),
                     )
                 ),
                 array(
                     'column'=>array(
                         array('title'=>'音量+','data'=>'cxaaHu'),
-                        array('title'=>'音量-','data'=>'wxmEIe')
+                        array('title'=>'音量-','data'=>'wxmEIe'),
                     )
-                )
+                ),
             )
         );
         return $result;
     }
+
     /* 系统操作 */
     private function console_System() {
         $result = array(
@@ -130,17 +142,34 @@ class Console
                     'column'=>array(
                         array('title'=>'关机','data'=>'qdixoa'),
                         array('title'=>'重启','data'=>'Gdoenq'),
-                        array('title'=>'锁屏','data'=>'tjrIqg')
+                        array('title'=>'锁屏','data'=>'tjrIqg'),
                     )
                 ),
                 array(
                     'column'=>array(
                         array('title'=>'关机(30分钟)','data'=>'pyBalA'),
                         array('title'=>'关机(1小时)','data'=>'EexBxB'),
-                        array('title'=>'计划取消','data'=>'zpiwBh')
+                        array('title'=>'计划取消','data'=>'zpiwBh'),
                     )
-                )
+                ),
             )
+        );
+        return $result;
+    }
+
+    /* 学校操作 */
+    private function console_School() {
+        $result = array(
+            'code'=>0,
+            'model'=>"System", //用于model图片
+            'row'=>array(
+                array(
+                    'column'=>array(
+                        array('title'=>'解除YiStart','data'=>'iAzsFD'),
+                        array('title'=>'启动YiStart','data'=>'cwyeIA'),
+                    ),
+                ),
+            )   
         );
         return $result;
     }

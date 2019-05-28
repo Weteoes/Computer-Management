@@ -44,11 +44,6 @@ class App
       result:
       return json($json);
    }
-   public function cs(){
-      include_once(Define_Weteoes_PATH."Operating.php");
-      $OperatingClass_ = new \Weteoes\OperatingClass();
-      return $OperatingClass_->getOperatingCode();
-   }
 
   //  获取在线电脑列表
   public function getComputerList(){

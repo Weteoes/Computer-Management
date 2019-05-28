@@ -96,8 +96,8 @@ public:
 
 void MusicClass::Entrance(std::string data) { //163|F5
 	ConfigClass ConfigClass_;
-	std::string app = ConfigClass_.GetConfig(&data,"|");
-	std::string shell = data;
+	std::string app = data;
+	std::string shell = ConfigClass_.GetConfig(&app, "|");
 	if (app.empty() || shell.empty()) { return; } //如果为空则退出
 	int Action = GetAction(shell); //获取动作
 	if (Action == -1) { return; } //不存在的动作，退出

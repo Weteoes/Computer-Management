@@ -11,4 +11,4 @@
 
 #define Config_Software_Title "Computer Management"
 #define Config_Software_Name "Computer"
-#define Config_Version "3.1.190429.2337"
+#define Config_Version "3.2.190529.113"
