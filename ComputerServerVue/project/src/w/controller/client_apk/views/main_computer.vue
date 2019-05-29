@@ -171,6 +171,7 @@
   color: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .leftMenu .navMenu .top_ .data .more .moreData .twoTitle {
   font-size: 13px;

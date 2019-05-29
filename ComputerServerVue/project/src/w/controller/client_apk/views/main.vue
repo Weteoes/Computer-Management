@@ -96,7 +96,8 @@
   vertical-align: top;
 }
 .data_computer_right_ {
-  width: 200px;
+  /* width适配手机像素 */
+  width: 200px; 
 }
 .data_computer .bottom {
   height: 2px;
@@ -119,6 +120,9 @@
   line-height: 30px;
   color: #46abf8;
   font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .computer .one .online_icon {
   height: 30px;
