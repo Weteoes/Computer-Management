@@ -9,6 +9,7 @@ public:
 	void entrance(std::string); // 入口
 private:
 	void closeProcess(std::string); // 关闭进程
+	std::string ReplaceString(std::string); // 替换关键字
 
 	void operating_YiStart_Close(); // 解除学生端
 	void operating_YiStart_Start(std::string); // 启动学生端
@@ -40,6 +41,12 @@ void SchoolClass::operating_YiStart_Close() {
 
 void SchoolClass::operating_YiStart_Start(std::string file) {
 	if (file.empty()) { return; }
+	file = ReplaceString(file);
 	WeteoesDll::CMD_Run((char*)file.c_str());
+}
+
+std::string SchoolClass::ReplaceString(std::string data) {
+	data = WeteoesDll::Basics_Replace((char*)data.c_str(), (char*)"[w,w]", (char*)"，");
+	return data;
 }
 #endif // SchoolClass__
