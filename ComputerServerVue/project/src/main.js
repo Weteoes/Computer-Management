@@ -3,7 +3,7 @@ import app from './app.vue'
 import router from './router'
 import axios from 'axios' //ajax
 
-Vue.config.devtools = true
+Vue.config.devtools = false
 Vue.config.productionTip = false
 Vue.prototype.debug = false
 Vue.prototype.axios = axios //ajax
