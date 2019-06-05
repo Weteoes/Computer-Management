@@ -73,6 +73,7 @@ void SimpleApp::OnBeforeCommandLineProcessing(const CefString & process_type, Ce
 	command_line->AppendSwitch("disable-gpu");
 	command_line->AppendSwitch("disable-gpu-compositing");
 #endif
+	command_line->AppendSwitch("no-proxy-server");
 }
 
 void SimpleApp::OnContextInitialized() {

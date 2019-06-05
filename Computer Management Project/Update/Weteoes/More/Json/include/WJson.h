@@ -1,5 +1,10 @@
 #include "json.h"
-#pragma comment(lib,"Weteoes/More/Json/lib/json_vc71_libmtd.lib")
+
+#ifdef _DEBUG
+#pragma comment(lib,"Weteoes/More/Json/lib/jsoncpp_mtd.lib")
+#else
+#pragma comment(lib,"Weteoes/More/Json/lib/jsoncpp_td.lib")
+#endif
 
 class WJsonClass
 {
