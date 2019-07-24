@@ -46,10 +46,10 @@ public:
 #define CSocketClass_CPP
 int CSocketClass::Entrance() {
 	if (!hasThread) {
-		Loading();
-		std::thread a(&CSocketClass::SocketStart, this); a.detach();
 		hasThread = true; // 线程启动
 		SocketStopFlac = false; // Socket开始
+		Loading();
+		std::thread a(&CSocketClass::SocketStart, this); a.detach();
 	}
 	return 0;
 }

