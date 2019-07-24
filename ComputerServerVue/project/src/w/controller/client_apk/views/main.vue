@@ -211,19 +211,16 @@ export default {
         // 因为有转发所以加JSON.parse
         resultData =  JSON.parse(resultData);
         if(resultData.code == -1) { w.function.msg("获取设备信息失败 msg:{msg}".format({msg: resultData.msg}), 2); return; }
-        // 判断是否为undefined
-        if (typeof resultData.user == "undefined") {
-          return;
-        }
+
         // if(result.user.length === 0){ w.function.msg("当前没有电脑在线", 2); }
-
-        /* 获取信息 */
-        var result_a = resultData.user;
-        var allComputer = [];
-        for (let only in result_a) {
-          allComputer.push({ name: result_a[only].computer });
+        var allComputer = []; // 临时存放数据
+        if (typeof resultData.user != "undefined") {  // 判断是否为undefined
+          /* 获取信息 */
+          var result_a = resultData.user;
+          for (let only in result_a) {
+            allComputer.push({ name: result_a[only].computer });
+          }
         }
-
         /* Vue */
         this_.nullDiv = true;
         this_.allComputer = allComputer;
