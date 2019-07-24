@@ -1,4 +1,4 @@
-#include "Client.h"
+#include "ClientDll.h"
 
 ClientDll::Fun1 ClientDll::Client_Entrance;
 bool ClientDll::Loading()

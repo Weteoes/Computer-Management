@@ -80,7 +80,7 @@ bool ProcessClass::createProcessWithAdmin(const std::string& process_name)
 		if (dwSessionId != NULL) { Sleep(100); }
 		// 获取sessionID
 		dwSessionId = WTSGetActiveConsoleSessionId();
-	} while (dwSessionId <= 0); //0为SYSTEM
+	} while (dwSessionId < 0); //0为SYSTEM
 	WTSQueryUserToken(dwSessionId, &pEnv);
 
 	if (!SetTokenInformation(hTokenDup, TokenSessionId, &dwSessionId, sizeof(DWORD)))
@@ -91,7 +91,7 @@ bool ProcessClass::createProcessWithAdmin(const std::string& process_name)
 	}
 
 	si.cb = sizeof(STARTUPINFO);
-	//si.lpDesktop = (LPSTR)"WinSta0\\Default";
+	si.lpDesktop = (LPSTR)"WinSta0\\Default";
 	si.wShowWindow = SW_SHOW;
 	si.dwFlags = STARTF_USESHOWWINDOW;
 

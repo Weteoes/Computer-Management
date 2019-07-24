@@ -1,4 +1,6 @@
-#include "Loading.h"
+#ifndef RSAClass_H
+#define RSAClass_H
+#include "Weteoes/Loading.h"
 
 class RSAClass
 {
@@ -13,3 +15,4 @@ private:
 	std::string RSA_PrivateUnEncode(std::string,const std::string&);
 	void GetChars(std::string data_s, char* data_c);
 };
+#endif

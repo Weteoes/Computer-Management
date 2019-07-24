@@ -1,8 +1,5 @@
-//App
-#include <Application/Client.h>
-
-//Dll
-#include <Dll/WeteoesDll.h>
+#include <Weteoes/Application/Client.h>
+#include <Weteoes/Dll/WeteoesDll.h>
 
 bool Loading() {
 	if (!WeteoesDll().Loading()) { return false; }

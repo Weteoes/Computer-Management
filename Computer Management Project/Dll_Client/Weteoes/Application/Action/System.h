@@ -1,7 +1,6 @@
-#ifdef SystemClass_
-#else
-#define SystemClass_
-#include <Loading.h>
+#ifndef SystemClass_H
+#define SystemClass_H
+#include <Weteoes/Loading.h>
 
 class SystemClass {
 public:
@@ -9,4 +8,4 @@ public:
 private:
 	void System_Volume(int);
 };
-#endif // SystemClass_
+#endif // SystemClass_H

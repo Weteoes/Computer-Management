@@ -1,12 +1,11 @@
+#ifndef SystemClass_CPP
+#define SystemClass_CPP
 #include "System.h"
-//App
-#include <Application/Config.h>
-#include <Dll/Management.h>
+#include <Weteoes/Dll/Management.h>
 
 void SystemClass::Entrance(std::string data) {
-	ConfigClass ConfigClass_;
-	if (ConfigClass_.StrToLower(data) == ConfigClass_.StrToLower("Up")) { System_Volume(1); return; }
-	else if (ConfigClass_.StrToLower(data) == ConfigClass_.StrToLower("Down")) { System_Volume(-1); return; }
+	if (ConfigClass::use.StrToLower(data) == ConfigClass::use.StrToLower("Up")) { System_Volume(1); return; }
+	else if (ConfigClass::use.StrToLower(data) == ConfigClass::use.StrToLower("Down")) { System_Volume(-1); return; }
 }
 void SystemClass::System_Volume(int i) {
 	if (!ManagementDll().Loading()) { return; }
@@ -22,3 +21,4 @@ void SystemClass::System_Volume(int i) {
 		break;
 	}
 }
+#endif

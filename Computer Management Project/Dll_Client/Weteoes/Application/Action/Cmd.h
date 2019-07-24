@@ -1,4 +1,6 @@
-#include <Loading.h>
+#ifndef CmdClass_H
+#define CmdClass_H
+#include <Weteoes/Loading.h>
 
 class CmdClass
 {
@@ -12,3 +14,4 @@ void CmdClass::Run(std::string shell) {
 	CloseHandle(pi.hProcess);
 	CloseHandle(pi.hThread);
 }
+#endif

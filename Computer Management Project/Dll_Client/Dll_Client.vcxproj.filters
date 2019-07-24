@@ -70,6 +70,9 @@
     <ClInclude Include="Weteoes\Application\Action\School.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Weteoes\Application\Action\Control.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Dll_Client.rc">

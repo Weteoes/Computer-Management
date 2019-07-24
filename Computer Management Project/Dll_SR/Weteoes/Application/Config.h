@@ -1,4 +1,6 @@
-#include "Loading.h"
+#ifndef ConfigClass_H
+#define ConfigClass_H
+#include "Weteoes/Loading.h"
 
 class ConfigClass
 {
@@ -8,3 +10,4 @@ public:
 	static char* Socket_Hello; //Socket Hello String
 	static int Socket_Cache; //Socket Cache
 };
+#endif

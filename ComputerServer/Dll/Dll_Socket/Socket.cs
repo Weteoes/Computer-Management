@@ -101,7 +101,7 @@ namespace Weteoes
                 if (!data.Equals(ConfigClass.socket_Success) && !data.Equals(ConfigClass.socket_Error)) { //如果不是系统消息了话
                     data = ConfigClass.socket_Header + "_" + data;
                 }
-                data = new RSAClass().Send_PublicEncode(data) + "|";
+                data = new RSAClass().Send_PublicEncode(data) + ConfigClass.socket_End;
                 socket.Send(Encoding.Default.GetBytes(data));
                 socket.SendTimeout = 100;
                 return true;
@@ -149,7 +149,8 @@ namespace Weteoes
                 /* Sokcet通信 */
                 else
                 {
-                    string[] allData = data.Split('|');
+
+                    string[] allData = data.Split(new string[] { ConfigClass.socket_End },StringSplitOptions.None);
                     foreach (string onlyData in allData)
                     {
                         if (onlyData.Equals("")) { continue; }

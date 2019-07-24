@@ -18,25 +18,22 @@
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Dll\Client.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="DllSR.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\Dll\Config.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\Application\AppConfig.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Application\RSA.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Application\Socket.cpp">
+    <ClCompile Include="Weteoes\Application\Config.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Dll\Management.cpp">
+    <ClCompile Include="Weteoes\Dll\ManagementDll.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Dll\ConfigDll.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Dll\ClientDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -362,28 +359,37 @@
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Dll\Client.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\Dll\Config.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\Application\AppConfig.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\Application\RSA.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Weteoes\Loading.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Application\Socket.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\Dll\Management.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Model\Sockets\CSocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Model\Sockets\SSocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Sockets\ServerSocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Actions\Software.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Dll\ManagementDll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Dll\ConfigDll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Dll\ClientDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

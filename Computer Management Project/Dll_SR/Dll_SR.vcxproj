@@ -73,7 +73,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>SR</TargetName>
-    <IncludePath>$(SolutionDir)$(ProjectName)\Weteoes;$(SolutionDir)Dll_SR\Weteoes\More\openssl\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(SolutionDir)Dll_SR\Weteoes\More\openssl\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>SR</TargetName>
@@ -142,23 +142,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DllSR.cpp" />
-    <ClCompile Include="Weteoes\Application\Socket.cpp" />
-    <ClCompile Include="Weteoes\Application\AppConfig.cpp" />
-    <ClCompile Include="Weteoes\Dll\Client.cpp" />
-    <ClCompile Include="Weteoes\Dll\Config.cpp" />
-    <ClCompile Include="Weteoes\Dll\Management.cpp" />
+    <ClCompile Include="Weteoes\Application\Config.cpp" />
+    <ClCompile Include="Weteoes\Dll\ClientDll.cpp" />
+    <ClCompile Include="Weteoes\Dll\ConfigDll.cpp" />
+    <ClCompile Include="Weteoes\Dll\ManagementDll.cpp" />
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp" />
     <ClCompile Include="Weteoes\Application\RSA.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Weteoes\Application\Socket.h" />
-    <ClInclude Include="Weteoes\Application\AppConfig.h" />
-    <ClInclude Include="Weteoes\Dll\Client.h" />
-    <ClInclude Include="Weteoes\Dll\Config.h" />
-    <ClInclude Include="Weteoes\Dll\Management.h" />
+    <ClInclude Include="Weteoes\Application\Actions\Software.h" />
+    <ClInclude Include="Weteoes\Application\Config.h" />
+    <ClInclude Include="Weteoes\Application\Sockets\ServerSocket.h" />
+    <ClInclude Include="Weteoes\Dll\ClientDll.h" />
+    <ClInclude Include="Weteoes\Dll\ConfigDll.h" />
+    <ClInclude Include="Weteoes\Dll\ManagementDll.h" />
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h" />
     <ClInclude Include="Weteoes\Loading.h" />
+    <ClInclude Include="Weteoes\Model\Sockets\CSocket.h" />
+    <ClInclude Include="Weteoes\Model\Sockets\SSocket.h" />
     <ClInclude Include="Weteoes\More\openssl\include\openssl\aes.h" />
     <ClInclude Include="Weteoes\More\openssl\include\openssl\asn1.h" />
     <ClInclude Include="Weteoes\More\openssl\include\openssl\asn1err.h" />

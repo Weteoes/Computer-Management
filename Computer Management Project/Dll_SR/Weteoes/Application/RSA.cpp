@@ -1,11 +1,11 @@
+#ifndef RSAClass_CPP
+#define RSAClass_CPP
 #include "RSA.h"
 #include <openssl/ssl3.h>
 #include <openssl/rsa.h>
 #pragma comment(lib,"Weteoes/More/openssl/lib/libssl.lib")
 #pragma comment(lib,"Weteoes/More/openssl/lib/libcrypto.lib")
-
-//Dll
-#include <Dll/WeteoesDll.h>
+#include <Weteoes/Dll/WeteoesDll.h>
 
 std::string B_PublicKey = "-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEA0pf6nAbz1e0q6gKxbdZUNvFsi5wn4hIPsb82dnac7o4Crfoz4KFc\n/MNavirwsjkCsNBTBPuFle5560yrPL5roXog4nfol/xAKi7D+zqJil+DUmNYqkN5\ngHnrPIT+r89WadJM4EKaOE/sKJ1dUF94VJnR+mD2k9WXa3YmW+eGxvPHbUh1aHFh\n1k1vgZOIBtNyXDDXH/sULQE1b+ZddMLdeIlrO0Wdvkg23mM76dSQmLH2WMF9XMgU\nUuHTUllMRwJdWQf/XAI8GLvEtMP88ZYsJso3c5z1VVi6Fmzqc/tJXKLBU4qT3NYU\ntBSkDP3lM2QV3W9zzlRIiplvQ8Fd90ZqVQIDAQAB\n-----END RSA PUBLIC KEY-----";
 //std::string A_PrivateKey = "";
@@ -96,3 +96,4 @@ std::string RSAClass::RSA_PrivateUnEncode(std::string data, const std::string &p
 
 	return strRet;
 }
+#endif

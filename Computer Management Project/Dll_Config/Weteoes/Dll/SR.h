@@ -6,7 +6,7 @@
 class SRDll
 {
 private:
-	typedef char*(__stdcall *Socket_Entrance_)();
+	typedef int(__stdcall *Socket_Entrance_)();
 	typedef char*(__stdcall *RSA_Encode_)(char* data, char* key);
 	typedef char*(__stdcall *RSA_UnEncode_)(char* data, char* key);
 

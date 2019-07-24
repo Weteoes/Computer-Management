@@ -1,6 +1,5 @@
-#include <Loading.h>
-
 #ifndef Music_Basics
+#include <Weteoes/Loading.h>
 class Music_Basics {
 public:
 	void play();
@@ -88,20 +87,24 @@ void Music_163::like() {
 }
 #endif // !Music_163
 
+#ifndef MusicClass_H
+#define MusicClass_H
 class MusicClass {
 public:
 	void Entrance(std::string); //入口
 	int GetAction(std::string); //获取动作
 };
+#endif
+
+#ifndef MusicClass_CPP
+#define MusicClass_CPP
 
 void MusicClass::Entrance(std::string data) { //163|F5
-	ConfigClass ConfigClass_;
-	std::string app = data;
-	std::string shell = ConfigClass_.GetConfig(&app, "|");
-	if (app.empty() || shell.empty()) { return; } //如果为空则退出
-	int Action = GetAction(shell); //获取动作
+	std::string app = ConfigClass::use.GetConfig(&data, "|");
+	if (app.empty()) { return; } //如果为空则退出
+	int Action = GetAction(data); //获取动作
 	if (Action == -1) { return; } //不存在的动作，退出
-	if (ConfigClass_.StrToLower(app) == ConfigClass_.StrToLower("163")) {
+	if (ConfigClass::use.StrToLower(app) == ConfigClass::use.StrToLower("163")) {
 		Music_163 a;
 		switch (Action)
 		{
@@ -125,10 +128,10 @@ void MusicClass::Entrance(std::string data) { //163|F5
 }
 
 int MusicClass::GetAction(std::string data) {
-	ConfigClass ConfigClass_;
-	if (ConfigClass_.StrToLower(data) == ConfigClass_.StrToLower("P")) { return 0; }
-	else if (ConfigClass_.StrToLower(data) == ConfigClass_.StrToLower("S")) { return 1; }
-	else if (ConfigClass_.StrToLower(data) == ConfigClass_.StrToLower("N")) { return 2; }
-	else if (ConfigClass_.StrToLower(data) == ConfigClass_.StrToLower("Like")) { return 3; }
+	if (ConfigClass::use.StrToLower(data) == ConfigClass::use.StrToLower("P")) { return 0; }
+	else if (ConfigClass::use.StrToLower(data) == ConfigClass::use.StrToLower("S")) { return 1; }
+	else if (ConfigClass::use.StrToLower(data) == ConfigClass::use.StrToLower("N")) { return 2; }
+	else if (ConfigClass::use.StrToLower(data) == ConfigClass::use.StrToLower("Like")) { return 3; }
 	else { return -1; }
 }
+#endif
