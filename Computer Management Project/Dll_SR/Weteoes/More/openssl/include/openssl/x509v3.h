@@ -10,10 +10,10 @@
 #ifndef HEADER_X509V3_H
 # define HEADER_X509V3_H
 
-# include <openssl/bio.h>
-# include <openssl/x509.h>
-# include <openssl/conf.h>
-# include <openssl/x509v3err.h>
+# include <Weteoes/More/openssl/include/openssl/bio.h>
+# include <Weteoes/More/openssl/include/openssl/x509.h>
+# include <Weteoes/More/openssl/include/openssl/conf.h>
+# include <Weteoes/More/openssl/include/openssl/x509v3err.h>
 
 #ifdef __cplusplus
 extern "C" {

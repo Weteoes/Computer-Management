@@ -1,4 +1,5 @@
-#include <More/CEF/include/cef_v8.h>
+#include <Weteoes\More\CEF\include\cef_v8.h>
+#include <Weteoes\More\CEF\include\internal\cef_string.h>
 
 class V8Handler_Class : public CefV8Handler {
 public:

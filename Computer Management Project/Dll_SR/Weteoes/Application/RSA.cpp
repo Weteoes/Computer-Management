@@ -1,8 +1,8 @@
 #ifndef RSAClass_CPP
 #define RSAClass_CPP
 #include "RSA.h"
-#include <openssl/ssl3.h>
-#include <openssl/rsa.h>
+#include <Weteoes/More/openssl/include/openssl/ssl3.h>
+#include <Weteoes/More/openssl/include/openssl/rsa.h>
 #pragma comment(lib,"Weteoes/More/openssl/lib/libssl.lib")
 #pragma comment(lib,"Weteoes/More/openssl/lib/libcrypto.lib")
 #include <Weteoes/Dll/WeteoesDll.h>

@@ -1,4 +1,4 @@
-#include "SR.h"
+#include "SRDll.h"
 
 SRDll::Socket_Entrance_ SRDll::Socket_Entrance;
 SRDll::RSA_Encode_ SRDll::RSA_Encode;

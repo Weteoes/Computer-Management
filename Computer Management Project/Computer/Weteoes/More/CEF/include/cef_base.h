@@ -31,19 +31,19 @@
 #define CEF_INCLUDE_CEF_BASE_H_
 #pragma once
 
-#include "More/CEF/include/base/cef_atomic_ref_count.h"
-#include "More/CEF/include/base/cef_build.h"
-#include "More/CEF/include/base/cef_macros.h"
+#include "Weteoes/More/CEF/include/base/cef_atomic_ref_count.h"
+#include "Weteoes/More/CEF/include/base/cef_build.h"
+#include "Weteoes/More/CEF/include/base/cef_macros.h"
 
 // Bring in common C++ type definitions used by CEF consumers.
-#include "More/CEF/include/internal/cef_ptr.h"
-#include "More/CEF/include/internal/cef_types_wrappers.h"
+#include "Weteoes/More/CEF/include/internal/cef_ptr.h"
+#include "Weteoes/More/CEF/include/internal/cef_types_wrappers.h"
 #if defined(OS_WIN)
-#include "More/CEF/include/internal/cef_win.h"
+#include "Weteoes/More/CEF/include/internal/cef_win.h"
 #elif defined(OS_MACOSX)
-#include "More/CEF/include/internal/cef_mac.h"
+#include "Weteoes/More/CEF/include/internal/cef_mac.h"
 #elif defined(OS_LINUX)
-#include "More/CEF/include/internal/cef_linux.h"
+#include "Weteoes/More/CEF/include/internal/cef_linux.h"
 #endif
 
 ///
@@ -150,7 +150,7 @@ class CefRefCount {
 // THIS MACRO IS DEPRECATED. Use an explicit base::Lock member variable and
 // base::AutoLock instead. For example:
 //
-// #include "More/CEF/include/base/cef_lock.h"
+// #include "Weteoes/More/CEF/include/base/cef_lock.h"
 //
 // // Class declaration.
 // class MyClass : public CefBaseRefCounted {

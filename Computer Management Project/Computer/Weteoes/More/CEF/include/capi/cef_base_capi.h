@@ -32,12 +32,12 @@
 
 #include <stdint.h>
 
-#include "More/CEF/include/internal/cef_export.h"
-#include "More/CEF/include/internal/cef_string.h"
-#include "More/CEF/include/internal/cef_string_list.h"
-#include "More/CEF/include/internal/cef_string_map.h"
-#include "More/CEF/include/internal/cef_string_multimap.h"
-#include "More/CEF/include/internal/cef_types.h"
+#include "Weteoes/More/CEF/include/internal/cef_export.h"
+#include "Weteoes/More/CEF/include/internal/cef_string.h"
+#include "Weteoes/More/CEF/include/internal/cef_string_list.h"
+#include "Weteoes/More/CEF/include/internal/cef_string_map.h"
+#include "Weteoes/More/CEF/include/internal/cef_string_multimap.h"
+#include "Weteoes/More/CEF/include/internal/cef_types.h"
 
 #ifdef __cplusplus
 extern "C" {

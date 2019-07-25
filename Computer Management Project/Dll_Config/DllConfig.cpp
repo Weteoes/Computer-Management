@@ -1,14 +1,10 @@
-#include <string>
-
-//Dll
-#include <Dll/WeteoesDll.h>
-#include <Dll/SR.h>
-
-//App
-#include "Weteoes/Application/CreateXMLConfig.h"
-#include "Weteoes/Application/ReadXMLConfig.h"
-#include "Weteoes/Application/SetXMLConfig.h"
-#include "Weteoes/Application/ReturnXMLStruct.h"
+#include <Weteoes/Loading.h>
+#include <Weteoes/Dll/WeteoesDll.h>
+#include <Weteoes/Dll/SRDll.h>
+#include <Weteoes/Application/CreateXMLConfig.h>
+#include <Weteoes/Application/ReadXMLConfig.h>
+#include <Weteoes/Application/SetXMLConfig.h>
+#include <Weteoes/Application/ReturnXMLStruct.h>
 
 bool Loading() {
 	if (!WeteoesDll().Loading()) { return false; }

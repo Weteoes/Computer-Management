@@ -14,14 +14,14 @@
 #ifndef HEADER_SRP_H
 # define HEADER_SRP_H
 
-#include <openssl/opensslconf.h>
+#include <Weteoes/More/openssl/include/openssl/opensslconf.h>
 
 #ifndef OPENSSL_NO_SRP
 # include <stdio.h>
 # include <string.h>
-# include <openssl/safestack.h>
-# include <openssl/bn.h>
-# include <openssl/crypto.h>
+# include <Weteoes/More/openssl/include/openssl/safestack.h>
+# include <Weteoes/More/openssl/include/openssl/bn.h>
+# include <Weteoes/More/openssl/include/openssl/crypto.h>
 
 # ifdef  __cplusplus
 extern "C" {

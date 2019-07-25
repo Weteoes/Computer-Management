@@ -12,24 +12,24 @@
 #ifndef HEADER_SSL_H
 # define HEADER_SSL_H
 
-# include <openssl/e_os2.h>
-# include <openssl/opensslconf.h>
-# include <openssl/comp.h>
-# include <openssl/bio.h>
+# include <Weteoes/More/openssl/include/openssl/e_os2.h>
+# include <Weteoes/More/openssl/include/openssl/opensslconf.h>
+# include <Weteoes/More/openssl/include/openssl/comp.h>
+# include <Weteoes/More/openssl/include/openssl/bio.h>
 # if OPENSSL_API_COMPAT < 0x10100000L
-#  include <openssl/x509.h>
-#  include <openssl/crypto.h>
-#  include <openssl/buffer.h>
+#  include <Weteoes/More/openssl/include/openssl/x509.h>
+#  include <Weteoes/More/openssl/include/openssl/crypto.h>
+#  include <Weteoes/More/openssl/include/openssl/buffer.h>
 # endif
-# include <openssl/lhash.h>
-# include <openssl/pem.h>
-# include <openssl/hmac.h>
-# include <openssl/async.h>
+# include <Weteoes/More/openssl/include/openssl/lhash.h>
+# include <Weteoes/More/openssl/include/openssl/pem.h>
+# include <Weteoes/More/openssl/include/openssl/hmac.h>
+# include <Weteoes/More/openssl/include/openssl/async.h>
 
-# include <openssl/safestack.h>
-# include <openssl/symhacks.h>
-# include <openssl/ct.h>
-# include <openssl/sslerr.h>
+# include <Weteoes/More/openssl/include/openssl/safestack.h>
+# include <Weteoes/More/openssl/include/openssl/symhacks.h>
+# include <Weteoes/More/openssl/include/openssl/ct.h>
+# include <Weteoes/More/openssl/include/openssl/sslerr.h>
 
 #ifdef  __cplusplus
 extern "C" {
@@ -928,11 +928,11 @@ uint32_t SSL_get_recv_max_early_data(const SSL *s);
 }
 #endif
 
-# include <openssl/ssl2.h>
-# include <openssl/ssl3.h>
-# include <openssl/tls1.h>      /* This is mostly sslv3 with a few tweaks */
-# include <openssl/dtls1.h>     /* Datagram TLS */
-# include <openssl/srtp.h>      /* Support for the use_srtp extension */
+# include <Weteoes/More/openssl/include/openssl/ssl2.h>
+# include <Weteoes/More/openssl/include/openssl/ssl3.h>
+# include <Weteoes/More/openssl/include/openssl/tls1.h>      /* This is mostly sslv3 with a few tweaks */
+# include <Weteoes/More/openssl/include/openssl/dtls1.h>     /* Datagram TLS */
+# include <Weteoes/More/openssl/include/openssl/srtp.h>      /* Support for the use_srtp extension */
 
 #ifdef  __cplusplus
 extern "C" {

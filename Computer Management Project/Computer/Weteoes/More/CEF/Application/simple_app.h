@@ -5,10 +5,9 @@
 #ifndef CEF_TESTS_CEFSIMPLE_SIMPLE_APP_H_
 #define CEF_TESTS_CEFSIMPLE_SIMPLE_APP_H_
 
-#include "More/CEF/include/cef_app.h"
 #include <atltypes.h>
-
-#include <More/CEF/Application/simple_handler.h>
+#include <Weteoes/More/CEF/include/cef_app.h>
+#include <Weteoes/More/CEF/Application/simple_handler.h>
 
 // Implement application-level callbacks for the browser process.
 class SimpleApp :

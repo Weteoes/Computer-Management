@@ -11,16 +11,16 @@
 # define HEADER_ASN1_H
 
 # include <time.h>
-# include <openssl/e_os2.h>
-# include <openssl/opensslconf.h>
-# include <openssl/bio.h>
-# include <openssl/safestack.h>
-# include <openssl/asn1err.h>
-# include <openssl/symhacks.h>
+# include <Weteoes/More/openssl/include/openssl/e_os2.h>
+# include <Weteoes/More/openssl/include/openssl/opensslconf.h>
+# include <Weteoes/More/openssl/include/openssl/bio.h>
+# include <Weteoes/More/openssl/include/openssl/safestack.h>
+# include <Weteoes/More/openssl/include/openssl/asn1err.h>
+# include <Weteoes/More/openssl/include/openssl/symhacks.h>
 
-# include <openssl/ossl_typ.h>
+# include <Weteoes/More/openssl/include/openssl/ossl_typ.h>
 # if OPENSSL_API_COMPAT < 0x10100000L
-#  include <openssl/bn.h>
+#  include <Weteoes/More/openssl/include/openssl/bn.h>
 # endif
 
 # ifdef OPENSSL_BUILD_SHLIBCRYPTO

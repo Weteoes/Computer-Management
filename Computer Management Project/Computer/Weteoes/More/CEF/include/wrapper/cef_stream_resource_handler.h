@@ -37,12 +37,12 @@
 #define CEF_INCLUDE_WRAPPER_CEF_STREAM_RESOURCE_HANDLER_H_
 #pragma once
 
-#include "More/CEF/include/base/cef_logging.h"
-#include "More/CEF/include/base/cef_macros.h"
-#include "More/CEF/include/base/cef_scoped_ptr.h"
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_resource_handler.h"
-#include "More/CEF/include/cef_response.h"
+#include "Weteoes/More/CEF/include/base/cef_logging.h"
+#include "Weteoes/More/CEF/include/base/cef_macros.h"
+#include "Weteoes/More/CEF/include/base/cef_scoped_ptr.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_resource_handler.h"
+#include "Weteoes/More/CEF/include/cef_response.h"
 
 class CefStreamReader;
 

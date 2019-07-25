@@ -35,11 +35,11 @@
 #ifndef HEADER_SEED_H
 # define HEADER_SEED_H
 
-# include <openssl/opensslconf.h>
+# include <Weteoes/More/openssl/include/openssl/opensslconf.h>
 
 # ifndef OPENSSL_NO_SEED
-# include <openssl/e_os2.h>
-# include <openssl/crypto.h>
+# include <Weteoes/More/openssl/include/openssl/e_os2.h>
+# include <Weteoes/More/openssl/include/openssl/crypto.h>
 
 #ifdef  __cplusplus
 extern "C" {

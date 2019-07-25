@@ -1,4 +1,4 @@
-#include "Sys.h"
+#include "SysDll.h"
 
 SysDll::Fun1 SysDll::Install;
 SysDll::Fun2 SysDll::getInstall;

@@ -39,10 +39,10 @@
 #pragma once
 
 #include <map>
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_callback.h"
-#include "More/CEF/include/cef_request.h"
-#include "More/CEF/include/cef_task.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_callback.h"
+#include "Weteoes/More/CEF/include/cef_request.h"
+#include "Weteoes/More/CEF/include/cef_task.h"
 
 class CefServerHandler;
 

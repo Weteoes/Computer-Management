@@ -40,12 +40,12 @@
 
 #include <vector>
 
-#include "More/CEF/include/cef_callback.h"
-#include "More/CEF/include/cef_cookie.h"
-#include "More/CEF/include/cef_extension.h"
-#include "More/CEF/include/cef_extension_handler.h"
-#include "More/CEF/include/cef_request_context_handler.h"
-#include "More/CEF/include/cef_values.h"
+#include "Weteoes/More/CEF/include/cef_callback.h"
+#include "Weteoes/More/CEF/include/cef_cookie.h"
+#include "Weteoes/More/CEF/include/cef_extension.h"
+#include "Weteoes/More/CEF/include/cef_extension_handler.h"
+#include "Weteoes/More/CEF/include/cef_request_context_handler.h"
+#include "Weteoes/More/CEF/include/cef_values.h"
 
 class CefSchemeHandlerFactory;
 

@@ -10,15 +10,15 @@
 #ifndef HEADER_UI_H
 # define HEADER_UI_H
 
-# include <openssl/opensslconf.h>
+# include <Weteoes/More/openssl/include/openssl/opensslconf.h>
 
 # if OPENSSL_API_COMPAT < 0x10100000L
-#  include <openssl/crypto.h>
+#  include <Weteoes/More/openssl/include/openssl/crypto.h>
 # endif
-# include <openssl/safestack.h>
-# include <openssl/pem.h>
-# include <openssl/ossl_typ.h>
-# include <openssl/uierr.h>
+# include <Weteoes/More/openssl/include/openssl/safestack.h>
+# include <Weteoes/More/openssl/include/openssl/pem.h>
+# include <Weteoes/More/openssl/include/openssl/ossl_typ.h>
+# include <Weteoes/More/openssl/include/openssl/uierr.h>
 
 /* For compatibility reasons, the macro OPENSSL_NO_UI is currently retained */
 # if OPENSSL_API_COMPAT < 0x10200000L

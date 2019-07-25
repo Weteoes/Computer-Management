@@ -37,9 +37,9 @@
 #define CEF_INCLUDE_WRAPPER_CEF_CLOSURE_TASK_H_
 #pragma once
 
-#include "More/CEF/include/base/cef_callback_forward.h"
-#include "More/CEF/include/base/cef_macros.h"
-#include "More/CEF/include/cef_task.h"
+#include "Weteoes/More/CEF/include/base/cef_callback_forward.h"
+#include "Weteoes/More/CEF/include/base/cef_macros.h"
+#include "Weteoes/More/CEF/include/cef_task.h"
 
 ///
 // Helpers for asynchronously executing a base::Closure (bound function or
@@ -49,8 +49,8 @@
 // TO use these helpers you should include this header and the header that
 // defines base::Bind.
 //
-// #include "More/CEF/include/base/cef_bind.h"
-// #include "More/CEF/include/wrapper/cef_closure_task.h"
+// #include "Weteoes/More/CEF/include/base/cef_bind.h"
+// #include "Weteoes/More/CEF/include/wrapper/cef_closure_task.h"
 //
 // Example of executing a bound function:
 //

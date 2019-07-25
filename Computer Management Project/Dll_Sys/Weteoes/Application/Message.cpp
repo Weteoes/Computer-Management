@@ -1,9 +1,6 @@
-//App
-#include <Application/Message.h>
-#include <Application/Config.h>
-
-//Dll
-#include <Dll/WeteoesDll.h>
+#include <Weteoes/Application/Message.h>
+#include <Weteoes/Application/Config.h>
+#include <Weteoes/Dll/WeteoesDll.h>
 
 std::string WriteFileLogFile; //logÎÄ¼þ
 void MessageClass::WriteFileLog(std::string data)

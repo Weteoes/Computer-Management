@@ -38,8 +38,8 @@
 #define CEF_INCLUDE_CEF_LIFE_SPAN_HANDLER_H_
 #pragma once
 
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_browser.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_browser.h"
 
 class CefClient;
 

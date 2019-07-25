@@ -162,9 +162,9 @@
 #include <sstream>
 #include <string>
 
-#include "More/CEF/include/base/cef_build.h"
-#include "More/CEF/include/base/cef_macros.h"
-#include "More/CEF/include/internal/cef_logging_internal.h"
+#include "Weteoes/More/CEF/include/base/cef_build.h"
+#include "Weteoes/More/CEF/include/base/cef_macros.h"
+#include "Weteoes/More/CEF/include/internal/cef_logging_internal.h"
 
 namespace cef {
 namespace logging {

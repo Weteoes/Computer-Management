@@ -1,5 +1,5 @@
-#include <Loading.h>
-#include <Dll/Management.h>
+#include <Weteoes/Loading.h>
+#include <Weteoes/Dll/ManagementDll.h>
 
 class ConfigClass
 {

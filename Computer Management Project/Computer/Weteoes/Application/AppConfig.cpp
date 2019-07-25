@@ -1,7 +1,5 @@
 #include "AppConfig.h"
-
-//Dll
-#include <Dll/Management.h>
+#include <Weteoes/Dll/ManagementDll.h>
 
 bool AppConfigClass::IsLogin = false;
 bool AppConfigClass::IsMiniStartMain = true;

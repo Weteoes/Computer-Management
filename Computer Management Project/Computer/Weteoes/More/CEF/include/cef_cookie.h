@@ -39,8 +39,8 @@
 #pragma once
 
 #include <vector>
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_callback.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_callback.h"
 
 class CefCookieVisitor;
 class CefSetCookieCallback;

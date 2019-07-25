@@ -82,7 +82,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)$(ProjectName)\Weteoes;$(IncludePath)</IncludePath>
+    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -91,7 +91,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)$(ProjectName)\Weteoes;$(IncludePath)</IncludePath>
+    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -207,10 +207,10 @@
     <ClInclude Include="Weteoes\Application\AppConfig.h" />
     <ClInclude Include="Weteoes\Application\Dlg.h" />
     <ClInclude Include="Weteoes\Application\Icon.h" />
-    <ClInclude Include="Weteoes\Dll\Config.h" />
-    <ClInclude Include="Weteoes\Dll\Management.h" />
-    <ClInclude Include="Weteoes\Dll\SR.h" />
-    <ClInclude Include="Weteoes\Dll\Sys.h" />
+    <ClInclude Include="Weteoes\Dll\ConfigDll.h" />
+    <ClInclude Include="Weteoes\Dll\ManagementDll.h" />
+    <ClInclude Include="Weteoes\Dll\SRDll.h" />
+    <ClInclude Include="Weteoes\Dll\SysDll.h" />
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h" />
     <ClInclude Include="Weteoes\Loading.h" />
     <ClInclude Include="Weteoes\More\CEF\Application\simple_app.h" />
@@ -473,10 +473,10 @@
     <ClCompile Include="Weteoes\Application\AppConfig.cpp" />
     <ClCompile Include="Weteoes\Application\Dlg.cpp" />
     <ClCompile Include="Weteoes\Application\Icon.cpp" />
-    <ClCompile Include="Weteoes\Dll\Config.cpp" />
-    <ClCompile Include="Weteoes\Dll\Management.cpp" />
-    <ClCompile Include="Weteoes\Dll\SR.cpp" />
-    <ClCompile Include="Weteoes\Dll\Sys.cpp" />
+    <ClCompile Include="Weteoes\Dll\ConfigDll.cpp" />
+    <ClCompile Include="Weteoes\Dll\ManagementDll.cpp" />
+    <ClCompile Include="Weteoes\Dll\SRDll.cpp" />
+    <ClCompile Include="Weteoes\Dll\SysDll.cpp" />
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp" />
     <ClCompile Include="Weteoes\More\CEF\Application\simple_app.cc" />
     <ClCompile Include="Weteoes\More\CEF\Application\simple_handler.cc" />

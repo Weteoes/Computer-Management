@@ -1,13 +1,9 @@
-#include <Loading.h>
-
-//App
-#include <Application/Main.h>
-#include <Application/Config.h>
-#include <Application/Message.h>
-
-//Dll
-#include <Dll/WeteoesDll.h>
-#include <Dll/Management.h>
+#include <Weteoes/Loading.h>
+#include <Weteoes/Application/Main.h>
+#include <Weteoes/Application/Config.h>
+#include <Weteoes/Application/Message.h>
+#include <Weteoes/Dll/WeteoesDll.h>
+#include <Weteoes/Dll/ManagementDll.h>
 
 
 void MainClass::Entrance() {

@@ -38,9 +38,9 @@
 #define CEF_INCLUDE_VIEWS_CEF_BROWSER_VIEW_H_
 #pragma once
 
-#include "More/CEF/include/cef_browser.h"
-#include "More/CEF/include/views/cef_browser_view_delegate.h"
-#include "More/CEF/include/views/cef_view.h"
+#include "Weteoes/More/CEF/include/cef_browser.h"
+#include "Weteoes/More/CEF/include/views/cef_browser_view_delegate.h"
+#include "Weteoes/More/CEF/include/views/cef_view.h"
 
 ///
 // A View hosting a CefBrowser instance. Methods must be called on the browser

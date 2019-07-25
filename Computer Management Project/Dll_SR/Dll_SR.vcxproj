@@ -73,11 +73,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>SR</TargetName>
-    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(SolutionDir)Dll_SR\Weteoes\More\openssl\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>SR</TargetName>
-    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(SolutionDir)Dll_SR\Weteoes\More\openssl\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>SR</TargetName>

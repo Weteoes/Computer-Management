@@ -1,8 +1,5 @@
-//App
-#include <Application/Regedit.h>
-
-//Dll
-#include <Dll/WeteoesDll.h>
+#include <Weteoes/Application/Regedit.h>
+#include <Weteoes/Dll/WeteoesDll.h>
 
 void RegeditClass::Loading() {
 	WeteoesDll().Loading();

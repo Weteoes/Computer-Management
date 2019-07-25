@@ -1,6 +1,6 @@
 #ifndef IconClass_
 #define IconClass_
-#include <Loading.h>
+#include <Weteoes/Loading.h>
 #include <Windows.h>
 #define WM_IconMsg (WM_USER + 101)
 

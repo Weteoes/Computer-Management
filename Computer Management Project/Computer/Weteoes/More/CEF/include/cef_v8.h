@@ -39,10 +39,10 @@
 #pragma once
 
 #include <vector>
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_browser.h"
-#include "More/CEF/include/cef_frame.h"
-#include "More/CEF/include/cef_task.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_browser.h"
+#include "Weteoes/More/CEF/include/cef_frame.h"
+#include "Weteoes/More/CEF/include/cef_task.h"
 
 class CefV8Exception;
 class CefV8Handler;

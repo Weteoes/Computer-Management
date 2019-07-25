@@ -38,11 +38,11 @@
 #define CEF_INCLUDE_VIEWS_CEF_WINDOW_H_
 #pragma once
 
-#include "More/CEF/include/cef_image.h"
-#include "More/CEF/include/cef_menu_model.h"
-#include "More/CEF/include/views/cef_display.h"
-#include "More/CEF/include/views/cef_panel.h"
-#include "More/CEF/include/views/cef_window_delegate.h"
+#include "Weteoes/More/CEF/include/cef_image.h"
+#include "Weteoes/More/CEF/include/cef_menu_model.h"
+#include "Weteoes/More/CEF/include/views/cef_display.h"
+#include "Weteoes/More/CEF/include/views/cef_panel.h"
+#include "Weteoes/More/CEF/include/views/cef_window_delegate.h"
 
 ///
 // A Window is a top-level Window/widget in the Views hierarchy. By default it

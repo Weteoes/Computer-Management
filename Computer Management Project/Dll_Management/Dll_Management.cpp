@@ -1,8 +1,8 @@
-#include <Loading.h>
+#include <Weteoes/Loading.h>
 
 //App
-#include <Application/Management.h>
-#include <Application/Convert.h>
+#include <Weteoes/Application/Management.h>
+#include <Weteoes/Application/Convert.h>
 
 extern "C" _declspec(dllexport) char* Get(char* a) {
 	std::string b = ManagementClass().Get(a);

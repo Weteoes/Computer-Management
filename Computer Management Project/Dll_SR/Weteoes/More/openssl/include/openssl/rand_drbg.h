@@ -11,7 +11,7 @@
 # define HEADER_DRBG_RAND_H
 
 # include <time.h>
-# include <openssl/ossl_typ.h>
+# include <Weteoes/More/openssl/include/openssl/ossl_typ.h>
 
 
 /* In CTR mode, disable derivation function ctr_df */

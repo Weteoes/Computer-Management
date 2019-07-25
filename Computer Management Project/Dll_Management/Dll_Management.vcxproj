@@ -78,11 +78,11 @@
     <TargetName>Management</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)$(ProjectName)\Weteoes;$(IncludePath)</IncludePath>
+    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
     <TargetName>Management</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)$(ProjectName)\Weteoes;$(IncludePath)</IncludePath>
+    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
     <TargetName>Management</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

@@ -3,19 +3,14 @@
 // can be found in the LICENSE file.
 
 #include "simple_handler.h"
-
 #include <sstream>
-#include <string>
-
-#include "More/CEF/include/base/cef_bind.h"
-#include "More/CEF/include/cef_app.h"
-#include "More/CEF/include/views/cef_browser_view.h"
-#include "More/CEF/include/views/cef_window.h"
-#include "More/CEF/include/wrapper/cef_closure_task.h"
-#include "More/CEF/include/wrapper/cef_helpers.h"
-
-//Dlg
-#include "../../../Application/Dlg.h"
+#include <Weteoes/More/CEF/include/base/cef_bind.h>
+#include <Weteoes/More/CEF/include/cef_app.h>
+#include <Weteoes/More/CEF/include/views/cef_browser_view.h>
+#include <Weteoes/More/CEF/include/views/cef_window.h>
+#include <Weteoes/More/CEF/include/wrapper/cef_closure_task.h>
+#include <Weteoes/More/CEF/include/wrapper/cef_helpers.h>
+#include <Weteoes/Application/Dlg.h>
 
 namespace {
 

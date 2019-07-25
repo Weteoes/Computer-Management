@@ -1,5 +1,5 @@
-#include <Application/Management.h>
-#include <Application/Config.h>
+#include <Weteoes/Application/Management.h>
+#include <Weteoes/Application/Config.h>
 
 std::string ManagementClass::Get(char* a) {
 	std::string a_s = a;

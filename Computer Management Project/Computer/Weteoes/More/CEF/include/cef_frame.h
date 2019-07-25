@@ -38,11 +38,11 @@
 #define CEF_INCLUDE_CEF_FRAME_H_
 #pragma once
 
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_dom.h"
-#include "More/CEF/include/cef_request.h"
-#include "More/CEF/include/cef_stream.h"
-#include "More/CEF/include/cef_string_visitor.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_dom.h"
+#include "Weteoes/More/CEF/include/cef_request.h"
+#include "Weteoes/More/CEF/include/cef_stream.h"
+#include "Weteoes/More/CEF/include/cef_string_visitor.h"
 
 class CefBrowser;
 class CefV8Context;

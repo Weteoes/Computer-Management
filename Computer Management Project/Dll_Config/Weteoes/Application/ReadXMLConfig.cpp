@@ -1,10 +1,8 @@
 #include "ReadXMLConfig.h"
-#include "ConfigFile.h"
-#include "../XML.h"
-
-//Dll
-#include <Dll/WeteoesDll.h>
-#include <Dll/SR.h>
+#include <Weteoes/Application/ConfigFile.h>
+#include <Weteoes/XML.h>
+#include <Weteoes/Dll/WeteoesDll.h>
+#include <Weteoes/Dll/SRDll.h>
 
 ReturnXMLStruct::UserConfig_ ReadXMLConfigClass::User()
 {

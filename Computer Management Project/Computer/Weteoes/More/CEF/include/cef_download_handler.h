@@ -38,9 +38,9 @@
 #define CEF_INCLUDE_CEF_DOWNLOAD_HANDLER_H_
 #pragma once
 
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_browser.h"
-#include "More/CEF/include/cef_download_item.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_browser.h"
+#include "Weteoes/More/CEF/include/cef_download_item.h"
 
 ///
 // Callback interface used to asynchronously continue a download.

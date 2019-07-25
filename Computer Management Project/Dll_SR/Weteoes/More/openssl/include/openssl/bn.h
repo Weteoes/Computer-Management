@@ -11,14 +11,14 @@
 #ifndef HEADER_BN_H
 # define HEADER_BN_H
 
-# include <openssl/e_os2.h>
+# include <Weteoes/More/openssl/include/openssl/e_os2.h>
 # ifndef OPENSSL_NO_STDIO
 #  include <stdio.h>
 # endif
-# include <openssl/opensslconf.h>
-# include <openssl/ossl_typ.h>
-# include <openssl/crypto.h>
-# include <openssl/bnerr.h>
+# include <Weteoes/More/openssl/include/openssl/opensslconf.h>
+# include <Weteoes/More/openssl/include/openssl/ossl_typ.h>
+# include <Weteoes/More/openssl/include/openssl/crypto.h>
+# include <Weteoes/More/openssl/include/openssl/bnerr.h>
 
 #ifdef  __cplusplus
 extern "C" {

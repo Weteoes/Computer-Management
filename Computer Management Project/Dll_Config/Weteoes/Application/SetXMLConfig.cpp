@@ -1,9 +1,7 @@
 #include "SetXMLConfig.h"
-#include "ConfigFile.h"
-#include "../XML.h"
-
-//Dll
-#include <Dll/WeteoesDll.h>
+#include <Weteoes/Application/ConfigFile.h>
+#include <Weteoes/XML.h>
+#include <Weteoes/Dll/WeteoesDll.h>
 
 bool SetXMLConfigClass::Computer(char* menu,char* data)
 {

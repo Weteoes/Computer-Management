@@ -1,7 +1,6 @@
-#include <Application/Dlg.h>
-#include <Application/Icon.h>
-#include <Application/AppConfig.h>
-
+#include <Weteoes/Application/Dlg.h>
+#include <Weteoes/Application/Icon.h>
+#include <Weteoes/Application/AppConfig.h>
 #include <atltypes.h>
 
 HWND DlgClass::Dlg_HWND;

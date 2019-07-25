@@ -73,7 +73,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>Sys</TargetName>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>$(SolutionDir)$(ProjectName)\Weteoes;$(IncludePath)</IncludePath>
+    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
@@ -81,7 +81,7 @@
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
-    <IncludePath>$(SolutionDir)$(ProjectName)\Weteoes;$(IncludePath)</IncludePath>
+    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>..\..\Weteoes\Client\Debug</OutDir>
@@ -144,7 +144,7 @@
     <ClCompile Include="SvcHostDemo.cpp" />
     <ClCompile Include="Weteoes\Application\Config.cpp" />
     <ClCompile Include="Weteoes\Application\Regedit.cpp" />
-    <ClCompile Include="Weteoes\Dll\Management.cpp" />
+    <ClCompile Include="Weteoes\Dll\ManagementDll.cpp" />
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp" />
     <ClCompile Include="Weteoes\Application\Message.cpp" />
   </ItemGroup>
@@ -152,7 +152,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="Weteoes\Application\Install.h" />
     <ClInclude Include="Weteoes\Application\Regedit.h" />
-    <ClInclude Include="Weteoes\Dll\Management.h" />
+    <ClInclude Include="Weteoes\Dll\ManagementDll.h" />
     <ClInclude Include="Weteoes\Loading.h" />
     <ClInclude Include="Weteoes\Application\Main.h" />
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h" />

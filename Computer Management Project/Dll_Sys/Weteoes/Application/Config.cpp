@@ -1,4 +1,4 @@
-#include <Application/Config.h>
+#include <Weteoes/Application/Config.h>
 
 std::string ConfigClass::ConfigPath;
 std::string ConfigClass::StartTime;

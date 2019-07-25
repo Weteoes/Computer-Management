@@ -80,7 +80,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <TargetName>Update</TargetName>
-    <IncludePath>$(SolutionDir)$(ProjectName)\Weteoes;$(IncludePath)</IncludePath>
+    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -98,7 +98,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <TargetName>Update</TargetName>
-    <IncludePath>$(SolutionDir)Update\Weteoes;$(IncludePath)</IncludePath>
+    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -227,7 +227,7 @@
     <ClInclude Include="Weteoes\Dlg\UpdateDlg.h" />
     <ClInclude Include="Update_.h" />
     <ClInclude Include="Weteoes\Application\WUpdate.h" />
-    <ClInclude Include="Weteoes\Dll\Management.h" />
+    <ClInclude Include="Weteoes\Dll\ManagementDll.h" />
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h" />
     <ClInclude Include="Weteoes\Loading.h" />
     <ClInclude Include="Weteoes\More\Json\include\allocator.h" />
@@ -254,7 +254,7 @@
     <ClCompile Include="Weteoes\Dlg\UpdateDlg.cpp" />
     <ClCompile Include="Update_.cpp" />
     <ClCompile Include="Weteoes\Application\WUpdate.cpp" />
-    <ClCompile Include="Weteoes\Dll\Management.cpp" />
+    <ClCompile Include="Weteoes\Dll\ManagementDll.cpp" />
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp" />
   </ItemGroup>
   <ItemGroup>

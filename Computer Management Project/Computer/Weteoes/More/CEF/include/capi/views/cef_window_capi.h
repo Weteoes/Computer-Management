@@ -40,11 +40,11 @@
 #define CEF_INCLUDE_CAPI_VIEWS_CEF_WINDOW_CAPI_H_
 #pragma once
 
-#include "More/CEF/include/capi/cef_image_capi.h"
-#include "More/CEF/include/capi/cef_menu_model_capi.h"
-#include "More/CEF/include/capi/views/cef_display_capi.h"
-#include "More/CEF/include/capi/views/cef_panel_capi.h"
-#include "More/CEF/include/capi/views/cef_window_delegate_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_image_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_menu_model_capi.h"
+#include "Weteoes/More/CEF/include/capi/views/cef_display_capi.h"
+#include "Weteoes/More/CEF/include/capi/views/cef_panel_capi.h"
+#include "Weteoes/More/CEF/include/capi/views/cef_window_delegate_capi.h"
 
 #ifdef __cplusplus
 extern "C" {

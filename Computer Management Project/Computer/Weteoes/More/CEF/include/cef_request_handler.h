@@ -40,16 +40,16 @@
 
 #include <vector>
 
-#include "More/CEF/include/cef_auth_callback.h"
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_browser.h"
-#include "More/CEF/include/cef_frame.h"
-#include "More/CEF/include/cef_request.h"
-#include "More/CEF/include/cef_resource_handler.h"
-#include "More/CEF/include/cef_response.h"
-#include "More/CEF/include/cef_response_filter.h"
-#include "More/CEF/include/cef_ssl_info.h"
-#include "More/CEF/include/cef_x509_certificate.h"
+#include "Weteoes/More/CEF/include/cef_auth_callback.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_browser.h"
+#include "Weteoes/More/CEF/include/cef_frame.h"
+#include "Weteoes/More/CEF/include/cef_request.h"
+#include "Weteoes/More/CEF/include/cef_resource_handler.h"
+#include "Weteoes/More/CEF/include/cef_response.h"
+#include "Weteoes/More/CEF/include/cef_response_filter.h"
+#include "Weteoes/More/CEF/include/cef_ssl_info.h"
+#include "Weteoes/More/CEF/include/cef_x509_certificate.h"
 
 ///
 // Callback interface used for asynchronous continuation of url requests.

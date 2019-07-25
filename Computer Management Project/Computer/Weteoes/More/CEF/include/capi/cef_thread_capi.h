@@ -40,8 +40,8 @@
 #define CEF_INCLUDE_CAPI_CEF_THREAD_CAPI_H_
 #pragma once
 
-#include "More/CEF/include/capi/cef_task_capi.h"
-#include "More/CEF/include/internal/cef_thread_internal.h"
+#include "Weteoes/More/CEF/include/capi/cef_task_capi.h"
+#include "Weteoes/More/CEF/include/internal/cef_thread_internal.h"
 
 #ifdef __cplusplus
 extern "C" {

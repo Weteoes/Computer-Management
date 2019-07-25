@@ -38,21 +38,21 @@
 #define CEF_INCLUDE_CEF_CLIENT_H_
 #pragma once
 
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_context_menu_handler.h"
-#include "More/CEF/include/cef_dialog_handler.h"
-#include "More/CEF/include/cef_display_handler.h"
-#include "More/CEF/include/cef_download_handler.h"
-#include "More/CEF/include/cef_drag_handler.h"
-#include "More/CEF/include/cef_find_handler.h"
-#include "More/CEF/include/cef_focus_handler.h"
-#include "More/CEF/include/cef_jsdialog_handler.h"
-#include "More/CEF/include/cef_keyboard_handler.h"
-#include "More/CEF/include/cef_life_span_handler.h"
-#include "More/CEF/include/cef_load_handler.h"
-#include "More/CEF/include/cef_process_message.h"
-#include "More/CEF/include/cef_render_handler.h"
-#include "More/CEF/include/cef_request_handler.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_context_menu_handler.h"
+#include "Weteoes/More/CEF/include/cef_dialog_handler.h"
+#include "Weteoes/More/CEF/include/cef_display_handler.h"
+#include "Weteoes/More/CEF/include/cef_download_handler.h"
+#include "Weteoes/More/CEF/include/cef_drag_handler.h"
+#include "Weteoes/More/CEF/include/cef_find_handler.h"
+#include "Weteoes/More/CEF/include/cef_focus_handler.h"
+#include "Weteoes/More/CEF/include/cef_jsdialog_handler.h"
+#include "Weteoes/More/CEF/include/cef_keyboard_handler.h"
+#include "Weteoes/More/CEF/include/cef_life_span_handler.h"
+#include "Weteoes/More/CEF/include/cef_load_handler.h"
+#include "Weteoes/More/CEF/include/cef_process_message.h"
+#include "Weteoes/More/CEF/include/cef_render_handler.h"
+#include "Weteoes/More/CEF/include/cef_request_handler.h"
 
 ///
 // Implement this interface to provide handler implementations.

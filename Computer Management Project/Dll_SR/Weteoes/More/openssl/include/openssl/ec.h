@@ -11,15 +11,15 @@
 #ifndef HEADER_EC_H
 # define HEADER_EC_H
 
-# include <openssl/opensslconf.h>
+# include <Weteoes/More/openssl/include/openssl/opensslconf.h>
 
 # ifndef OPENSSL_NO_EC
-# include <openssl/asn1.h>
-# include <openssl/symhacks.h>
+# include <Weteoes/More/openssl/include/openssl/asn1.h>
+# include <Weteoes/More/openssl/include/openssl/symhacks.h>
 # if OPENSSL_API_COMPAT < 0x10100000L
-#  include <openssl/bn.h>
+#  include <Weteoes/More/openssl/include/openssl/bn.h>
 # endif
-# include <openssl/ecerr.h>
+# include <Weteoes/More/openssl/include/openssl/ecerr.h>
 # ifdef  __cplusplus
 extern "C" {
 # endif

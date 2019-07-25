@@ -40,21 +40,21 @@
 #define CEF_INCLUDE_CAPI_CEF_CLIENT_CAPI_H_
 #pragma once
 
-#include "More/CEF/include/capi/cef_base_capi.h"
-#include "More/CEF/include/capi/cef_context_menu_handler_capi.h"
-#include "More/CEF/include/capi/cef_dialog_handler_capi.h"
-#include "More/CEF/include/capi/cef_display_handler_capi.h"
-#include "More/CEF/include/capi/cef_download_handler_capi.h"
-#include "More/CEF/include/capi/cef_drag_handler_capi.h"
-#include "More/CEF/include/capi/cef_find_handler_capi.h"
-#include "More/CEF/include/capi/cef_focus_handler_capi.h"
-#include "More/CEF/include/capi/cef_jsdialog_handler_capi.h"
-#include "More/CEF/include/capi/cef_keyboard_handler_capi.h"
-#include "More/CEF/include/capi/cef_life_span_handler_capi.h"
-#include "More/CEF/include/capi/cef_load_handler_capi.h"
-#include "More/CEF/include/capi/cef_process_message_capi.h"
-#include "More/CEF/include/capi/cef_render_handler_capi.h"
-#include "More/CEF/include/capi/cef_request_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_base_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_context_menu_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_dialog_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_display_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_download_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_drag_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_find_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_focus_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_jsdialog_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_keyboard_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_life_span_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_load_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_process_message_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_render_handler_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_request_handler_capi.h"
 
 #ifdef __cplusplus
 extern "C" {

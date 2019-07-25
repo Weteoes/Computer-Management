@@ -1,10 +1,6 @@
-#include <Loading.h>
-
-//App
-#include <Application/Regedit.h>
-
-//Dll
-#include <Dll/WeteoesDll.h>
+#include <Weteoes/Loading.h>
+#include <Weteoes/Application/Regedit.h>
+#include <Weteoes/Dll/WeteoesDll.h>
 
 class InstallClass
 {

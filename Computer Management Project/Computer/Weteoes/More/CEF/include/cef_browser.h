@@ -39,13 +39,13 @@
 #pragma once
 
 #include <vector>
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_drag_data.h"
-#include "More/CEF/include/cef_frame.h"
-#include "More/CEF/include/cef_image.h"
-#include "More/CEF/include/cef_navigation_entry.h"
-#include "More/CEF/include/cef_process_message.h"
-#include "More/CEF/include/cef_request_context.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_drag_data.h"
+#include "Weteoes/More/CEF/include/cef_frame.h"
+#include "Weteoes/More/CEF/include/cef_image.h"
+#include "Weteoes/More/CEF/include/cef_navigation_entry.h"
+#include "Weteoes/More/CEF/include/cef_process_message.h"
+#include "Weteoes/More/CEF/include/cef_request_context.h"
 
 class CefBrowserHost;
 class CefClient;

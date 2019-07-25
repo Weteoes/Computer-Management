@@ -14,8 +14,8 @@
 #ifndef HEADER_LHASH_H
 # define HEADER_LHASH_H
 
-# include <openssl/e_os2.h>
-# include <openssl/bio.h>
+# include <Weteoes/More/openssl/include/openssl/e_os2.h>
+# include <Weteoes/More/openssl/include/openssl/bio.h>
 
 #ifdef  __cplusplus
 extern "C" {

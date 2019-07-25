@@ -14,14 +14,14 @@
  * Protect against recursion, x509.h and x509_vfy.h each include the other.
  */
 # ifndef HEADER_X509_H
-#  include <openssl/x509.h>
+#  include <Weteoes/More/openssl/include/openssl/x509.h>
 # endif
 
-# include <openssl/opensslconf.h>
-# include <openssl/lhash.h>
-# include <openssl/bio.h>
-# include <openssl/crypto.h>
-# include <openssl/symhacks.h>
+# include <Weteoes/More/openssl/include/openssl/opensslconf.h>
+# include <Weteoes/More/openssl/include/openssl/lhash.h>
+# include <Weteoes/More/openssl/include/openssl/bio.h>
+# include <Weteoes/More/openssl/include/openssl/crypto.h>
+# include <Weteoes/More/openssl/include/openssl/symhacks.h>
 
 #ifdef  __cplusplus
 extern "C" {

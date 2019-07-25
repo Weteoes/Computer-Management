@@ -38,12 +38,12 @@
 #define CEF_INCLUDE_CEF_RESOURCE_HANDLER_H_
 #pragma once
 
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_browser.h"
-#include "More/CEF/include/cef_callback.h"
-#include "More/CEF/include/cef_cookie.h"
-#include "More/CEF/include/cef_request.h"
-#include "More/CEF/include/cef_response.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_browser.h"
+#include "Weteoes/More/CEF/include/cef_callback.h"
+#include "Weteoes/More/CEF/include/cef_cookie.h"
+#include "Weteoes/More/CEF/include/cef_request.h"
+#include "Weteoes/More/CEF/include/cef_response.h"
 
 ///
 // Class used to implement a custom request handler interface. The methods of

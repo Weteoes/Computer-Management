@@ -1,13 +1,8 @@
 #include "AppCef.h"
-#include <More/CEF/Config.h> //CEF-Config
-
-//App
-#include <application/AppConfig.h>
-
-//Dll
-#include <Dll/WeteoesDll.h>
-#include <Dll/Management.h>
-
+#include <Weteoes/More/CEF/Config.h> //CEF-Config
+#include <Weteoes/application/AppConfig.h>
+#include <Weteoes/Dll/WeteoesDll.h>
+#include <Weteoes/Dll/ManagementDll.h>
 #include <cstring>
 
 std::string AppCefClass::Url;

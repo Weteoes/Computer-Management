@@ -3,11 +3,8 @@
 // can be found in the LICENSE file.
 
 #include "simple_handler.h"
-
 #include <windows.h>
-#include <string>
-
-#include "More/CEF/include/cef_browser.h"
+#include <Weteoes/More/CEF/include/cef_browser.h>
 
 void SimpleHandler::PlatformTitleChange(CefRefPtr<CefBrowser> browser,
                                         const CefString& title) {

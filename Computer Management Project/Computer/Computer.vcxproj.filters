@@ -780,22 +780,22 @@
     <ClInclude Include="Weteoes\More\CEF\Application\V8\V8Handler.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Dll\Config.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\Dll\SR.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\Dll\Sys.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Weteoes\Loading.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Dll\Management.h">
+    <ClInclude Include="Weteoes\Dll\ConfigDll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Dll\ManagementDll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Dll\SRDll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Dll\SysDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -839,19 +839,19 @@
     <ClCompile Include="Weteoes\More\CEF\Application\V8\V8Handler.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Dll\Config.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\Dll\SR.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\Dll\Sys.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Dll\Management.cpp">
+    <ClCompile Include="Weteoes\Dll\ConfigDll.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Dll\ManagementDll.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Dll\SRDll.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Dll\SysDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

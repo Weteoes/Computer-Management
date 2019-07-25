@@ -1,11 +1,8 @@
-// App
-#include <Application/Install.h>
-#include <Application/Config.h>
-#include <Application/Message.h>
-#include <Application/Regedit.h>
-
-// Dll
-#include <Dll/Management.h>
+#include <Weteoes/Application/Install.h>
+#include <Weteoes/Application/Config.h>
+#include <Weteoes/Application/Message.h>
+#include <Weteoes/Application/Regedit.h>
+#include <Weteoes/Dll/ManagementDll.h>
 
 // 安装
 void InstallClass::Install() {

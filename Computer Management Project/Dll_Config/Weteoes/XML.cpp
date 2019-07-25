@@ -1,8 +1,6 @@
 #include "XML.h"
-
-//Dll
-#include <Dll/WeteoesDll.h>
-#include <Dll/SR.h>
+#include <Weteoes/Dll/WeteoesDll.h>
+#include <Weteoes/Dll/SRDll.h>
 
 tinyxml2::XMLDocument* XMLClass::CreateXML(std::string XMLPath)
 {

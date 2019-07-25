@@ -36,7 +36,7 @@
     <ClCompile Include="Weteoes\Application\Regedit.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Dll\Management.cpp">
+    <ClCompile Include="Weteoes\Dll\ManagementDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +65,7 @@
     <ClInclude Include="Weteoes\Application\Regedit.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Dll\Management.h">
+    <ClInclude Include="Weteoes\Dll\ManagementDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

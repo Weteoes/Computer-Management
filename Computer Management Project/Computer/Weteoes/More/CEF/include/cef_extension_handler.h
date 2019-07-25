@@ -38,10 +38,10 @@
 #define CEF_INCLUDE_CEF_EXTENSION_HANDLER_H_
 #pragma once
 
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_browser.h"
-#include "More/CEF/include/cef_extension.h"
-#include "More/CEF/include/cef_stream.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_browser.h"
+#include "Weteoes/More/CEF/include/cef_extension.h"
+#include "Weteoes/More/CEF/include/cef_stream.h"
 
 class CefClient;
 

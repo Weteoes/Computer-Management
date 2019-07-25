@@ -40,9 +40,9 @@
 #define CEF_INCLUDE_CAPI_CEF_REQUEST_CONTEXT_HANDLER_CAPI_H_
 #pragma once
 
-#include "More/CEF/include/capi/cef_base_capi.h"
-#include "More/CEF/include/capi/cef_cookie_capi.h"
-#include "More/CEF/include/capi/cef_web_plugin_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_base_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_cookie_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_web_plugin_capi.h"
 
 #ifdef __cplusplus
 extern "C" {

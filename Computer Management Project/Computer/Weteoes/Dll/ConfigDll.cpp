@@ -1,4 +1,4 @@
-#include "Config.h"
+#include "ConfigDll.h"
 
 ConfigDll::Config_CreateUser_ ConfigDll::Config_CreateUser;
 ConfigDll::Config_CreateComputer_ ConfigDll::Config_CreateComputer;

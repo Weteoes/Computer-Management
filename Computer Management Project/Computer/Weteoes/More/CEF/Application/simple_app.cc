@@ -3,23 +3,15 @@
 // can be found in the LICENSE file.
 
 #include "simple_app.h"
-
-#include <string>
-
-#include "More/CEF/include/cef_browser.h"
-#include "More/CEF/include/cef_command_line.h"
-#include "More/CEF/include/views/cef_browser_view.h"
-#include "More/CEF/include/views/cef_window.h"
-#include "More/CEF/include/wrapper/cef_helpers.h"
 #include "simple_handler.h"
-
-#include <More/CEF/Config.h>
-
-//App
-#include <Application/AppCef.h>
-#include <Application/AppConfig.h>
-
-//V8
+#include <Weteoes/More/CEF/include/cef_browser.h>
+#include <Weteoes/More/CEF/include/cef_command_line.h>
+#include <Weteoes/More/CEF/include/views/cef_browser_view.h>
+#include <Weteoes/More/CEF/include/views/cef_window.h>
+#include <Weteoes/More/CEF/include/wrapper/cef_helpers.h>
+#include <Weteoes/More/CEF/Config.h>
+#include <Weteoes/Application/AppCef.h>
+#include <Weteoes/Application/AppConfig.h>
 #include "V8/V8Handler.h"
 
 namespace {

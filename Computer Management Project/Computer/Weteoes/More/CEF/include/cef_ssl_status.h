@@ -38,9 +38,9 @@
 #define CEF_INCLUDE_CEF_SSL_STATUS_H_
 #pragma once
 
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_values.h"
-#include "More/CEF/include/cef_x509_certificate.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_values.h"
+#include "Weteoes/More/CEF/include/cef_x509_certificate.h"
 
 ///
 // Class representing the SSL information for a navigation entry.

@@ -11,24 +11,24 @@
 #ifndef HEADER_X509_H
 # define HEADER_X509_H
 
-# include <openssl/e_os2.h>
-# include <openssl/ossl_typ.h>
-# include <openssl/symhacks.h>
-# include <openssl/buffer.h>
-# include <openssl/evp.h>
-# include <openssl/bio.h>
-# include <openssl/asn1.h>
-# include <openssl/safestack.h>
-# include <openssl/ec.h>
+# include <Weteoes/More/openssl/include/openssl/e_os2.h>
+# include <Weteoes/More/openssl/include/openssl/ossl_typ.h>
+# include <Weteoes/More/openssl/include/openssl/symhacks.h>
+# include <Weteoes/More/openssl/include/openssl/buffer.h>
+# include <Weteoes/More/openssl/include/openssl/evp.h>
+# include <Weteoes/More/openssl/include/openssl/bio.h>
+# include <Weteoes/More/openssl/include/openssl/asn1.h>
+# include <Weteoes/More/openssl/include/openssl/safestack.h>
+# include <Weteoes/More/openssl/include/openssl/ec.h>
 
 # if OPENSSL_API_COMPAT < 0x10100000L
-#  include <openssl/rsa.h>
-#  include <openssl/dsa.h>
-#  include <openssl/dh.h>
+#  include <Weteoes/More/openssl/include/openssl/rsa.h>
+#  include <Weteoes/More/openssl/include/openssl/dsa.h>
+#  include <Weteoes/More/openssl/include/openssl/dh.h>
 # endif
 
-# include <openssl/sha.h>
-# include <openssl/x509err.h>
+# include <Weteoes/More/openssl/include/openssl/sha.h>
+# include <Weteoes/More/openssl/include/openssl/x509err.h>
 
 #ifdef  __cplusplus
 extern "C" {
@@ -317,8 +317,8 @@ typedef struct SCRYPT_PARAMS_st {
 }
 #endif
 
-# include <openssl/x509_vfy.h>
-# include <openssl/pkcs7.h>
+# include <Weteoes/More/openssl/include/openssl/x509_vfy.h>
+# include <Weteoes/More/openssl/include/openssl/pkcs7.h>
 
 #ifdef  __cplusplus
 extern "C" {

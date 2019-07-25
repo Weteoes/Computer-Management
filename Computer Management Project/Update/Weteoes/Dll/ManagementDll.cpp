@@ -1,4 +1,4 @@
-#include "Management.h"
+#include "ManagementDll.h"
 
 ManagementDll::Get_ ManagementDll::Get;
 

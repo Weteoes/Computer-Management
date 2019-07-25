@@ -38,12 +38,12 @@
 #define CEF_INCLUDE_CEF_SCHEME_H_
 #pragma once
 
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_browser.h"
-#include "More/CEF/include/cef_frame.h"
-#include "More/CEF/include/cef_request.h"
-#include "More/CEF/include/cef_resource_handler.h"
-#include "More/CEF/include/cef_response.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_browser.h"
+#include "Weteoes/More/CEF/include/cef_frame.h"
+#include "Weteoes/More/CEF/include/cef_request.h"
+#include "Weteoes/More/CEF/include/cef_resource_handler.h"
+#include "Weteoes/More/CEF/include/cef_response.h"
 
 class CefSchemeHandlerFactory;
 

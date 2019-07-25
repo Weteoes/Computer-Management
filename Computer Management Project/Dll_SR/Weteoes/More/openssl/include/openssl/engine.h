@@ -11,23 +11,23 @@
 #ifndef HEADER_ENGINE_H
 # define HEADER_ENGINE_H
 
-# include <openssl/opensslconf.h>
+# include <Weteoes/More/openssl/include/openssl/opensslconf.h>
 
 # ifndef OPENSSL_NO_ENGINE
 # if OPENSSL_API_COMPAT < 0x10100000L
-#  include <openssl/bn.h>
-#  include <openssl/rsa.h>
-#  include <openssl/dsa.h>
-#  include <openssl/dh.h>
-#  include <openssl/ec.h>
-#  include <openssl/rand.h>
-#  include <openssl/ui.h>
-#  include <openssl/err.h>
+#  include <Weteoes/More/openssl/include/openssl/bn.h>
+#  include <Weteoes/More/openssl/include/openssl/rsa.h>
+#  include <Weteoes/More/openssl/include/openssl/dsa.h>
+#  include <Weteoes/More/openssl/include/openssl/dh.h>
+#  include <Weteoes/More/openssl/include/openssl/ec.h>
+#  include <Weteoes/More/openssl/include/openssl/rand.h>
+#  include <Weteoes/More/openssl/include/openssl/ui.h>
+#  include <Weteoes/More/openssl/include/openssl/err.h>
 # endif
-# include <openssl/ossl_typ.h>
-# include <openssl/symhacks.h>
-# include <openssl/x509.h>
-# include <openssl/engineerr.h>
+# include <Weteoes/More/openssl/include/openssl/ossl_typ.h>
+# include <Weteoes/More/openssl/include/openssl/symhacks.h>
+# include <Weteoes/More/openssl/include/openssl/x509.h>
+# include <Weteoes/More/openssl/include/openssl/engineerr.h>
 # ifdef  __cplusplus
 extern "C" {
 # endif

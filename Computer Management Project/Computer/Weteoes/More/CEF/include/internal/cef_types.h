@@ -31,18 +31,18 @@
 #define CEF_INCLUDE_INTERNAL_CEF_TYPES_H_
 #pragma once
 
-#include "More/CEF/include/base/cef_basictypes.h"
-#include "More/CEF/include/internal/cef_string.h"
-#include "More/CEF/include/internal/cef_string_list.h"
-#include "More/CEF/include/internal/cef_time.h"
+#include "Weteoes/More/CEF/include/base/cef_basictypes.h"
+#include "Weteoes/More/CEF/include/internal/cef_string.h"
+#include "Weteoes/More/CEF/include/internal/cef_string_list.h"
+#include "Weteoes/More/CEF/include/internal/cef_time.h"
 
 // Bring in platform-specific definitions.
 #if defined(OS_WIN)
-#include "More/CEF/include/internal/cef_types_win.h"
+#include "Weteoes/More/CEF/include/internal/cef_types_win.h"
 #elif defined(OS_MACOSX)
-#include "More/CEF/include/internal/cef_types_mac.h"
+#include "Weteoes/More/CEF/include/internal/cef_types_mac.h"
 #elif defined(OS_LINUX)
-#include "More/CEF/include/internal/cef_types_linux.h"
+#include "Weteoes/More/CEF/include/internal/cef_types_linux.h"
 #endif
 
 // 32-bit ARGB color value, not premultiplied. The color components are always

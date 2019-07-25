@@ -10,25 +10,25 @@
 #ifndef HEADER_TS_H
 # define HEADER_TS_H
 
-# include <openssl/opensslconf.h>
+# include <Weteoes/More/openssl/include/openssl/opensslconf.h>
 
 # ifndef OPENSSL_NO_TS
-# include <openssl/symhacks.h>
-# include <openssl/buffer.h>
-# include <openssl/evp.h>
-# include <openssl/bio.h>
-# include <openssl/asn1.h>
-# include <openssl/safestack.h>
-# include <openssl/rsa.h>
-# include <openssl/dsa.h>
-# include <openssl/dh.h>
-# include <openssl/tserr.h>
+# include <Weteoes/More/openssl/include/openssl/symhacks.h>
+# include <Weteoes/More/openssl/include/openssl/buffer.h>
+# include <Weteoes/More/openssl/include/openssl/evp.h>
+# include <Weteoes/More/openssl/include/openssl/bio.h>
+# include <Weteoes/More/openssl/include/openssl/asn1.h>
+# include <Weteoes/More/openssl/include/openssl/safestack.h>
+# include <Weteoes/More/openssl/include/openssl/rsa.h>
+# include <Weteoes/More/openssl/include/openssl/dsa.h>
+# include <Weteoes/More/openssl/include/openssl/dh.h>
+# include <Weteoes/More/openssl/include/openssl/tserr.h>
 # ifdef  __cplusplus
 extern "C" {
 # endif
 
-# include <openssl/x509.h>
-# include <openssl/x509v3.h>
+# include <Weteoes/More/openssl/include/openssl/x509.h>
+# include <Weteoes/More/openssl/include/openssl/x509v3.h>
 
 typedef struct TS_msg_imprint_st TS_MSG_IMPRINT;
 typedef struct TS_req_st TS_REQ;

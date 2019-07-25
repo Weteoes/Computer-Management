@@ -1,12 +1,7 @@
-//App
-#include <Application/WUpdate.h>
-
-//Dll
-#include <Dll/WeteoesDll.h>
-#include <Dll/Management.h>
-
-//More
-#include <More/Json/include/WJson.h>
+#include <Weteoes/Application/WUpdate.h>
+#include <Weteoes/Dll/WeteoesDll.h>
+#include <Weteoes/Dll/ManagementDll.h>
+#include <Weteoes/More/Json/include/WJson.h>
 
 std::string WUpdateClass::ApplicationPath;
 

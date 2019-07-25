@@ -38,11 +38,11 @@
 #define CEF_INCLUDE_CEF_URLREQUEST_H_
 #pragma once
 
-#include "More/CEF/include/cef_auth_callback.h"
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_request.h"
-#include "More/CEF/include/cef_request_context.h"
-#include "More/CEF/include/cef_response.h"
+#include "Weteoes/More/CEF/include/cef_auth_callback.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_request.h"
+#include "Weteoes/More/CEF/include/cef_request_context.h"
+#include "Weteoes/More/CEF/include/cef_response.h"
 
 class CefURLRequestClient;
 

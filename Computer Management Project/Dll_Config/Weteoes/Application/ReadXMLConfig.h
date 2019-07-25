@@ -1,5 +1,5 @@
-#include <Loading.h>
-#include "ReturnXMLStruct.h"
+#include <Weteoes/Loading.h>
+#include <Weteoes/Application/ReturnXMLStruct.h>
 
 class ReadXMLConfigClass
 {

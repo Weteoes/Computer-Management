@@ -10,9 +10,9 @@
 #ifndef HEADER_PKCS12_H
 # define HEADER_PKCS12_H
 
-# include <openssl/bio.h>
-# include <openssl/x509.h>
-# include <openssl/pkcs12err.h>
+# include <Weteoes/More/openssl/include/openssl/bio.h>
+# include <Weteoes/More/openssl/include/openssl/x509.h>
+# include <Weteoes/More/openssl/include/openssl/pkcs12err.h>
 
 #ifdef __cplusplus
 extern "C" {

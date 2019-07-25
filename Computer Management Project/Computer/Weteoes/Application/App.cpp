@@ -1,19 +1,12 @@
 #include "App.h"
 #include <thread>
-
-#include "../../stdafx.h"
-#include "../../Resource.h"
-
-//App
-#include <Application/Dlg.h>
-#include <Application/AppConfig.h>
-
-//Dll
-#include <Dll/SR.h>
-#include <Dll/Config.h>
-
-//Dlg
-#include <Dlg/Dlg_Main.h>
+#include <stdafx.h>
+#include <Resource.h>
+#include <Weteoes/Application/Dlg.h>
+#include <Weteoes/Application/AppConfig.h>
+#include <Weteoes/Dlg/Dlg_Main.h>
+#include <Weteoes/Dll/SRDll.h>
+#include <Weteoes/Dll/ConfigDll.h>
 
 void AppClass::Login_Success() {
 	AppConfigClass::IsLogin = true;

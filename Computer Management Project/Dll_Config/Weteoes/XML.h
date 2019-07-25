@@ -1,5 +1,5 @@
-#include "Loading.h"
-#include "More/tinyxml2/tinyxml2.h"
+#include <Weteoes/Loading.h>
+#include <Weteoes/More/tinyxml2/tinyxml2.h>
 
 class XMLClass
 {

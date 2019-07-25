@@ -39,10 +39,10 @@
 
 #include <map>
 
-#include "More/CEF/include/base/cef_lock.h"
-#include "More/CEF/include/base/cef_macros.h"
-#include "More/CEF/include/base/cef_ref_counted.h"
-#include "More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/base/cef_lock.h"
+#include "Weteoes/More/CEF/include/base/cef_macros.h"
+#include "Weteoes/More/CEF/include/base/cef_ref_counted.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
 
 class CefStreamReader;
 

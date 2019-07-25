@@ -40,8 +40,8 @@
 #define CEF_INCLUDE_CAPI_CEF_XML_READER_CAPI_H_
 #pragma once
 
-#include "More/CEF/include/capi/cef_base_capi.h"
-#include "More/CEF/include/capi/cef_stream_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_base_capi.h"
+#include "Weteoes/More/CEF/include/capi/cef_stream_capi.h"
 
 #ifdef __cplusplus
 extern "C" {

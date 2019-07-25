@@ -1,5 +1,5 @@
 #include "Icon.h"
-#include "../../resource.h"
+#include <resource.h>
 
 NOTIFYICONDATA IconClass::m_NotifyIcon; //мпел
 

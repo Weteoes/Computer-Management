@@ -40,8 +40,8 @@
 #define CEF_INCLUDE_CAPI_VIEWS_CEF_PANEL_CAPI_H_
 #pragma once
 
-#include "More/CEF/include/capi/views/cef_panel_delegate_capi.h"
-#include "More/CEF/include/capi/views/cef_view_capi.h"
+#include "Weteoes/More/CEF/include/capi/views/cef_panel_delegate_capi.h"
+#include "Weteoes/More/CEF/include/capi/views/cef_view_capi.h"
 
 #ifdef __cplusplus
 extern "C" {

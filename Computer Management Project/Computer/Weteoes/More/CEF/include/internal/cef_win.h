@@ -31,8 +31,8 @@
 #define CEF_INCLUDE_INTERNAL_CEF_WIN_H_
 #pragma once
 
-#include "More/CEF/include/internal/cef_types_win.h"
-#include "More/CEF/include/internal/cef_types_wrappers.h"
+#include "Weteoes/More/CEF/include/internal/cef_types_win.h"
+#include "Weteoes/More/CEF/include/internal/cef_types_wrappers.h"
 
 ///
 // Handle types.

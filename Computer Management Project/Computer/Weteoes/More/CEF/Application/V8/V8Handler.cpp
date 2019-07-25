@@ -1,12 +1,8 @@
 #include "V8Handler.h"
-
-//App
-#include <Application/Dlg.h>
-#include <Application/App.h>
-#include <Application/AppConfig.h>
-
-//Dll
-#include <Dll/Config.h>
+#include <Weteoes/Application/Dlg.h>
+#include <Weteoes/Application/App.h>
+#include <Weteoes/Application/AppConfig.h>
+#include <Weteoes/Dll/ConfigDll.h>
 
 bool V8Handler_Class::Execute(
 	const CefString& name,                        //JavaScript调用的C++方法名字

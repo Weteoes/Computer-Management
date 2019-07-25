@@ -38,10 +38,10 @@
 #define CEF_INCLUDE_CEF_FOCUS_HANDLER_H_
 #pragma once
 
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_browser.h"
-#include "More/CEF/include/cef_dom.h"
-#include "More/CEF/include/cef_frame.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_browser.h"
+#include "Weteoes/More/CEF/include/cef_dom.h"
+#include "Weteoes/More/CEF/include/cef_frame.h"
 
 ///
 // Implement this interface to handle events related to focus. The methods of

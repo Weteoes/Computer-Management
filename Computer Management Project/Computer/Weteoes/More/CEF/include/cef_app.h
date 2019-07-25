@@ -38,12 +38,12 @@
 #define CEF_INCLUDE_CEF_APP_H_
 #pragma once
 
-#include "More/CEF/include/cef_base.h"
-#include "More/CEF/include/cef_browser_process_handler.h"
-#include "More/CEF/include/cef_command_line.h"
-#include "More/CEF/include/cef_render_process_handler.h"
-#include "More/CEF/include/cef_resource_bundle_handler.h"
-#include "More/CEF/include/cef_scheme.h"
+#include "Weteoes/More/CEF/include/cef_base.h"
+#include "Weteoes/More/CEF/include/cef_browser_process_handler.h"
+#include "Weteoes/More/CEF/include/cef_command_line.h"
+#include "Weteoes/More/CEF/include/cef_render_process_handler.h"
+#include "Weteoes/More/CEF/include/cef_resource_bundle_handler.h"
+#include "Weteoes/More/CEF/include/cef_scheme.h"
 
 class CefApp;
 
