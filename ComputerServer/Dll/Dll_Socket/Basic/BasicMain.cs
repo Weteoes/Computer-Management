@@ -1,6 +1,6 @@
 ﻿namespace Weteoes
 {
-    public class MainClass
+    public class BasicMainClass
     {
         public int socketEntrance(string data, ref System.Net.Sockets.Socket socket) {
             try
@@ -17,7 +17,7 @@
                 int Function = getFunction(ref data);
 
                 /* Sign_in */
-                if (!Sign_in(ref data)) {  Function = 3; } //判断身份，获取真实命令（去掉user和pass）
+                if (!(new UserClass().Sign_in(ref data))) { Function = 3; } //判断身份，获取真实命令（去掉user和pass）
 
                 /* Function Switch */
                 switch (Function)
@@ -39,18 +39,6 @@
             catch {
                 return -5;
             }   
-        }
-        private bool Sign_in(ref string data) { //ToKen(身份)验证
-            /* AppConfig */
-            AppConfigClass AppConfig = new AppConfigClass();
-            string session = AppConfig.GetConfig(ref data, "|");
-            if (session == "") { return false; }
-            NetworkClass.ResultObject resultObject = new Weteoes.NetworkClass().request(string.Format(ConfigClass.URL_up, session));
-            if (resultObject.code == "0") { //Success
-                data = resultObject.user + "_" + data;
-                return true;
-            }
-            return false;
         }
         private int getFunction(ref string data) {
             /* AppConfig */

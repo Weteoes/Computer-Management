@@ -60,7 +60,7 @@ namespace Weteoes
                                 //ServerClass.allServerList[i].server[ii].data = temp.data; //修改列表
                                 if (nowUserList[ii].socket != null)
                                 {
-                                    if (new SocketClass().sendSocket(nowUserList[ii].socket, temp.data)) { //客户端在线
+                                    if (new BasicSocketClass().sendSocket(nowUserList[ii].socket, temp.data)) { //客户端在线
                                         //mess.writeLine(String.Format("Client user:{0} name:{1} shell:{2}", server.user, temp.name, temp.data));
                                         return true;
                                     }

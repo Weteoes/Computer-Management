@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Weteoes
 {
-    public class SocketClass
+    public class BasicSocketClass
     {
         List<TcpListener> allTcpListener = new List<TcpListener>(); //监听ip集合
         List<SocketType> SocketTypeList = new List<SocketType>(); //Socket集合
@@ -18,7 +18,7 @@ namespace Weteoes
             TcpListener b = null;
             try
             {
-                new MessageClass().writeLog("初始化服务器");
+                WriteMessage("初始化服务器");
                 if (!allIPAddress)
                 {
                     string name = Dns.GetHostName();
@@ -34,10 +34,7 @@ namespace Weteoes
                             b = new TcpListener(a, port);
                             new Thread(new ParameterizedThreadStart(serverListen)).Start(b);
                         }
-                        else
-                        {
-                            new MessageClass().writeLog("IPv6地址：" + a + " 已跳过");
-                        }
+                        else { WriteMessage("IPv6地址：" + a + " 已跳过"); }
                     }
                 }
                 else {
@@ -46,10 +43,7 @@ namespace Weteoes
                     new Thread(new ParameterizedThreadStart(serverListen)).Start(b);
                 }
             }
-            catch
-            {
-                new MessageClass().writeLog("初始化服务器失败");
-            }
+            catch { WriteMessage("初始化服务器失败");  }
         }
         public void stop()
         {
@@ -59,12 +53,9 @@ namespace Weteoes
                 Thread.Sleep(300);
                 foreach (TcpListener i in allTcpListener) { if (i != null) { i.Stop(); } } //关闭监听
                 foreach (SocketType i in SocketTypeList) { i.SocketConnect.Close(); i.SocketConnect.Dispose(); } //关闭Socket
-                new MessageClass().writeLog("关闭服务器成功");
+                WriteMessage("关闭服务器成功");
             }
-            catch
-            {
-                new MessageClass().writeLog("关闭服务器失败");
-            }
+            catch { WriteMessage("关闭服务器失败"); }
         }
         private void serverListen(object serverIP)
         {
@@ -73,7 +64,7 @@ namespace Weteoes
             {
                 allTcpListener.Add(b);
                 b.Start();
-                new MessageClass().writeLog("线程启动,IPv4地址：" + b.LocalEndpoint);
+                WriteMessage("线程启动,IPv4地址：" + b.LocalEndpoint);
                 while (status)
                 {
                     try
@@ -83,16 +74,10 @@ namespace Weteoes
                         SocketTypeList.Add(new SocketType() { SocketConnect = c, SocketByte = new byte[SocketByteSize] }); //添加集合
                         c.BeginReceive(SocketTypeList[SocketTypeListNow].SocketByte, 0, SocketTypeList[SocketTypeListNow].SocketByte.Length, SocketFlags.None, new AsyncCallback(InternetSocketCallback), SocketTypeList[SocketTypeListNow]);
                     }
-                    catch (Exception error) {
-                        new MessageClass().writeLog("捕捉 Error:IPv4地址：" + b.LocalEndpoint + " ," + error.Message);
-                    }
+                    catch (Exception error) { WriteMessage("捕捉 Error:IPv4地址：" + b.LocalEndpoint + " ," + error.Message); }
                 }
             }
-            catch (Exception error)
-            {
-                new MessageClass().writeLog("Error:IPv4地址：" + b.LocalEndpoint + " ," + error.Message);
-                return;
-            }
+            catch (Exception error) { WriteMessage("Error:IPv4地址：" + b.LocalEndpoint + " ," + error.Message); return; }
         }
         public bool sendSocket(Socket socket, string data)
         {
@@ -154,7 +139,7 @@ namespace Weteoes
                     foreach (string onlyData in allData)
                     {
                         if (onlyData.Equals("")) { continue; }
-                        result = new MainClass().socketEntrance(onlyData, ref socket);
+                        result = new BasicMainClass().socketEntrance(onlyData, ref socket);
                         // 如果小于0直接退出
                         if (result < 0) { break; }
 
@@ -206,6 +191,13 @@ namespace Weteoes
             socketType.SocketByte = new byte[SocketByteSize];
             socketType.SocketConnect.BeginReceive(socketType.SocketByte, 0, socketType.SocketByte.Length, SocketFlags.None, new AsyncCallback(InternetSocketCallback), socketType);
         }
+
+        static MessageClass messageClass = new MessageClass();
+
+        public void WriteMessage(string msg) {
+            messageClass.writeLog("Socket:" + msg);
+        }
+
         class SocketType {
             public Socket SocketConnect;
             public byte[] SocketByte;

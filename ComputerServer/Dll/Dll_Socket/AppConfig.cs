@@ -6,7 +6,7 @@
             try
             {
                 string a = text.Substring(0, text.IndexOf(flag));
-                string b = text.Substring(a.Length + 1);
+                string b = text.Substring(a.Length + flag.Length);
                 text = b;
                 return a;
             }

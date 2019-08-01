@@ -43,7 +43,7 @@ namespace Weteoes
         private bool function(int i) {
             switch (i) {
                 case 1:
-                    new MainClass().socketEntrance(parameter, ref socket);
+                    new BasicMainClass().socketEntrance(parameter, ref socket);
                     return false;
                 case 2:
                     string a = get_computerlist(parameter);
