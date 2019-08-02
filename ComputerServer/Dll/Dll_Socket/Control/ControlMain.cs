@@ -50,11 +50,13 @@ namespace Weteoes
                 if (!controlComputerList.TryGetValue(user, out tempControlStructList)) {  // 没获取到就初始化List空间
                     tempControlStructList = new List<controlStruct>();
                 }
+                List<controlStruct> removeControlStructList = new List<controlStruct>();
                 foreach (controlStruct i in tempControlStructList) {
-                    if (i.computerName.Equals(computerName)) { // 如果有相同的电脑名称，那就删掉他
-                        tempControlStructList.Remove(i);
-                    }
+                    // 如果有相同的电脑名称，那就删掉他
+                    if (i.computerName.Equals(computerName)) { removeControlStructList.Add(i); }
                 }
+                foreach (controlStruct i in removeControlStructList) { tempControlStructList.Remove(i); }
+                
                 // 添加控制列表
                 controlStruct tempControlStruct = new controlStruct() { computerName = computerName, socket = socket };
                 tempControlStructList.Add(tempControlStruct);
@@ -69,7 +71,13 @@ namespace Weteoes
                 if (!controlComputerList.TryGetValue(user, out controlStructs)) { return false; }
                 foreach (controlStruct i in controlStructs) {
                     if (i.computerName.Equals(computerName)) { // 相同的电脑名称(要控制这一台)
-                                                               // 来回2个记录
+                        // 删除原先连接 i.socket(2条记录)
+                        List<Socket> removeSocketList = new List<Socket>();
+                        foreach (KeyValuePair<Socket, Socket> ii in controlConnectList) { if (ii.Value == i.socket) { removeSocketList.Add(ii.Key); } }
+                        foreach (Socket ii in removeSocketList) { controlConnectList.Remove(ii); }
+                        controlConnectList.Remove(i.socket);
+
+                        // 添加来回2个记录
                         controlConnectList.Add(socket, i.socket);
                         controlConnectList.Add(i.socket, socket);
                         return true;

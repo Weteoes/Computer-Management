@@ -96,9 +96,10 @@ void InstallClass::RegeditListLoading() {
 	}});
 
 	static std::string Software_Reg = "SOFTWARE\\Weteoes\\" + ConfigClass::ServiceName;
-	ManagementDll().Loading();
-	static std::string Application = WeteoesDll::Basics_GetNowFilePath() + std::string(ManagementDll::Get((char*)"Software_Name")) + ".exe";
+	static std::string Path = std::string(WeteoesDll::Basics_GetNowFilePath());
+	static std::string Application = std::string(ManagementDll::Get((char*)"Software_Name")) + ".exe";
 	MainPathArray.push_back({ HKEY_LOCAL_MACHINE,(char*)Software_Reg.c_str(),{}, {
+		{(char*)"Path",(char*)Path.c_str() ,REG_SZ, false, 1 },
 		{(char*)"Application",(char*)Application.c_str() ,REG_SZ, false, 1 }
 	} });
 }

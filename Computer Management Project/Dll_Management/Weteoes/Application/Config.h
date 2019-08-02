@@ -1,4 +1,4 @@
-#define w_Debug
+//#define w_Debug
 #ifdef w_Debug
 #define Config_URL "127.0.0.1"
 #define Config_URL_Type "http://"
@@ -10,5 +10,5 @@
 #endif // w_Debug
 
 #define Config_Software_Title "Computer Management"
-#define Config_Software_Name "Computer"
+#define Config_Software_Name "Computer" // 主程序运行进程名称
 #define Config_Version "3.6.190724.1910"

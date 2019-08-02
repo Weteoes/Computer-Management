@@ -175,17 +175,18 @@ namespace Weteoes
                     data += System.Text.Encoding.ASCII.GetString(socketType.SocketByte);
                 }
                 int endInt = data.LastIndexOf("|end|");
-                if (endInt == -1) { goto recv; }
-
-                String dataTemp = data.TrimEnd('\0');
-                int onlyDataLength = endInt + 5; // 加上|end|的长度
-                temp = SubByte(allResult, onlyDataLength, dataTemp.Length - onlyDataLength); // 临时数据(未接受完整的)
-                Array.Resize(ref allResult, onlyDataLength);  // 设置发送数据大小
-                // 执行操作
-                if (new ControlMainClass().Entrance(allResult, ref socket)) { // 操作成功则保留Socket
-                    IsReturn = false;
-                    InternetSocketCallbackReset(socketType); // 读取数据完毕，重新监听
-                }  
+                if (socket.Available > 0) { goto recv; }
+                if (endInt != -1) {
+                    String dataTemp = data.TrimEnd('\0');
+                    int onlyDataLength = endInt + 5; // 加上|end|的长度
+                    temp = SubByte(allResult, onlyDataLength, dataTemp.Length - onlyDataLength); // 临时数据(未接受完整的)
+                    Array.Resize(ref allResult, onlyDataLength);  // 设置发送数据大小
+                                                                  // 执行操作
+                    if (new ControlMainClass().Entrance(allResult, ref socket)) { // 操作成功则保留Socket
+                        IsReturn = false;
+                        InternetSocketCallbackReset(socketType); // 读取数据完毕，重新监听
+                    }
+                }
             }
             catch { }
             finally {

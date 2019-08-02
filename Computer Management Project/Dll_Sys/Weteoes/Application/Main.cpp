@@ -5,7 +5,6 @@
 #include <Weteoes/Dll/WeteoesDll.h>
 #include <Weteoes/Dll/ManagementDll.h>
 
-
 void MainClass::Entrance() {
 	char buf[256] = "";
 	DWORD rlen = 0;
@@ -56,29 +55,35 @@ void MainClass::stopSoftware() {
 	std::string shell = "cmd.exe /c taskkill /F /IM " + Software_Name + ".exe";
 	WeteoesDll::CMD_Run((char*)shell.c_str());
 }
-void MainClass::startSoftware() {
-	/* Regedit */
-	HKEY a = WeteoesDll::Regedit_OpenRegFile(HKEY_LOCAL_MACHINE, (char*)"SOFTWARE\\Weteoes\\Computer");
-	std::string Application = WeteoesDll::Regedit_QueryRegValue(a, (char*)"Application", REG_SZ, false);
+#include <Shlwapi.h>
+#pragma comment(lib,"Shlwapi.lib")
 
+void MainClass::startSoftware() {
 	/* Management */
 	std::string SoftwareName = ManagementDll::Get((char*)"Software_Name") + std::string(".exe");
 
+	/* Regedit */
+	HKEY a = WeteoesDll::Regedit_OpenRegFile(HKEY_LOCAL_MACHINE, (char*)"SOFTWARE\\Weteoes\\Computer");
+	std::string Path = WeteoesDll::Regedit_QueryRegValue(a, (char*)"Path", REG_SZ, false);
+
 	/* Log */
-	MessageClass::WriteFileLog("Application is " + Application);
+	MessageClass::WriteFileLog("Path is " + Path);
 	MessageClass::WriteFileLog("SoftwareName is " + SoftwareName);
 
+	std::string Appliction = Path + SoftwareName;
+
 	/* Operting */
-	if (WeteoesDll::IO_Exists((char*)Application.c_str())) { //文件存在
+	if (WeteoesDll::IO_Exists((char*)Appliction.c_str())) { //文件存在
 		/* Log */
 		MessageClass::WriteFileLog("Application is Find\nStart up to Application");
 
 		std::string result; //结果
 		while (true) {
-			result = WeteoesDll::Process_AsUser((char*)Application.c_str(), (char*)SoftwareName.c_str());
+			result = WeteoesDll::Process_AsUser((char*)Appliction.c_str(), (char*)SoftwareName.c_str());
 			MessageClass::WriteFileLog("Process_AsUser is " + result);
 			if (result == "Success" || result == "Find Process") { break; }
 			else { Sleep(1000); }
 		}
 	}
+	else { MessageClass::WriteFileLog("Application is Not Find");  }
 }
