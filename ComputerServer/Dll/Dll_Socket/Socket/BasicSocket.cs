@@ -195,7 +195,7 @@ namespace Weteoes
         static MessageClass messageClass = new MessageClass();
 
         public void WriteMessage(string msg) {
-            messageClass.writeLog("Socket:" + msg);
+            messageClass.writeLog("Socket:" + msg, true);
         }
 
         class SocketType {

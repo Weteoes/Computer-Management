@@ -1,26 +1,19 @@
 using System;
 using System.IO;
 
-namespace Weteoes
-{
-    public class MessageClass
-    {
+namespace Weteoes {
+    public class MessageClass {
         static string logPath = null;
         static string logTemp = "";
-        public void writeLog(string log)
-        {
-            if (logPath == null)
-            {
+        // allowRepeat ‘ –Ì÷ÿ∏¥
+        public void writeLog(string log, bool allowRepeat = false) {
+            if (logPath == null)  {
                 string a = ConfigClass.startPath + @"/log";
-                if (!Directory.Exists(a))
-                {
-                    Directory.CreateDirectory(a);
-                }
+                if (!Directory.Exists(a)) { Directory.CreateDirectory(a); }
                 logPath = a + @"/" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".log";
             }
-            try
-            {
-                if (logTemp.Equals(log)) { return; }
+            try {
+                if (logTemp.Equals(log) && !allowRepeat) { return; }
                 logTemp = log;
                 StreamWriter TextWrite = new StreamWriter(logPath, true);
                 TextWrite.Write(log + "\r\n");

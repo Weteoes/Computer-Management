@@ -212,7 +212,7 @@ namespace Weteoes
 
         static MessageClass messageClass = new MessageClass();
         public void WriteMessage(string msg) {
-            messageClass.writeLog("Control:" + msg);
+            messageClass.writeLog("Control:" + msg, true);
         }
     }
 }

@@ -50,13 +50,16 @@ namespace Weteoes
                 if (!controlComputerList.TryGetValue(user, out tempControlStructList)) {  // 没获取到就初始化List空间
                     tempControlStructList = new List<controlStruct>();
                 }
-                List<controlStruct> removeControlStructList = new List<controlStruct>();
-                foreach (controlStruct i in tempControlStructList) {
-                    // 如果有相同的电脑名称，那就删掉他
-                    if (i.computerName.Equals(computerName)) { removeControlStructList.Add(i); }
+                for (int i = tempControlStructList.Count - 1; i >= 0; i--) {
+                    if (tempControlStructList[i].computerName.Equals(computerName)) { tempControlStructList.RemoveAt(i); }
                 }
-                foreach (controlStruct i in removeControlStructList) { tempControlStructList.Remove(i); }
-                
+                //List<controlStruct> removeControlStructList = new List<controlStruct>();
+                //foreach (controlStruct i in tempControlStructList) {
+                //    // 如果有相同的电脑名称，那就删掉他
+                //    if (i.computerName.Equals(computerName)) { removeControlStructList.Add(i); }
+                //}
+                //foreach (controlStruct i in removeControlStructList) { tempControlStructList.Remove(i); }
+
                 // 添加控制列表
                 controlStruct tempControlStruct = new controlStruct() { computerName = computerName, socket = socket };
                 tempControlStructList.Add(tempControlStruct);
@@ -99,7 +102,7 @@ namespace Weteoes
         }
         private void ForwardData(Socket socket, byte[] data) {
             Socket a;
-            if (!controlConnectList.TryGetValue(socket, out a)) { controlSocketClass.WriteMessage("ForwardData -> find Socket Error"); return; }
+            if (!controlConnectList.TryGetValue(socket, out a)) { return; }
             a.Send(data);
         }
         private int getFunction(ref string data) {
