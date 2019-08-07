@@ -39,7 +39,7 @@ inline WebSocketClass::WebSocketClass(std::string webPath) {
 }
 
 void WebSocketClass::Loading() {
-	w = false; // 不更具w规则
+	w = false; // 不根据w规则
 }
 SOCKADDR_IN WebSocketClass::Socket_Initialization() {
 	SOCKADDR_IN server;

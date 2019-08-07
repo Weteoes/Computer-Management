@@ -26,6 +26,7 @@ void DlgClass::Dlg_Mini() {
 		ShowWindow(Dlg_HWND, SW_HIDE);
 	}
 }
+#include <Weteoes/Application/App.h>
 void DlgClass::Dlg_Show(bool first) {
 	if (!first) { //不是窗口创建后调用的
 		if (!AppConfigClass::IsLogin) { //还没登陆
@@ -38,7 +39,7 @@ void DlgClass::Dlg_Show(bool first) {
 		}
 	}
 	else { //窗口创建后调用
-
+		AppClass().Start_SRW(0); // 启动UI服务
 	}
 }
 void DlgClass::Dlg_Icon_Add() {

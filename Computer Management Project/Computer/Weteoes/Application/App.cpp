@@ -15,13 +15,12 @@ void AppClass::Login_Success() {
 	DlgClass().Dlg_Mini();
 	std::thread Main(&AppClass::Dlg_Main_Start, this); Main.detach(); //Create Thread
 }
-void AppClass::Start_SRW() {
-	if (!SRWDll().Loading()) { DlgClass().Dlg_Close(); }
-	std::thread web(&AppClass::SRW, this, 0); web.detach(); // 启动UI
-	std::thread socket(&AppClass::SRW, this, 1); socket.detach(); // 启动Socket
+void AppClass::Start_SRW(int type) {
+	std::thread socket(&AppClass::SRW, this, type); socket.detach();
 }
 
 void AppClass::SRW(int type) {
+	if (!SRWDll().Loading()) { DlgClass().Dlg_Close(); }
 	switch (type) {
 		case 0: { // UI 服务
 			std::string a = WeteoesDll::Basics_GetNowFilePath() + std::string("UI");

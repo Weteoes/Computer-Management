@@ -33,7 +33,7 @@ public:
 	std::string recvTemp = ""; // 临时数据s
 	std::string flac_End = "|end|"; // 结束flac
 	int socketCache = 100000; // 缓存区大小
-	bool w = true; // 接收时是否更具w规则
+	bool w = true; // 接收时是否根据w规则
 
 };
 #endif
@@ -113,7 +113,7 @@ void SSocketClass::Recv_Socket_While(SOCKET socket) {
 bool SSocketClass::Send_Socket(SOCKET socket, std::string data) {
 	int result; //send result
 	while (true) {
-		if (w) { data += flac_End; } // 需要更具w规则
+		if (w) { data += flac_End; } // 需要根据w规则
 		result = send(socket, data.c_str(), (int)data.size(), 0); //发送数据
 		if (result == SOCKET_ERROR) {
 			int err = WSAGetLastError();
@@ -158,7 +158,7 @@ W_recv:
 		memset(result_byte, 0, ConfigCache); //清空之前的数据
 		ioctlsocket(socket, FIONREAD, &MoreLen); //检查剩下的数据
 		if (MoreLen == 0) { //接收完毕
-			// 需要更具w规则
+			// 需要根据w规则
 			if (w) {
 				int find;
 				while ((find = (int)allData.find(flac_End)) != -1) {
@@ -170,7 +170,7 @@ W_recv:
 				recvTemp = allData;
 				if (!allResult->empty()) { return true; }
 			}
-			// 不需要更具w规则
+			// 不需要根据w规则
 			else {
 				allResult->push_back(allData);
 				return true;
