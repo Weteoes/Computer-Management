@@ -792,10 +792,10 @@
     <ClInclude Include="Weteoes\Dll\ManagementDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Dll\SRDll.h">
+    <ClInclude Include="Weteoes\Dll\SysDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Dll\SysDll.h">
+    <ClInclude Include="Weteoes\Dll\SRWDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -848,10 +848,10 @@
     <ClCompile Include="Weteoes\Dll\ManagementDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Dll\SRDll.cpp">
+    <ClCompile Include="Weteoes\Dll\SysDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Dll\SysDll.cpp">
+    <ClCompile Include="Weteoes\Dll\SRWDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,6 @@
-//#define w_Debug
+#define w_Debug
 #ifdef w_Debug
-#define Config_URL "127.0.0.1"
+#define Config_URL "127.0.0.1:8080"
 #define Config_URL_Type "http://"
 #define Config_Socket_Port "1"
 #else

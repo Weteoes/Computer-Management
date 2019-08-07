@@ -111,6 +111,10 @@
     <Link>
       <ModuleDefinitionFile>Source.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Command>copy "$(OutDir)WeteoesDll.dll" "E:\IT\Project\GitHub\Computer-Management\Computer Management Project\x64\Debug" /y
+copy "$(OutDir)WeteoesDll.pdb" "E:\IT\Project\GitHub\Computer-Management\Computer Management Project\x64\Debug" /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

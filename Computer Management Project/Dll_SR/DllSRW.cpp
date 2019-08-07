@@ -1,6 +1,7 @@
 #include <Weteoes/Loading.h>
 #include <Weteoes/Application/RSA.h>
 #include <Weteoes/Application/Sockets/ServerSocket.h>
+#include <Weteoes/Application/Sockets/WebSocket.h>
 #include <Weteoes/Dll/WeteoesDll.h>
 #include <Weteoes/Dll/ManagementDll.h>
 #include <Weteoes/Dll/ConfigDll.h>
@@ -17,6 +18,10 @@ static std::string TEMP_S;
 extern "C" _declspec(dllexport) int Socket_Entrance() {
 	if (!Loading()) { return NULL; }
 	return ServerSocketClass::use.Entrance();
+}
+extern "C" _declspec(dllexport) int Web_Entrance(const char* webPath) {
+	if (!Loading()) { return NULL; }
+	return WebSocketClass(webPath).Entrance();
 }
 extern "C" _declspec(dllexport) char* RSA_Encode(char* data, char* key) {
 	if (!Loading()) { return NULL; }

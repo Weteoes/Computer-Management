@@ -34,13 +34,10 @@ char* IOClass::ReadFile(char* file) {
 		return NULL;
 	}
 	ifstream a(file);
-	a.seekg(0, std::ios::end); //文件指针指向结尾
-	int length = (int)a.tellg(); //获取文件长度
-	a.seekg(0, std::ios::beg); //文件指针从新指向开头
-	char *buffer = new char[length + 1];
-	a.get(buffer, length + 1); //读取
+	string resultS = "",tempS;
+	while (getline(a, tempS)) { resultS += tempS; }
 	a.close(); a.clear();
-	char *result = ConvertClass().GetChars(buffer);
+	char *result = ConvertClass().GetChars(resultS);
 	return result;
 }
 void IOClass::CreatePath(char* File) {

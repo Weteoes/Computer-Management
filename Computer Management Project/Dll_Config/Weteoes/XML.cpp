@@ -1,6 +1,6 @@
 #include "XML.h"
 #include <Weteoes/Dll/WeteoesDll.h>
-#include <Weteoes/Dll/SRDll.h>
+#include <Weteoes/Dll/SRWDll.h>
 
 tinyxml2::XMLDocument* XMLClass::CreateXML(std::string XMLPath)
 {
@@ -20,14 +20,14 @@ void XMLClass::SaveXML(std::string XMLPath,std::string data)
 	if (WeteoesDll::IO_Exists(XMLPath_C)) {
 		WeteoesDll::IO_Remove(XMLPath_C);
 	}
-	std::string a = SRDll::RSA_Encode((char*)data.c_str(), (char*)PublicKey.c_str());
+	std::string a = SRWDll::RSA_Encode((char*)data.c_str(), (char*)PublicKey.c_str());
 	if (a.empty()) { return; }
 	WeteoesDll::IO_WriteFile((char*)XMLPath.c_str(), (char*)a.c_str());
 }
 
 std::string XMLClass::ReadXmlParse(std::string data)
 {
-	std::string a = SRDll::RSA_UnEncode((char*)data.c_str(), (char*)PrivateKey.c_str());
+	std::string a = SRWDll::RSA_UnEncode((char*)data.c_str(), (char*)PrivateKey.c_str());
 	if (a.empty()) { return ""; }
 	return a;
 }

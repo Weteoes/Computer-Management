@@ -147,7 +147,7 @@
     <ClCompile Include="Weteoes\Application\ReadXMLConfig.cpp" />
     <ClCompile Include="Weteoes\Application\ReturnXMLStruct.cpp" />
     <ClCompile Include="Weteoes\Application\SetXMLConfig.cpp" />
-    <ClCompile Include="Weteoes\Dll\SRDll.cpp" />
+    <ClCompile Include="Weteoes\Dll\SRWDll.cpp" />
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp" />
     <ClCompile Include="Weteoes\More\tinyxml2\tinyxml2.cpp" />
     <ClCompile Include="Weteoes\XML.cpp" />
@@ -161,7 +161,7 @@
     <ClInclude Include="Weteoes\Application\ConfigFile.h" />
     <ClInclude Include="Weteoes\Application\ReadXMLConfig.h" />
     <ClInclude Include="Weteoes\Application\SetXMLConfig.h" />
-    <ClInclude Include="Weteoes\Dll\SRDll.h" />
+    <ClInclude Include="Weteoes\Dll\SRWDll.h" />
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h" />
     <ClInclude Include="Weteoes\Loading.h" />
     <ClInclude Include="Weteoes\More\tinyxml2\tinyxml2.h" />

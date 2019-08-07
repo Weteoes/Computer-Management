@@ -1,6 +1,6 @@
 #include <Weteoes/Loading.h>
 #include <Weteoes/Dll/WeteoesDll.h>
-#include <Weteoes/Dll/SRDll.h>
+#include <Weteoes/Dll/SRWDll.h>
 #include <Weteoes/Application/CreateXMLConfig.h>
 #include <Weteoes/Application/ReadXMLConfig.h>
 #include <Weteoes/Application/SetXMLConfig.h>
@@ -8,7 +8,7 @@
 
 bool Loading() {
 	if (!WeteoesDll().Loading()) { return false; }
-	if (!SRDll().Loading()) { return false; }
+	if (!SRWDll().Loading()) { return false; }
 	return true;
 }
 

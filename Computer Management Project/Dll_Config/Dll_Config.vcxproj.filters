@@ -42,7 +42,7 @@
     <ClCompile Include="Weteoes\Application\SetXMLConfig.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Dll\SRDll.cpp">
+    <ClCompile Include="Weteoes\Dll\SRWDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -82,7 +82,7 @@
     <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Dll\SRDll.h">
+    <ClInclude Include="Weteoes\Dll\SRWDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

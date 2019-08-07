@@ -18,9 +18,6 @@
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="DllSR.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Weteoes\Application\RSA.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -34,6 +31,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Dll\ClientDll.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DllSRW.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -390,6 +390,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Weteoes\Dll\ClientDll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Sockets\WebSocket.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

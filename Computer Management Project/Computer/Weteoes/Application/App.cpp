@@ -4,8 +4,9 @@
 #include <Resource.h>
 #include <Weteoes/Application/Dlg.h>
 #include <Weteoes/Application/AppConfig.h>
+#include <Weteoes/Dll/WeteoesDll.h>
 #include <Weteoes/Dlg/Dlg_Main.h>
-#include <Weteoes/Dll/SRDll.h>
+#include <Weteoes/Dll/SRWDll.h>
 #include <Weteoes/Dll/ConfigDll.h>
 
 void AppClass::Login_Success() {
@@ -14,16 +15,26 @@ void AppClass::Login_Success() {
 	DlgClass().Dlg_Mini();
 	std::thread Main(&AppClass::Dlg_Main_Start, this); Main.detach(); //Create Thread
 }
-void AppClass::Start_SR() {
-	std::thread SR(&AppClass::SR_, this); SR.detach();
+void AppClass::Start_SRW() {
+	if (!SRWDll().Loading()) { DlgClass().Dlg_Close(); }
+	std::thread web(&AppClass::SRW, this, 0); web.detach(); // 启动UI
+	std::thread socket(&AppClass::SRW, this, 1); socket.detach(); // 启动Socket
 }
 
-
-void AppClass::SR_() {
-	if (!SRDll().Loading()) { DlgClass().Dlg_Close(); }
-	while (1) {
-		SRDll::Socket_Entrance();
-		Sleep(1000);
+void AppClass::SRW(int type) {
+	switch (type) {
+		case 0: { // UI 服务
+			std::string a = WeteoesDll::Basics_GetNowFilePath() + std::string("UI");
+			SRWDll::Web_Entrance(a.c_str());
+			break;
+		}
+		case 1: { // Socket 服务
+			while (1) {
+				SRWDll::Socket_Entrance();
+				Sleep(1000);
+			}
+			break;
+		}
 	}
 }
 void AppClass::Dlg_Main_Start() {

@@ -2,7 +2,7 @@
 #include <Weteoes/Application/ConfigFile.h>
 #include <Weteoes/XML.h>
 #include <Weteoes/Dll/WeteoesDll.h>
-#include <Weteoes/Dll/SRDll.h>
+#include <Weteoes/Dll/SRWDll.h>
 
 ReturnXMLStruct::UserConfig_ ReadXMLConfigClass::User()
 {

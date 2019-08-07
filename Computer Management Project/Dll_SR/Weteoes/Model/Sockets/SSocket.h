@@ -26,19 +26,22 @@ public:
 	void SocketStop(SOCKET); // 关闭Socket
 
 public:
-	bool SocketStopFlac; // 是否停止Socket
+	bool SocketStopFlac = false; // 是否停止Socket
 	SOCKET sServer; // Socket
 
-private:
+public:
 	std::string recvTemp = ""; // 临时数据s
 	std::string flac_End = "|end|"; // 结束flac
 	int socketCache = 100000; // 缓存区大小
+	bool w = true; // 接收时是否更具w规则
+
 };
 #endif
 
 #ifndef SSocketClass_CPP
 #define SSocketClass_CPP
 int SSocketClass::Entrance() {
+	Loading();
 	SocketStart();
 	return 0;
 }
@@ -110,7 +113,7 @@ void SSocketClass::Recv_Socket_While(SOCKET socket) {
 bool SSocketClass::Send_Socket(SOCKET socket, std::string data) {
 	int result; //send result
 	while (true) {
-		data += flac_End;
+		if (w) { data += flac_End; } // 需要更具w规则
 		result = send(socket, data.c_str(), (int)data.size(), 0); //发送数据
 		if (result == SOCKET_ERROR) {
 			int err = WSAGetLastError();
@@ -136,7 +139,6 @@ bool SSocketClass::Recv_Socket(SOCKET socket, std::vector<std::string> *allResul
 	/* While Reve */
 W_recv:
 	while (true) {
-
 		result = recv(socket, result_byte, ConfigCache - 1, 0); //接收数据(需要添加结束标记所以-1)
 		if (result == SOCKET_ERROR) {
 			int err = WSAGetLastError();
@@ -156,15 +158,23 @@ W_recv:
 		memset(result_byte, 0, ConfigCache); //清空之前的数据
 		ioctlsocket(socket, FIONREAD, &MoreLen); //检查剩下的数据
 		if (MoreLen == 0) { //接收完毕
-			int find;
-			while((find = (int)allData.find(flac_End)) != -1) {
-				// 先放数据，再修改数据
-				allResult->push_back(allData.substr(0, find));
-				allData = allData.substr(find + flac_End.length());
+			// 需要更具w规则
+			if (w) {
+				int find;
+				while ((find = (int)allData.find(flac_End)) != -1) {
+					// 先放数据，再修改数据
+					allResult->push_back(allData.substr(0, find));
+					allData = allData.substr(find + flac_End.length());
+				}
+				// 如果还有临时数据就存起来(没必要判断)
+				recvTemp = allData;
+				if (!allResult->empty()) { return true; }
 			}
-			// 如果还有临时数据就存起来(没必要判断)
-			recvTemp = allData;
-			if (!allResult->empty()) { return true; }
+			// 不需要更具w规则
+			else {
+				allResult->push_back(allData);
+				return true;
+			}
 		}
 		goto W_recv;
 	}
