@@ -21,33 +21,37 @@
             For循环电脑
             设置点击事件
           -->
-          <div
-            class="data_computer data_computer_"
-            v-for="(onlyComputer,number) in allComputer" :key="number"
-            @click="click_computer(onlyComputer.name)"
-            @click.stop
-          >
-            <div class="left data_computer_">
-              <div class="icon"></div>
-            </div>
-            <div class="right data_computer_ data_computer_right_">
-              <div class="computer data_computer_right_">
-                <div class="one">
-                  电脑名称:
-                  <span v-html="onlyComputer.name">NoteBook</span>
-                </div>
-                <div class="one">
-                  <div class="online_icon">
-                    <!--这个空div是icon-->
-                    <div></div>
+          <div v-if="allComputer != 0 && allComputer.length > 0">
+            <div
+              class="data_computer data_computer_"
+              v-for="(onlyComputer,number) in allComputer"
+              :key="number"
+              @click="click_computer(onlyComputer.name)"
+              @click.stop
+            >
+              <div class="left data_computer_">
+                <div class="icon"></div>
+              </div>
+              <div class="right data_computer_ data_computer_right_">
+                <div class="computer data_computer_right_">
+                  <div class="one">
+                    电脑名称:
+                    <span v-text="onlyComputer.name">NoteBook</span>
                   </div>
-                  <div class="online_title">在线</div>
+                  <div class="one">
+                    <div class="online_icon">
+                      <!--这个空div是icon-->
+                      <div></div>
+                    </div>
+                    <div class="online_title">在线</div>
+                  </div>
                 </div>
               </div>
+              <div class="bottom"></div>
             </div>
-            <div class="bottom"></div>
           </div>
-          <div class="data_computer_null" v-if="allComputer.length==0 && nullDiv == true"></div>
+
+          <div class="data_computer_null" v-if="allComputer.length == 0"></div>
           <!-- Only Computer End -->
         </div>
         <!-- All Computer Vue End -->
@@ -97,7 +101,7 @@
 }
 .data_computer_right_ {
   /* width适配手机像素 */
-  width: 200px; 
+  width: 200px;
 }
 .data_computer .bottom {
   height: 2px;
@@ -175,8 +179,7 @@ export default {
       // session
       session: "",
       // data
-      allComputer: [],
-      nullDiv: false
+      allComputer: 0
     };
   },
   methods: {
@@ -186,12 +189,11 @@ export default {
       (() => {
         // 设置下拉刷新
         this.w.app.dlg_setPullToRefreshLayout(false, true);
-
         // 设置下拉刷新的事件
         var a = this.w.android;
         /* android调用重新获取 */
         a.finishRefresh = () => {
-          window.console.log("重新获取设备列表");
+          this.w.function.msg("重新获取设备列表", 1);
           // 调用刷新
           this.getComputer();
         };
@@ -205,33 +207,41 @@ export default {
     getComputer: function() {
       let w = this.w;
       let this_ = this;
-      w.JS_Basic.Ajax(w.url.operating_getComputerList, { w: this_.session }, function(result) {
-        if (result.status != 200) { w.function.msg("服务器开小差啦", 2); return; }
-        let resultData = result.data;
-        // 因为有转发所以加JSON.parse
-        resultData =  JSON.parse(resultData);
-        if(resultData.code == -1) { w.function.msg("获取设备信息失败 msg:{msg}".format({msg: resultData.msg}), 2); return; }
-
-        // if(result.user.length === 0){ w.function.msg("当前没有电脑在线", 2); }
-        var allComputer = []; // 临时存放数据
-        if (typeof resultData.user != "undefined") {  // 判断是否为undefined
-          /* 获取信息 */
-          var result_a = resultData.user;
-          for (let only in result_a) {
-            allComputer.push({ name: result_a[only].computer });
+      let ff_init = () => { this.allComputer = []; }
+      w.JS_Basic.Ajax(
+        w.url.operating_getComputerList,
+        { w: this_.session },
+        function(result) {
+          if (result.status != 200) {
+            w.function.msg("服务器开小差啦", 2);
+            ff_init();
+            return;
           }
+          let resultData = result.data;
+          if (resultData.code == -1) {
+            w.function.msg(
+              "获取设备信息失败 msg:{msg}".format({ msg: resultData.msg }),
+              2
+            );
+            ff_init();
+            return;
+          }
+          // if(result.user.length === 0){ w.function.msg("当前没有电脑在线", 2); }
+          var allComputer = []; // 临时存放数据
+          for (let computer of resultData.computer) {
+            allComputer.push({ name: computer.name });
+          }
+          /* Vue */
+          this_.allComputer = allComputer;
         }
-        /* Vue */
-        this_.nullDiv = true;
-        this_.allComputer = allComputer;
-      });
+      );
     },
     // getComputer End
     // 电脑点击事件
     click_computer: function(computerName) {
-      let url = "{url}computerName={computerName}".format({ 
+      let url = "{url}computerName={computerName}".format({
         url: this.w.url.mainComputer,
-        computerName: computerName 
+        computerName: computerName
       });
       this.$router.push(url);
       //location.href = this.w.url.mainComputer + "computerName=" + computerName;
@@ -261,13 +271,14 @@ export default {
     // loadingScreen End
     // 判断是否登录
     this.w.function.isLogin(
-      ()=>{ 
+      () => {
         // 登录成功
         // 设置全局session
         this.session = window.localStorage.getItem("w");
-        this.ready_(); 
+        this.ready_();
       },
-      ()=>{ // 登录失败
+      () => {
+        // 登录失败
         this.$router.push(this.w.url.login);
       }
     );

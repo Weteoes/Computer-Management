@@ -13,106 +13,40 @@
               <div class="top_title_one">
                 <span
                   id="Language_top_title_one"
-                  v-text="languageConfig.id.Language_top_title_one"
+                  v-text="v_languageConfig.id.Language_top_title_one"
                 >Login User:</span>
                 <span id="User" v-text="v_basic_user"></span>
               </div>
               <div
                 class="top_title_two success"
                 id="Language_top_title_two"
-                v-text="languageConfig.id.Language_top_title_two"
+                v-text="v_languageConfig.id.Language_top_title_two"
               >Service connection success</div>
             </div>
           </div>
         </div>
         <div class="AppMenu">
           <div
-            class="menu"
-            style="margin-left: -16px;"
-            v-bind:class="{menu_now: menu_nowID == 'data_setting', menu_:menu_nowID != 'data_setting'}"
-            @click="f_menuClick('data_setting')"
+            class="menu" v-for="(v_menu,v_menuKey) in v_menus" :key="v_menu.id"
+            v-bind:class= "{ firstMenu: v_menuKey == 0, menu_now: v_menu_nowID == v_menu.id, menu_: v_menu_nowID != v_menu.id}"
+            @click="f_menuClick(v_menu.id)"
           >
             <div
               class="title"
               id="Language_Menu_Setting"
-              v-text="languageConfig.id.Language_Menu_Setting"
-            >Setting</div>
-            <div class="background"></div>
-          </div>
-          <div
-            class="menu"
-            v-bind:class="{menu_now: menu_nowID == 'data_about', menu_:menu_nowID != 'data_about'}"
-            @click="f_menuClick('data_about')"
-          >
-            <div
-              class="title"
-              id="Language_Menu_About"
-              v-text="languageConfig.id.Language_Menu_About"
-            >About</div>
-            <div class="background"></div>
-          </div>
-          <div
-            class="menu"
-            v-bind:class="{menu_now: menu_nowID == 'data_language', menu_:menu_nowID != 'data_language'}"
-            @click="f_menuClick('data_language')"
-          >
-            <div class="title" id="Language_Menu_Language">简体中文</div>
+              v-text="v_menu.title"
+            ></div>
             <div class="background"></div>
           </div>
         </div>
       </div>
       <div class="main_body_data">
         <!-- Seteting -->
-        <div class="data_all data_setting" v-if="menu_nowID == 'data_setting'">
-          <div class="data_setting_center">
-            <div class="information" id="Language_Setting_Reboot" v-text="v_setting_Information"></div>
-            <!-- 选项区域 -->
-            <!-- 电脑名称 -->
-            <div class="setting_edit" ref="ref_setting_computerName">
-              <div
-                class="title"
-                w_menu="Computer_Name"
-                id="Language_Setting_ComputerName"
-                v-text="languageConfig.id.Language_Setting_ComputerName"
-              >Computer Name:</div>
-              <div class="data" v-bind:class="{no_diskplay: v_setting_computerName_Edit}">
-                <span id="Setting_Computer_Name" v-text="v_setting_computerName">Computer</span>
-                <div class="editButton" @click="f_setting_computerNameEditClick"></div>
-              </div>
-              <div class="edit" v-bind:class="{no_diskplay: !v_setting_computerName_Edit}">
-                <input type="text" spellcheck="false" maxlength="20" val="Computer" />
-              </div>
-            </div>
-            <!-- 选项区域 End -->
-          </div>
-        </div>
+        <data_setting v-if="v_menu_nowID == 'data_setting'" v-bind:props_languageConfig="v_languageConfig"></data_setting>
+        <!-- Control -->
+        <data_control v-if="v_menu_nowID == 'data_control'" v-bind:props_languageConfig="v_languageConfig"></data_control>
         <!-- About -->
-        <div class="data_all data_about" v-if="menu_nowID == 'data_about'">
-          <div class="data_about_center">
-            <div class="about_text">
-              <div
-                class="title"
-                id="Language_About_Version"
-                v-text="languageConfig.id.Language_About_Version"
-              >Version:</div>
-              <div class="data">
-                <span id="About_Version" v-text="v_about_version"></span>
-              </div>
-            </div>
-            <div class="about_text">
-              <div
-                class="title"
-                id="Language_About_Company"
-                v-text="languageConfig.id.Language_About_Company"
-              >Company:</div>
-              <div class="data">
-                <span>Weteoes</span>
-              </div>
-            </div>
-
-            <div class="about_end">Weteoes.All Rights Reserved</div>
-          </div>
-        </div>
+        <data_about v-if="v_menu_nowID == 'data_about'" v-bind:props_languageConfig="v_languageConfig"></data_about>
       </div>
     </div>
     <div class="login_background">
@@ -120,129 +54,6 @@
     </div>
   </div>
 </template>
-
-<!-- data_about -->
-<style scoped>
-.main_body_data .data_about {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.data_about .data_about_center {
-  width: 700px;
-  height: auto;
-  min-height: 40px;
-  margin: 40px auto;
-}
-.data_about_center .about_text {
-  width: 100%;
-  height: 30px;
-}
-.about_text .title {
-  width: auto;
-  height: 30px;
-  font-size: 17px;
-  line-height: 30px;
-  color: #000;
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 10px 0 0;
-}
-.about_text .data {
-  width: auto;
-  height: 30px;
-  font-size: 17px;
-  line-height: 30px;
-  color: #000;
-  display: inline-block;
-  vertical-align: top;
-}
-.about_end {
-  width: 100%;
-  height: 30px;
-  line-height: 30px;
-  font-size: 15px;
-  text-align: center;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-</style>
-
-<!-- data_setting -->
-<style scoped>
-.main_body_data .data_setting {
-  width: 100%;
-  height: auto;
-}
-.data_setting .data_setting_center {
-  width: 700px;
-  height: auto;
-  min-height: 40px;
-  margin: 10px auto;
-}
-.data_setting_center .setting_edit {
-  width: 100%;
-  height: 30px;
-}
-.setting_edit .title {
-  width: auto;
-  height: 30px;
-  margin: 0 10px 0 0;
-  font-size: 17px;
-  line-height: 30px;
-  color: #000;
-  display: inline-block;
-  vertical-align: top;
-}
-.setting_edit .data {
-  width: auto;
-  height: 30px;
-  font-size: 17px;
-  line-height: 30px;
-  color: #000;
-  display: inline-block;
-  vertical-align: top;
-}
-.setting_edit .editButton {
-  width: 30px;
-  height: 30px;
-  background: url("/Weteoes/Client/Main/index/image/edit.png") 7px 7px no-repeat;
-  background-size: 60% 60%;
-  cursor: pointer;
-  display: inline-block;
-  vertical-align: top;
-}
-.setting_edit .edit {
-  min-width: 100px;
-  height: 30px;
-  display: inline-block;
-  vertical-align: top;
-}
-.setting_edit .edit input {
-  width: 200px;
-  height: 30px;
-  line-height: 30px;
-  font-size: 17px;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #000;
-}
-.data_setting_center .information {
-  width: 100%;
-  height: 30px;
-  line-height: 30px;
-  color: #f31b1b;
-  font-size: 16px;
-  font-weight: bold;
-}
-.setting_edit .no_diskplay {
-  display: none;
-}
-</style>
 
 <!-- AppMenu -->
 <style scoped>
@@ -261,6 +72,10 @@
   margin-left: -3px;
   display: inline-block;
   position: relative;
+}
+.AppMenu .firstMenu { 
+  /* 需要在.AppMenu .menu下 */
+  margin-left: -16px;
 }
 .menu .background {
   line-height: 26px;
@@ -390,32 +205,45 @@
 </style>
 
 <script>
+import data_control from './main/control'
+import data_setting from './main/setting'
+import data_about from './main/about'
+
 export default {
   data() {
     return {
       v_w: window.Weteoes,
       v_systemMenu_Mini: true, // 用于刷新Mini按钮
-      menu_nowID: "data_setting", // 当前菜单
+      v_menu_nowID: "data_setting", // 当前菜单
       // language
-      languageNext: "zh_CN", // 下一个要切换的语言
-      languageConfig: {}, // 语言配置
+      v_languageNext: "zh_CN", // 下一个要切换的语言
+      v_languageConfig: {}, // 语言配置
+      // menu
+      v_menus: [], // 菜单
       ////// basic
       v_basic_user: "Loading", // 登录用户
-      ////// data_setting
-      v_setting_Information: "", //  提示消息
-      v_setting_computerName: "", // 电脑名称
-      v_setting_computerName_Edit: false, // 是否编辑电脑名称
-      ////// data_about
-      v_about_version: "3.6.1987.1524", // 版本信息
     };
+  },
+  components: {
+    'data_control': data_control,
+    'data_setting': data_setting,
+    'data_about': data_about,
   },
   methods: {
     f_ready: function() {
-      // 获取配置
-      this.f_basic();
-      this.f_setting();
+      this.f_menu(); // 初始化菜单
+      this.f_basic(); // 获取配置
     },
     // f_ready End
+    // 初始化菜单
+    f_menu: function() {
+      this.v_menus.length = 0;
+      this.v_menus.push({ id: "data_setting", title: this.v_languageConfig.id.Language_Menu_Setting });
+      this.v_menus.push({ id: "data_control", title: this.v_languageConfig.id.Language_Menu_Control });
+      this.v_menus.push({ id: "data_about", title: this.v_languageConfig.id.Language_Menu_About });
+      this.v_menus.push({ id: "data_language", title: this.v_languageNext });
+    },
+    // f_menu End
     f_systemMenuClick: function(a) {
       switch (a) {
         case 0: // Exit
@@ -431,22 +259,20 @@ export default {
       }
     },
     // (最小化/关闭)f_systemMenuClick End
+    // 切换页面
     f_menuClick: function(a) {
       switch (a) {
         case "data_language": // 如果是切换语言
-          this.f_language(this.languageNext);
+          this.f_language(this.v_languageNext);
+          this.f_menu(); // 初始化菜单
           break;
         default:
           // 切换页面
-          this.menu_nowID = a;
-          switch(a) {
-            case "data_setting": this.f_config().get().setting(); break;
-            case "data_about": this.f_config().get().about(); break;
-          }
+          this.v_menu_nowID = a;
           break;
       }
     },
-    // (切换页面)f_menuClick End
+    // f_menuClick End
     f_language: function(type) {
       let zh_CN_Config = () => {
         var a = {};
@@ -457,9 +283,11 @@ export default {
         a.id.Language_top_title_one = "当前用户: ";
         a.id.Language_top_title_two = "服务器连接成功";
         a.id.Language_Menu_Setting = "设置";
+        a.id.Language_Menu_Control = "远程控制";
         a.id.Language_Menu_About = "关于";
         a.id.Language_Setting_ComputerName = "电脑名称: ";
-        a.id.Language_Setting_Reboot = "该操作需要重启软件才能生效.";
+        a.id.Language_Setting_Reboot = "该操作需要重启软件才能生效";
+        a.id.Language_Control_Title = "选择一个想要控制的电脑:";
         a.id.Language_About_Version = "版本: ";
         a.id.Language_About_Company = "公司: ";
         return a;
@@ -473,27 +301,28 @@ export default {
         a.id.Language_top_title_one = "Login User: ";
         a.id.Language_top_title_two = "Service connection success";
         a.id.Language_Menu_Setting = "Setting";
+        a.id.Language_Menu_Control = "Control";
         a.id.Language_Menu_About = "About";
         a.id.Language_Setting_ComputerName = "Computer Name: ";
-        a.id.Language_Setting_Reboot =
-          "This operation requires restarting the software.";
+        a.id.Language_Setting_Reboot = "This operation requires restarting the software.";
+        a.id.Language_Control_Title = "Choose a computer you want to control:";
         a.id.Language_About_Version = "Version: ";
         a.id.Language_About_Company = "Company: ";
         return a;
       };
       switch (type) {
         case "zh_CN":
-          this.languageConfig = zh_CN_Config();
-          this.languageNext = "en_US";
+          this.v_languageConfig = zh_CN_Config();
+          this.v_languageNext = "en_US";
           break;
         // case "en_Us":
-        //   this.languageConfig = en_US_Config();
-        //   this.languageNext = "zh_CN";
+        //   this.v_languageConfig = en_US_Config();
+        //   this.v_languageNext = "zh_CN";
         //   break;
         default:
           type = "en_Us";
-          this.languageConfig = en_US_Config();
-          this.languageNext = "zh_CN";
+          this.v_languageConfig = en_US_Config();
+          this.v_languageNext = "zh_CN";
           break;
       }
       this.v_w.app.Main.All.Set_Language(type); // 保存配置
@@ -512,106 +341,29 @@ export default {
         w.url.operating_getUserInfo,
         { w:session },
         (result) => {
-          if(result.status != 200) { return; }
+          if(result.status != 200) { this.f_msg("服务器开小差了", true, "error"); return; }
           let resultData = result.data;
-          if(resultData.code == 0) { this.v_basic_user = resultData.user; } // 设置用户
+          if(resultData.code != 0) { this.f_msg("服务器开小差了", true, "error"); return; } 
+          this.v_basic_user = resultData.user; // 设置用户
         }
       )
     },
     // f_basic_user End
+    f_msg: function(title, client, type) {
+      this.v_w.function.msg(title, client, type);
+    },
+    // (服务器错误)f_error End
 
-    ////// data_setting
-    f_setting: function() {
-      this.f_config().get().setting(); // 获取配置
-    },
-    // f_setting End
-    f_setting_computerNameEditClick: function() {
-      let computerName_Div = this.$refs.ref_setting_computerName.querySelector(
-        "#Setting_Computer_Name"
-      ); // 原始内容Div
-      let EditInput = this.$refs.ref_setting_computerName.querySelector(
-        "input"
-      ); // Edit Div
-      let oldConputerName = computerName_Div.innerText, newComputerName; // 保存旧的和新的电脑名称
-      let edit_on = () => {
-        // 开始编辑
-        EditInput.value = oldConputerName; // 设置编辑框内文字
-        setTimeout(() => {
-          EditInput.focus();
-        }, 10); // 获取焦点
-        document
-          .querySelector(".setting_edit")
-          .querySelector("input")
-          .focus();
-        document.onclick = edit_off; // 设置全局click事件
-        document.onkeydown = a => {
-          if (a.keyCode == 13) {
-            edit_off();
-          }
-        }; // 设置全局keydown事件
-        this.v_setting_computerName_Edit = true;
-      };
-      let edit_off_PD = () => {
-        // 判断数据是否正确
-        newComputerName = computerName_Div.innerText.trim();
-        if (newComputerName == "") {
-          return false;
-        }
-        if (oldConputerName == newComputerName) {
-          return false;
-        }
-        return true;
-      };
-      let edit_off = a => {
-        // 结束编辑
-        if (
-          a != undefined &&
-          (a.target.className == "editButton" || a.target.nodeName == "INPUT")
-        ) {
-          return;
-        }
-        computerName_Div.innerText = EditInput.value; // 设置编辑框内文字
-        document.onclick = null; // 取消全局click事件
-        document.onkeydown = null; // 取消全局keydown事件
-        if (edit_off_PD()) { this.f_config().set("ComputerName", newComputerName); } // 数据正确就保持
-        this.v_setting_computerName_Edit = false;
-      };
-      edit_on();
-    },
-    // f_setting_computerNameEditClick End
-
-    ////// data_about
-    f_about: function() {
-      this.f_config().get().about(); // 获取配置
-    },
-    // f_about End
     ////// Config
     f_config: function() {
       let a = {};
       let Config = this.v_w.app.Main;
       a.set = (w_menu, New_Data) => { //修改配置
         this.v_w.function.msg("Menu:{0} Data:{1}".format(w_menu, New_Data));
-        switch (w_menu) {
-          case "ComputerName": {
-            Config.Setting.Set_ComputerName(New_Data);
-            this.v_setting_Information = this.languageConfig.id.Language_Setting_Reboot;
-            break;
-          }
-        }
+        //switch (w_menu) {}
       };
       a.get = () => { //获取配置
         let result = {};
-        // setting
-        result.setting = () => {
-          let Computer_Name = () => { this.v_setting_computerName = Config.Setting.Get_ComputerName(); }
-          Computer_Name();
-        };
-        // about
-        result.about = () => {
-          let Version = () => { this.v_about_version = Config.About.Get_Version(); }
-          Version();
-        };
-        // v
         result.getSession = () => { return Config.All.Get_w(); };
         return result;
       };

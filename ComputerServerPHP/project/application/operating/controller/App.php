@@ -69,13 +69,15 @@ class App
     /* 获取在线 */
     include_once(Define_Weteoes_PATH."Socket.php");
     $json = (new \Weteoes\SocketClass())->Socket_SendData("get/computerlist",$user);
+    $json = json_decode($json, true);
+    if($json != "") { $json = array_merge(array('code'=>0), $json); }
 
     /* 如果获取失败 */
-    if(!$json){
+    if($json == ""){
       $json = array('code'=>-3,'msg'=>'Server error');
       goto result;
     }
-
+  
     result:
     return json($json); //因为原本就是json格式，不需要转
   }

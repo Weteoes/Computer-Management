@@ -181,7 +181,9 @@ export default {
         else { serverAPI = "https://computer.weteoes.cn"; }
         obj.url = {
           operating_sign_in: serverAPI + "/operating/Login/sign_in?w_Type=0", //登录接口
-          operating_getUserInfo: serverAPI + "/operating/User/get?" //获取用户信息（也被用于判断是否登录）
+          operating_getUserInfo: serverAPI + "/operating/User/get?", //获取用户信息(也被用于判断是否登录)
+          operating_getControlList: serverAPI + "/operating/App/getComputerList?", //获取控制电脑列表(Main-Control)
+          operating_app_sumbit: serverAPI + "/operating/app/sumbit?", //提交控制命令(Main-Control)
         };
       }
 
@@ -190,8 +192,14 @@ export default {
         obj.function = {};
       }
       let obj_function = obj.function;
-      obj_function.msg = function(msg) {
+      obj_function.msg = (msg, client = false ,type = "success") => {
         window.console.log(msg);
+        if(client) { 
+          this.$message.closeAll();
+          let a = { showClose: true, message: msg };
+          if(type != "")  { a.type= type; }
+          this.$message(a);
+        }
       };
 
       /* Language被Language.js动态添加 */

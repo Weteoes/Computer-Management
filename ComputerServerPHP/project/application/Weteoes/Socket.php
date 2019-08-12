@@ -27,6 +27,6 @@ class SocketClass{
             curl_close($ch);
             return $result;
         }
-        return "error";
+        return "";
     }
 }

@@ -6,19 +6,24 @@ class ControlClass
 public:
 	void Entrance(std::string);
 private:
-	void Login(std::string);
+	void Start();
+	void Stop();
 };
 
 #endif // !ControlClass_H
 
 #ifndef ControlClass_CPP
 #define ControlClass_CPP
+#include <Weteoes/Dll/WeteoesDll.h>
+
 void ControlClass::Entrance(std::string data) {
-	std::string shell = ConfigClass::use.GetConfig(&data);
-	if (ConfigClass::use.StrToLower(shell) == ConfigClass::use.StrToLower("Login")) { Login(data); }
+	if (ConfigClass::use.StrToLower(data) == ConfigClass::use.StrToLower("Start")) { Start(); }
+	if (ConfigClass::use.StrToLower(data) == ConfigClass::use.StrToLower("Stop")) { Start(); }
 }
-void ControlClass::Login(std::string data) {
-	std::string user = ConfigClass::use.GetConfig(&data, "|");
-	std::string pass = data;
+void ControlClass::Start() {
+	WeteoesDll::CMD_Run((char*)"sc start ComputerControl");
+}
+void ControlClass::Stop() {
+	WeteoesDll::CMD_Run((char*)"sc stop ComputerControl");
 }
 #endif

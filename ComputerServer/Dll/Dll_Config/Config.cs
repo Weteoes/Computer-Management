@@ -11,7 +11,7 @@ namespace Weteoes
         public static string socket_End = "|end|"; // Socket文字结束标识
         public static string socket_SuccessUser = null; //成功后自定义返回内容
         public static int serverPort = 6666; //默认端口
-        public static int controlServerPort = 10001; //远程控制(control)默认端口
+        public static int controlServerPort = 23333; //远程控制(control)默认端口
         public static string URL_up = "https://computer.weteoes.cn/operating/User/get?w={0}"; //判断用户身份URL
         //public static string URL_up = "http://127.0.0.1/operating/User/get?w={0}"; //判断用户身份URL
     }

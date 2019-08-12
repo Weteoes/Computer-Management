@@ -25,6 +25,10 @@ class OperatingClass{
             /* 学校操作 */
             case "iAzsFD": return "School_YiStart_Close";
             case "cwyeIA": return "School_YiStart_Start|C:\\Windows\\System32\\notepad.exe";
+            /* Control */
+            case "vceeDI": return "Control_Start";
+            case "FdxBCI": return "Control_Stop";
+            // EHhlvq hqjBFl CGIByo
             /* default */
             default: return "";
         }

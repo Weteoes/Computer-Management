@@ -54,7 +54,7 @@ namespace Weteoes
             }
         }
         private string get_computerlist(string user) {
-            string result_s = "{}";
+            string result_s = "{ \"computer\": [] }";
             new ServerClass().removeFailList(); //清除已下线客户端
             List<ServerClass.serverUser> all = ServerClass.allServerList;
             foreach (ServerClass.serverUser only in all) {
@@ -67,15 +67,13 @@ namespace Weteoes
                 //循环获取在线数量
                 for (int i = all_computer.Count - 1; i >= 0 ; i--) {
                     ServerClass.serverComputer only_computer = all_computer[i];
-                    object result_a = new { computer = only_computer.name };
+                    object result_a = new { name = only_computer.name };
                     result_all.Add(result_a);
                 }
 
                 /* 设置result */
-                if (result_all.Count > 0) {
-                    object result_o = new { user = result_all };
-                    result_s = JsonConvert.SerializeObject(result_o).ToString();
-                }
+                object result_o = new { computer = result_all };
+                result_s = JsonConvert.SerializeObject(result_o).ToString();
             }
             return result_s;
         }
