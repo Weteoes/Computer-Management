@@ -16,8 +16,8 @@ namespace Weteoes
             try
             {
                 string user, computerName;
-                if (!controlSocketList.TryGetValue(socket, out user)) { // Socket查询用户,失败就说明没有验证过身份
-                    string data_string = System.Text.Encoding.UTF8.GetString(data);
+                string data_string = System.Text.Encoding.ASCII.GetString(data);
+                if (data_string.Substring(0, 6) == "Server" || (!controlSocketList.TryGetValue(socket, out user))) { // Socket查询用户,失败就说明没有验证过身份
                     int function = getFunction(ref data_string); // 获取操作类型
                     /* Sign_in */
                     if (!Login(socket, ref data_string, out user)) {
@@ -64,6 +64,7 @@ namespace Weteoes
                 controlStruct tempControlStruct = new controlStruct() { computerName = computerName, socket = socket };
                 tempControlStructList.Add(tempControlStruct);
                 controlComputerList.Add(user, tempControlStructList); // 添加用户Control列表
+                controlSocketClass.WriteMessage("Computer:" + computerName + " login.");
                 return true;
             }
             catch { return false; }
@@ -102,6 +103,9 @@ namespace Weteoes
         }
         private void ForwardData(Socket socket, byte[] data) {
             Socket a;
+            string aa = socket.RemoteEndPoint.ToString();
+            string bb = System.Text.Encoding.ASCII.GetString(data); bb = bb.Substring(0, 30);
+            controlSocketClass.WriteMessage(aa + " " + bb + " length:" + data.Length);
             if (!controlConnectList.TryGetValue(socket, out a)) { return; }
             a.Send(data);
         }
