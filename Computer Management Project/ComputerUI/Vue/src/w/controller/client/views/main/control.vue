@@ -86,7 +86,6 @@ $data_control_Client_Width: 100px;
 </style>
 
 <script>
-import { setTimeout } from 'timers';
 export default {
   data() {
     return {
@@ -99,7 +98,7 @@ export default {
   },
   methods: {
     f_ready: function() {
-      this.v_w.function.msg("该功能还在开发中，请耐心等待...", true, "");
+      //this.v_w.function.msg("该功能还在开发中，请耐心等待...", true, "");
       this.f_getControlList(); // 获取电脑控制列表
     },
     // f_ready End
@@ -114,19 +113,19 @@ export default {
       // }
       // loading_Start();
       //// Ajax
-      let session = "bj1cv6gaeh8ttgusr7gvq0t4j2"; //this.f_config().get().getSession();
+      let session = this.f_config().get().getSession();
       w.JS_Basic.Ajax(
         w.url.operating_getControlList,
         { w: session },
         result => {
           if (result.status != 200) {
-            loading_Stop();
+            //loading_Stop();
             this.f_msg("服务器开小差了", true, "error");
             return;
           }
           let resultData = result.data;
           if (resultData.code != 0) {
-            loading_Stop();
+            //loading_Stop();
             this.f_msg("服务器开小差了", true, "error");
             return;
           } // 设置用户
@@ -137,7 +136,7 @@ export default {
             controlList.push(i.name);
           }
           this.v_controlList = controlList; // 设置列表
-          loading_Stop();
+          //loading_Stop();
         }
       );
     },
@@ -157,6 +156,7 @@ export default {
           let resultData = result.data;
           if (resultData.code != 0) { this.f_msg("服务器开小差了", true, "error"); return; }
           this.f_msg("操作成功", true, "success");
+          this.v_w.app.Main.Control.ControlComputer(v_control);
         }
       )
     },

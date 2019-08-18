@@ -33,7 +33,7 @@ public:
 	std::string recvTemp = ""; // 临时数据s
 	std::string flac_End = "|end|"; // 结束flac
 	int socketCache = 100000; // 缓存区大小
-	bool w = true; // 接收时是否根据w规则
+	bool w = true; // 接收和发送时是否根据w规则
 
 };
 #endif
@@ -168,15 +168,18 @@ W_recv:
 				}
 				// 如果还有临时数据就存起来(没必要判断)
 				recvTemp = allData;
-				if (!allResult->empty()) { return true; }
+				if (!allResult->empty()) { goto W_success; }
 			}
 			// 不需要根据w规则
 			else {
 				allResult->push_back(allData);
-				return true;
+				goto W_success;
 			}
 		}
 		goto W_recv;
 	}
+W_success:
+	delete result_byte;
+	return true;
 }
 #endif

@@ -38,6 +38,7 @@ public:
 	std::string flac_End = "|end|"; // 结束flac
 	std::string flac_w = "|w|"; // 分割flac
 	int socketCache = 100000; // 缓存区大小
+	bool w = true; // 接收和发送时是否根据w规则
 
 };
 #endif
@@ -46,10 +47,11 @@ public:
 #define CSocketClass_CPP
 int CSocketClass::Entrance() {
 	if (!hasThread) {
-		hasThread = true; // 线程启动
-		SocketStopFlac = false; // Socket开始
+		hasThread = true; // 标记为线程启动
 		Loading();
-		std::thread a(&CSocketClass::SocketStart, this); a.detach();
+		std::thread a(&CSocketClass::SocketStart, this); a.detach(); // 分离了线程所以不标记为关闭
+		//SocketStopFlac = false; // Socket开始
+		//hasThread = false; // 标记为线程关闭
 	}
 	return 0;
 }
@@ -82,7 +84,7 @@ void CSocketClass::SocketStart() {
 	if (Send_Socket(tempClient, SendStr)) { sClient = tempClient; } // 如果成功就放入全局变量
 	else if(!SocketStopFlac) { goto GOTOresetSocket; } //失败重试
 
-	{
+	if (!SocketStopFlac){
 		/* While Recv */
 		std::thread RecvSocket(&CSocketClass::Recv_Socket_While, this, sClient); RecvSocket.detach(); //循环Send
 
@@ -104,6 +106,7 @@ void CSocketClass::SocketStart() {
 	/* Stop Socket */
 	SocketStop(sClient);
 	hasThread = false; // 线程结束
+	SocketStopFlac = false; // 重试
 	WSACleanup();
 }
 void CSocketClass::SocketStop(SOCKET socket) {
@@ -124,7 +127,7 @@ void CSocketClass::Recv_Socket_While(SOCKET socket) {
 bool CSocketClass::Send_Socket(SOCKET socket, std::string data) {
 	int result; //send result
 	while (true) {
-		data += flac_End;
+		if (w) { data += flac_End; } // 需要根据w规则
 		result = send(socket, data.c_str(), (int)data.size(), 0); //发送数据
 		if (result == SOCKET_ERROR) {
 			int err = WSAGetLastError();
@@ -142,7 +145,7 @@ bool CSocketClass::Send_Socket(SOCKET socket, std::string data) {
 }
 bool CSocketClass::Recv_Socket(SOCKET socket, std::vector<std::string>* allResult) {
 	/* Initialization */
-	int result, result_old = 0; //recv result   [result_old 用于检测服务器是否异常退出]
+	int result; // , result_old = 0; //recv result   [result_old 用于检测服务器是否异常退出]
 	int ConfigCache = socketCache; //配置的缓存大小
 	char* result_byte = new char[ConfigCache]; //缓存数据byte
 	std::string allData = ""; //已经接收数据
@@ -152,8 +155,8 @@ bool CSocketClass::Recv_Socket(SOCKET socket, std::vector<std::string>* allResul
 W_recv:
 	while (true) {
 		result = recv(socket, result_byte, ConfigCache - 1, 0); //接收数据(需要添加结束标记所以-1)
-		if (result_old == 0 && result == 0) { return false; }
-		result_old = result; // 记录上次获取的长度
+		//if (result_old == 0 && result == 0) { return false; }
+		//result_old = result; // 记录上次获取的长度
 		if (result == SOCKET_ERROR) {
 			int err = WSAGetLastError();
 			if (err == WSAEWOULDBLOCK) { continue; }
@@ -167,18 +170,29 @@ W_recv:
 		memset(result_byte, 0, ConfigCache); //清空之前的数据
 		ioctlsocket(socket, FIONREAD, &MoreLen); //检查剩下的数据
 		if (MoreLen == 0) { //接收完毕
-			int find;
-			while ((find = (int)allData.find(flac_End)) != -1) {
-				// 先放数据，再修改数据
-				allResult->push_back(allData.substr(0, find));
-				allData = allData.substr(find + flac_End.length());
+			// 需要根据w规则
+			if (w) {
+				int find;
+				while ((find = (int)allData.find(flac_End)) != -1) {
+					// 先放数据，再修改数据
+					allResult->push_back(allData.substr(0, find));
+					allData = allData.substr(find + flac_End.length());
+				}
+				// 如果还有临时数据就存起来(没必要判断)
+				recvTemp = allData;
+				if (!allResult->empty()) { goto W_success; }
 			}
-			// 如果还有临时数据就存起来(没必要判断)
-			recvTemp = allData;
-			if (!allResult->empty()) { return true; }
+			// 不需要根据w规则
+			else {
+				allResult->push_back(allData);
+				goto W_success;
+			}
 		}
 		goto W_recv;
 	}
+W_success:
+	delete result_byte;
+	return true;
 }
 std::string CSocketClass::GetIpByName(std::string a) {
 	std::string result = "";

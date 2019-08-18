@@ -103,9 +103,9 @@ namespace Weteoes
         }
         private void ForwardData(Socket socket, byte[] data) {
             Socket a;
-            string aa = socket.RemoteEndPoint.ToString();
-            string bb = System.Text.Encoding.ASCII.GetString(data); bb = bb.Substring(0, 30);
-            controlSocketClass.WriteMessage(aa + " " + bb + " length:" + data.Length);
+            //string aa = socket.RemoteEndPoint.ToString();
+            //string bb = System.Text.Encoding.ASCII.GetString(data); bb = bb.Substring(0, 30);
+            //controlSocketClass.WriteMessage("length:" + data.Length);
             if (!controlConnectList.TryGetValue(socket, out a)) { return; }
             a.Send(data);
         }

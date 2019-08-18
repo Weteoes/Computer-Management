@@ -168,7 +168,13 @@ void SimpleApp::OnWebKitInitialized() {
 		"        native function Get_Version();"
 		"        return Get_Version();"
 		"      }"
-		"    }"
+		"    },"
+		"    Control:{"
+		"      ControlComputer:function(computerName){"
+		"        native function ControlComputer(computerName);"
+		"        return ControlComputer(computerName);"
+		"      }"
+		"    },"
 		"  };"
 		"})();";
 	CefRegisterExtension("v8/test", Code, new V8Handler_Class());

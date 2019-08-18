@@ -174,6 +174,21 @@ export default {
         }
       };
 
+      /* Main.Control */
+       if (typeof obj_app.Main.Control == "undefined") {
+        obj_app.Main.Control = {};
+      }
+      obj_app.Main.Control.ControlComputer = function(computerName) {
+        if (
+          typeof obj_app_ == "object" &&
+          typeof obj_app_.Main == "object" &&
+          typeof obj_app_.Main.Control == "object" &&
+          typeof obj_app_.Main.Control.ControlComputer == "function"
+        ) {
+          return obj_app_.Main.Control.ControlComputer(computerName);
+        }
+      };
+
       /* URL */
       if (typeof obj.url == "undefined") {
         let serverAPI;

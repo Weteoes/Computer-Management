@@ -17,6 +17,7 @@ private:
 private:
 	std::string OtherSend();
 	std::string GetHeader(std::string);
+	bool fileByte(std::string); // 是否需要通过Byte传输的格式
 
 private:
 	std::string webPath = "";
@@ -51,7 +52,6 @@ SOCKADDR_IN WebSocketClass::Socket_Initialization() {
 	return server;
 }
 
-
 void WebSocketClass::Socket_RunShell(SOCKET client, std::string data) { //执行动作
 	std::string result = "";
 	if (data.find("GET") != 0) { result = OtherSend(); goto f_result; }
@@ -62,7 +62,9 @@ void WebSocketClass::Socket_RunShell(SOCKET client, std::string data) { //执行动
 		if (file.find(".") == -1) { file = "/index.html"; }
 		file = this->webPath + file;
 		if(WeteoesDll::IO_Exists((char*)file.c_str())) { 
-			if (file.find(".png") != -1 || file.find(".jpg") != -1 || file.find(".jpeg") != -1 || file.find(".ico") != -1) {
+			//fileByte.
+			std::string urlType = file.substr(file.find_last_of(".") + 1);
+			if (fileByte(urlType)) {
 				std::fstream filea(file.c_str(), std::ios::binary | std::ios::in);
 				filea.seekg(0, std::ios::end); //文件指针指向结尾
 				int length = (int)filea.tellg(); //获取文件长度
@@ -96,13 +98,23 @@ inline std::string WebSocketClass::GetHeader(std::string file) {
 	std::string type = "text/html";
 	if (!file.empty()) { 
 		std::string urlType = file.substr(file.find_last_of(".") + 1);
-		/*if (urlType == "css") { type = "text/css"; }
-		if (urlType == "html") { type = "text/html"; }
-		if (urlType == "js") { type = "application/x-javascript"; }*/
-		if (urlType == "jpg" || urlType == "png") { result += "Accept-Ranges: bytes\r\nDate: Weteoes\r\n\r\n"; }
+		if (fileByte(urlType)) { result += "Accept-Ranges: bytes\r\nDate: Weteoes\r\n\r\n"; }
 		else { result += "\r\n"; }
 	}
-	//result += "charset=UTF-8\r\nServer: Weteoes\r\n";
 	return result;
+}
+bool WebSocketClass::fileByte(std::string urlType) {
+	if (
+		urlType == "jpg" ||
+		urlType == "jpeg" ||
+		urlType == "png" ||
+		urlType == "ico" ||
+		urlType == "icon" ||
+		urlType == "woff" ||
+		urlType == "ttf"
+		) {
+		return true;
+	}
+	return false;
 }
 #endif

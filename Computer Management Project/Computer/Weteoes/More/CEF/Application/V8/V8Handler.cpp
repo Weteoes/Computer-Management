@@ -2,6 +2,7 @@
 #include <Weteoes/Application/Dlg.h>
 #include <Weteoes/Application/App.h>
 #include <Weteoes/Application/AppConfig.h>
+#include <Weteoes/Dll/WeteoesDll.h>
 #include <Weteoes/Dll/ConfigDll.h>
 
 bool V8Handler_Class::Execute(
@@ -59,6 +60,11 @@ bool V8Handler_Class::Execute(
 			std::string Version = AppConfigClass().Get_Version();
 			retval = CefV8Value::CreateString(Version);
 			return true;
+		}
+		else if (name == "ControlComputer") { // Ô¶³Ì¿ØÖÆ
+			std::string computerName = arguments[0]->GetStringValue();
+			std::string control = WeteoesDll::Basics_GetNowFilePath() + std::string("Client.exe ComputerName=") + computerName;
+			WeteoesDll::CMD_Run((char*)control.c_str());
 		}
 	}
 	return false;
