@@ -22,7 +22,10 @@ namespace Weteoes
                 return rb;
             }
             catch(Exception error) {
-                new MessageClass().writeLog("Error:NetworkClass::request data:" + error);
+                new MessageClass().writeLog("" +
+                    "Error:NetworkClass::request data:" + error.Message +
+                    " url:" + url
+                );
                 return null;
             }
         }

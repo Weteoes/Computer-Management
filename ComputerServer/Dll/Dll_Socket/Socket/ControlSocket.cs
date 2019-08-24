@@ -12,9 +12,14 @@ namespace Weteoes
     {
         List<TcpListener> allTcpListener = new List<TcpListener>(); //监听ip集合
         static List<SocketType> SocketTypeList = new List<SocketType>(); //Socket集合(客户机)
+        private Dictionary<IntPtr, int> closeMap = new Dictionary<IntPtr, int>(); //准备退出缓存区(一个Sokcet一个缓存区)
         private Dictionary<IntPtr, byte[]> tempMap = new Dictionary<IntPtr, byte[]>(); //临时缓存区(一个Sokcet一个缓存区)
         int SocketByteSize = 600000; //设置缓存区大小
         static bool status = true; //运行状态
+
+        public string flac_End = "|end|";
+        public string flac_Success = "|Success|";
+
         public void server(int port, bool allIPAddress = false)
         {
             TcpListener b = null;
@@ -120,58 +125,74 @@ namespace Weteoes
             bool IsReturn = false; //是否关闭连接
             try {
                 // get Temp
-                byte[] temp = { };
+                byte[] temp = new byte[0];
                 if (!tempMap.TryGetValue(socket.Handle, out temp)) { temp = new byte[0]; }
 
                 /* Recv */
-                //string data = System.Text.Encoding.UTF8.GetString(socketType.SocketByte);
-                byte[] allResult = { };
+                byte[] allResult = new byte[0];
                 string data = "";
+
                 if (temp.Length > 0) {
-                    Array.Resize(ref allResult, allResult.Length + temp.Length);
-                    allResult = SubByte(temp, 0, temp.Length);
-
-                    data += System.Text.Encoding.ASCII.GetString(temp);
-
+                    int byteStart = allResult.Length;
+                    Array.Resize(ref allResult, byteStart + temp.Length);
+                    Array.Copy(temp, 0, allResult, byteStart, temp.Length);
+                    //allResult = SubByte(temp, 0, temp.Length);
+                    //data += System.Text.Encoding.ASCII.GetString(temp);
                     Array.Clear(temp, 0, temp.Length);
                     Array.Resize(ref temp, 0);
                 }
-                Array.Resize(ref allResult, allResult.Length + socketType.SocketByte.Length);
-                socketType.SocketByte.CopyTo(allResult, allResult.Length - socketType.SocketByte.Length);
-
-                data += System.Text.Encoding.ASCII.GetString(socketType.SocketByte);
-                data = data.Trim('\0');
-
-                Array.Resize(ref allResult, data.Length);
-            //recv:
-                while (socket.Available > 0) {
-                    int availableLength = socket.Available;
-                    socketType.SocketByte = new byte[availableLength];
-                    socket.Receive(socketType.SocketByte, 0, socketType.SocketByte.Length, SocketFlags.None);
-                    Array.Resize(ref allResult, allResult.Length + socketType.SocketByte.Length);
-                    socketType.SocketByte.CopyTo(allResult, allResult.Length - socketType.SocketByte.Length);
-                    data += System.Text.Encoding.ASCII.GetString(socketType.SocketByte);
+                bool firstRead = true;
+                do {
+                    int availableLength = 0;
+                    if (!firstRead) { // 如果不是第一次读取，重置内存
+                        Array.Clear(socketType.SocketByte, 0, socketType.SocketByte.Length);
+                        availableLength = socket.Available;
+                        socket.Receive(socketType.SocketByte, 0, availableLength, SocketFlags.None); // 读取socket
+                    }
+                    int byteStart = allResult.Length; // 记录一会从那里开始输入
+                    string onlyData_S = System.Text.Encoding.ASCII.GetString(socketType.SocketByte); // 转到string
+                    onlyData_S = onlyData_S.TrimEnd('\0'); // 去掉\0
+                    availableLength = onlyData_S.Length; // 有效长度
+                    Array.Resize(ref allResult, byteStart + availableLength); // 修改byte大小
+                    Array.Copy(socketType.SocketByte, 0, allResult, byteStart, availableLength);
+                    data += onlyData_S; // 全局字符串
+                    firstRead = false;
                 }
+                while (socket.Available > 0);
+
+                if (data.Length == 0) { // 用于兼容mono
+                    int tempClose;
+                    if (!closeMap.TryGetValue(socket.Handle, out tempClose)) { closeMap[socket.Handle] = 0; }
+                    if (closeMap[socket.Handle] > 10) { IsReturn = true; }
+                    else { closeMap[socket.Handle] = closeMap[socket.Handle] + 1; }
+                }
+                else { closeMap[socket.Handle] = 0; }
 
                 int findIndex = 0;
+                string allRest_S = System.Text.Encoding.ASCII.GetString(allResult);
+                allRest_S = allRest_S.TrimEnd('\0');
                 while (true) {
-                    string allRest_S = System.Text.Encoding.ASCII.GetString(allResult);
                     int endInt = allRest_S.IndexOf("|end|", findIndex);
                     int onlyDataLength = endInt + 5 - findIndex; // 加上|end|的长度
                     if (endInt != -1 && onlyDataLength > 0) {
                         byte[] onlyData = SubByte(allResult, findIndex, onlyDataLength);
-                        if (!new ControlMainClass().Entrance(onlyData, ref socket)) { IsReturn = true; } // 操作不成功则退出Socket
+                        if (!new ControlMainClass().Entrance(onlyData, ref socket)) {
+                            IsReturn = true;
+                        } // 操作不成功则退出Socket
                     }
                     else {
-                        temp = SubByte(allResult, findIndex, 0); // 临时数据(未接受完整的)
-                        tempMap[socket.Handle] = temp; // 放入临时数据列表
+                        int len = allRest_S.Length - findIndex;
+                        if(len != 0) {
+                            temp = SubByte(allResult, findIndex, len); // 临时数据(未接受完整的)
+                            tempMap[socket.Handle] = temp; // 放入临时数据列表
+                        }
                         break;
                     }
                     findIndex += onlyDataLength; // 最后在加上(因为找的是组合所以没加1也行)
                 }
                 //if (socket.Available > 0) { goto recv; }
             }
-            catch { }
+            catch(Exception error) { }
             finally {
                 if (IsReturn == true) { // 是否退出 
                     socket.Close();
@@ -185,7 +206,7 @@ namespace Weteoes
         }
         private void InternetSocketCallbackReset(SocketType socketType) { //重新设置监听
             try {
-                socketType.SocketByte = new byte[SocketByteSize];
+                Array.Clear(socketType.SocketByte, 0, socketType.SocketByte.Length);
                 socketType.SocketConnect.BeginReceive(socketType.SocketByte, 0, socketType.SocketByte.Length, SocketFlags.None, new AsyncCallback(InternetSocketCallback), socketType);
             }
             catch { }

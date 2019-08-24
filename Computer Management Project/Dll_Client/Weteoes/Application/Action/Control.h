@@ -21,6 +21,7 @@ void ControlClass::Entrance(std::string data) {
 	if (ConfigClass::use.StrToLower(data) == ConfigClass::use.StrToLower("Stop")) { Start(); }
 }
 void ControlClass::Start() {
+	Stop();
 	WeteoesDll::CMD_Run((char*)"sc start ComputerControl");
 }
 void ControlClass::Stop() {
