@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Sockets;
 
 namespace Weteoes
@@ -17,10 +18,22 @@ namespace Weteoes
             {
                 string user, computerName;
                 string data_string = System.Text.Encoding.ASCII.GetString(data);
+                if (data_string.Length < 6) { return true; }
                 string w_f = data_string.Substring(0, 6);
-                if (w_f == "Server" || w_f == "Client"|| (!controlSocketList.TryGetValue(socket, out user))) { // Socket查询用户,失败就说明没有验证过身份
+                //if (data_string.Length > 100) {
+                //    controlSocketClass.WriteMessage("MainClass::debug " + data_string.Substring(0, 10) + " "+ data_string.Substring(data_string.Length-10, 10) + " len:" + data_string.Length + " w_f:" + w_f);
+                //}
+                //else controlSocketClass.WriteMessage("MainClass::debug " + data_string + " len:" + data_string.Length + " w_f:"+w_f);
+                //{
+                //    int i = 0;
+                //    if (data_string.IndexOf("|end|") != -1) { i++; }
+                //    if (i != 1) { controlSocketClass.WriteMessage("MainClass::debug IndexOf:" + i); }
+                //}
+                
+
+                if ((w_f == "Server" || w_f == "Client") && (!controlSocketList.TryGetValue(socket, out user))) { // Socket查询用户,失败就说明没有验证过身份
                     int function = getFunction(ref data_string); // 获取操作类型
-                    controlSocketClass.WriteMessage("MainClass::11 " + data_string.Substring(0,12));
+                    controlSocketClass.WriteMessage("MainClass::11 " + data_string);
                     /* Sign_in */
                     if (!Login(socket, ref data_string, out user)) {
                         controlSocketClass.WriteMessage("MainClass::socketEntrance " + w_f + ": 捕捉到非法用户访问，身份信息不一致");
@@ -31,12 +44,12 @@ namespace Weteoes
                         case 1: // Server
                             controlSocketList.Add(socket, user); // 添加Socket对应用户列表
                             Server(socket, user, computerName);
-                            controlSocketClass.sendSocket(socket, controlSocketClass.flac_Success + controlSocketClass.flac_End);
+                            controlSocketClass.sendSocket(socket, controlSocketClass.flac_Start + controlSocketClass.flac_Success + controlSocketClass.flac_End);
                             break;
                         case 2: // Client
                             controlSocketList.Add(socket, user); // 添加Socket对应用户列表
                             if (!Client(socket, user, computerName)) { controlSocketClass.WriteMessage("Entrance 被控端未上线"); return false; } // 被控端未上线
-                            controlSocketClass.sendSocket(socket, controlSocketClass.flac_Success + controlSocketClass.flac_End);
+                            controlSocketClass.sendSocket(socket, controlSocketClass.flac_Start + controlSocketClass.flac_Success + controlSocketClass.flac_End);
                             break;
                         default:
                             controlSocketClass.WriteMessage("Entrance 捕捉到非法访问 Data:" + data_string);
@@ -48,7 +61,7 @@ namespace Weteoes
             flac_result:
                 return true;
             }
-            catch(System.Exception error) { return false; }   
+            catch(System.Exception error) { controlSocketClass.WriteMessage(error.Message); return false; }   
         }
         private bool Server(Socket socket, string user, string computerName) {
             try {
@@ -108,12 +121,22 @@ namespace Weteoes
             catch { return false; }
         }
         private void ForwardData(Socket socket, byte[] data) {
-            Socket a;
-            if (!controlConnectList.TryGetValue(socket, out a)) { return; }
-            //string bb = System.Text.Encoding.ASCII.GetString(data);
-            //if (bb.Length > 20) bb = bb.Substring(0, 20);
-            //controlSocketClass.WriteMessage("length:" + data.Length + " data:" + bb);
-            a.Send(data);
+            try {
+                Socket a;
+                //string bb = System.Text.Encoding.ASCII.GetString(data);
+                //if (bb.Length > 20) bb = bb.Substring(0, 20);
+                byte[] sendData = System.Text.Encoding.ASCII.GetBytes(controlSocketClass.flac_Start);
+                int sendDataHeaderLen = sendData.Length; // 记录头部长度
+                Array.Resize(ref sendData, sendDataHeaderLen + data.Length); // 修改byte大小
+                Array.Copy(data, 0, sendData, sendDataHeaderLen, data.Length);
+
+                //string aaa = System.Text.Encoding.ASCII.GetString(sendData);
+                //controlSocketClass.WriteMessage("MainClass::debug " + aaa.Substring(0, 10) + " " + aaa.Substring(aaa.Length - 10, 10) + " len:" + aaa.Length);
+                if (!controlConnectList.TryGetValue(socket, out a)) { return; }
+
+                a.Send(sendData);
+            }
+            catch { }
         }
         private int getFunction(ref string data) {
             /* AppConfig */
