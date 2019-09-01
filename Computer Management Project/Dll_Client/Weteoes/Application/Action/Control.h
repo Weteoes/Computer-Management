@@ -22,6 +22,7 @@ void ControlClass::Entrance(std::string data) {
 }
 void ControlClass::Start() {
 	Stop();
+	Sleep(100);
 	WeteoesDll::CMD_Run((char*)"sc start ComputerControl");
 }
 void ControlClass::Stop() {

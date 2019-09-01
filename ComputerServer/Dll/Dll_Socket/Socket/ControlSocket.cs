@@ -175,22 +175,26 @@ namespace Weteoes
                 while (true) {
                     int findStart = allRest_S.IndexOf(flac_Start, findIndex);
                     bool quitWhile = false; // 是否退出循环
-                    if (allRest_S.Length <= findStart) { quitWhile = true; }
-                    int findEnd = allRest_S.IndexOf(flac_End, findStart);
-                    int onlyDataLength = findEnd - findStart + flac_End.Length - flac_Start.Length; // 加上|end|的长度 减去|start|的长度
-                    if (findStart != -1 && findEnd != -1) {
-                        byte[] onlyData = SubByte(allResult, findStart+ flac_Start.Length, onlyDataLength);
-                        string onlyData_s = System.Text.Encoding.ASCII.GetString(onlyData);
-                        onlyData_s = onlyData_s.TrimEnd('\0');
-                        onlyData = SubByte(onlyData, 0, onlyData_s.Length);
-                        int oldDataLen = onlyData_s.Length;
-                        onlyData_s = onlyData_s.TrimStart('\0');
-                        onlyData = SubByte(onlyData, oldDataLen - onlyData_s.Length, onlyData_s.Length);
-                        if (!new ControlMainClass().Entrance(onlyData, ref socket)) {
-                            IsReturn = true;
+                    int onlyDataLength = 0; // 数据长度
+                    if (allRest_S.Length <= findStart || findStart == -1) { quitWhile = true; }
+                    else {
+                        int findEnd = allRest_S.IndexOf(flac_End, findStart);
+                        onlyDataLength = findEnd - findStart + flac_End.Length - flac_Start.Length; // 加上|end|的长度 减去|start|的长度
+                        if (findStart != -1 && findEnd != -1) {
+                            byte[] onlyData = SubByte(allResult, findStart + flac_Start.Length, onlyDataLength);
+                            string onlyData_s = System.Text.Encoding.ASCII.GetString(onlyData);
+                            onlyData_s = onlyData_s.TrimEnd('\0');
+                            onlyData = SubByte(onlyData, 0, onlyData_s.Length);
+                            int oldDataLen = onlyData_s.Length;
+                            onlyData_s = onlyData_s.TrimStart('\0');
+                            onlyData = SubByte(onlyData, oldDataLen - onlyData_s.Length, onlyData_s.Length);
+                            if (onlyData.Length == 0) { continue; }
+                            if (!new ControlMainClass().Entrance(onlyData, ref socket)) {
+                                IsReturn = true;
+                            }
                         }
                     }
-                    if (quitWhile) {
+                    if (quitWhile) { // 是否退出循环
                         int len = allRest_S.Length - findIndex;
                         if (len != 0) {
                             temp = SubByte(allResult, findIndex, len); // 临时数据(未接受完整的)
@@ -202,7 +206,8 @@ namespace Weteoes
                 }
                 //if (socket.Available > 0) { goto recv; }
             }
-            catch(Exception error) { }
+            catch { }
+            //catch(Exception error) { WriteMessage("ControlSocketClass->InternetSocketCallback:" + error.Message); }
             finally {
                 if (IsReturn == true) { // 是否退出 
                     socket.Close();
@@ -232,20 +237,26 @@ namespace Weteoes
             messageClass.writeLog("Control:" + msg, true);
         }
         public byte[] SubByte(byte[] srcBytes, int startIndex, int length) {
-            System.IO.MemoryStream bufferStream = new System.IO.MemoryStream();
-            byte[] returnByte = new byte[] { };
-            if (srcBytes == null) { return returnByte; }
-            if (startIndex < 0) { startIndex = 0; }
-            if (startIndex < srcBytes.Length) {
-                if (length < 1 || length > srcBytes.Length - startIndex) { length = srcBytes.Length - startIndex; }
-                bufferStream.Write(srcBytes, startIndex, length);
-                returnByte = bufferStream.ToArray();
-                bufferStream.SetLength(0);
-                bufferStream.Position = 0;
+            try {
+                System.IO.MemoryStream bufferStream = new System.IO.MemoryStream();
+                byte[] returnByte = new byte[] { };
+                if (srcBytes == null) { return returnByte; }
+                if (startIndex < 0) { startIndex = 0; }
+                if (startIndex < srcBytes.Length) {
+                    if (length < 1 || length > srcBytes.Length - startIndex) { length = srcBytes.Length - startIndex; }
+                    bufferStream.Write(srcBytes, startIndex, length);
+                    returnByte = bufferStream.ToArray();
+                    bufferStream.SetLength(0);
+                    bufferStream.Position = 0;
+                }
+                bufferStream.Close();
+                bufferStream.Dispose();
+                return returnByte;
             }
-            bufferStream.Close();
-            bufferStream.Dispose();
-            return returnByte;
+            catch(Exception error) {
+                WriteMessage("ControlSocketClass->SubByte:" + error.Message);
+                return new byte[0];
+            }
         }
     }
 }

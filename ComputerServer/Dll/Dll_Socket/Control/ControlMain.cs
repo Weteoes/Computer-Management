@@ -17,9 +17,10 @@ namespace Weteoes
             try
             {
                 string user, computerName;
-                string data_string = System.Text.Encoding.ASCII.GetString(data);
-                if (data_string.Length < 6) { return true; }
-                string w_f = data_string.Substring(0, 6);
+                if (data.Length < 6) { return true; }
+                string w_f = System.Text.Encoding.ASCII.GetString(controlSocketClass.SubByte(data, 0, 6));
+                //string data_string = System.Text.Encoding.ASCII.GetString(data);
+                //string w_f = data_string.Substring(0, 6);
                 //if (data_string.Length > 100) {
                 //    controlSocketClass.WriteMessage("MainClass::debug " + data_string.Substring(0, 10) + " "+ data_string.Substring(data_string.Length-10, 10) + " len:" + data_string.Length + " w_f:" + w_f);
                 //}
@@ -29,11 +30,9 @@ namespace Weteoes
                 //    if (data_string.IndexOf("|end|") != -1) { i++; }
                 //    if (i != 1) { controlSocketClass.WriteMessage("MainClass::debug IndexOf:" + i); }
                 //}
-                
-
                 if ((w_f == "Server" || w_f == "Client") && (!controlSocketList.TryGetValue(socket, out user))) { // Socket查询用户,失败就说明没有验证过身份
+                    string data_string = System.Text.Encoding.ASCII.GetString(data);
                     int function = getFunction(ref data_string); // 获取操作类型
-                    controlSocketClass.WriteMessage("MainClass::11 " + data_string);
                     /* Sign_in */
                     if (!Login(socket, ref data_string, out user)) {
                         controlSocketClass.WriteMessage("MainClass::socketEntrance " + w_f + ": 捕捉到非法用户访问，身份信息不一致");
@@ -61,32 +60,32 @@ namespace Weteoes
             flac_result:
                 return true;
             }
-            catch(System.Exception error) { controlSocketClass.WriteMessage(error.Message); return false; }   
+            catch(System.Exception error) { controlSocketClass.WriteMessage("ControlMainClass->Entrance" + error.Message); return false; }   
         }
         private bool Server(Socket socket, string user, string computerName) {
             try {
+                Socket oldServerSocket = null;
                 List<controlStruct> tempControlStructList;
                 if (!controlComputerList.TryGetValue(user, out tempControlStructList)) {  // 没获取到就初始化List空间
                     tempControlStructList = new List<controlStruct>();
                 }
                 for (int i = tempControlStructList.Count - 1; i >= 0; i--) {
-                    if (tempControlStructList[i].computerName.Equals(computerName)) { tempControlStructList.RemoveAt(i); }
+                    if (tempControlStructList[i].computerName.Equals(computerName)) {
+                        oldServerSocket = tempControlStructList[i].socket; // 保存旧的socket，用于更新client
+                        tempControlStructList.RemoveAt(i); // 如果有相同的电脑名称，那就删掉他
+
+                    } 
                 }
-                //List<controlStruct> removeControlStructList = new List<controlStruct>();
-                //foreach (controlStruct i in tempControlStructList) {
-                //    // 如果有相同的电脑名称，那就删掉他
-                //    if (i.computerName.Equals(computerName)) { removeControlStructList.Add(i); }
-                //}
-                //foreach (controlStruct i in removeControlStructList) { tempControlStructList.Remove(i); }
 
                 // 添加控制列表
                 controlStruct tempControlStruct = new controlStruct() { computerName = computerName, socket = socket };
                 tempControlStructList.Add(tempControlStruct);
                 controlComputerList[user] = tempControlStructList; // 添加用户Control列表
                 controlSocketClass.WriteMessage("Computer:" + computerName + " login.");
+                ClientUpdate(oldServerSocket, user, computerName);
                 return true;
             }
-            catch(System.Exception error) { controlSocketClass.WriteMessage(error.Message); return false; }
+            catch(System.Exception error) { controlSocketClass.WriteMessage("ControlMainClass->Server" + error.Message); return false; }
         }
         private bool Client(Socket socket, string user, string computerName) {
             try {
@@ -108,7 +107,27 @@ namespace Weteoes
                 }
                 return false;
             }
-            catch { return false; }
+            catch(Exception error) { controlSocketClass.WriteMessage("ControlMainClass->Client" + error.Message); return false; }
+        }
+        private bool ClientUpdate(Socket oldServerSocket, string user, string computerName) { // 更新客户端与服务器的对应列表
+            try {
+                if (oldServerSocket == null) { return false; }
+                List<controlStruct> clientControl;
+                if (!controlComputerList.TryGetValue(user, out clientControl)) { return false; }
+                for (int i = clientControl.Count - 1; i >= 0; i--) {
+                    if (clientControl[i].computerName == computerName) { // 为需要更新的电脑
+                        Socket newServerSocket = clientControl[i].socket; // 新的serverSocket
+                        Socket clientSocket = controlConnectList[oldServerSocket]; // clientSocket
+                        controlConnectList[clientSocket] = newServerSocket;
+                        controlConnectList[newServerSocket] = clientSocket;
+                        controlSocketClass.WriteMessage(String.Format("User:{0},Computer:{1} ClientUpdate", user, computerName));
+                        return true;
+                    }
+                }
+                
+            }
+            catch(Exception error) { controlSocketClass.WriteMessage("ControlMainClass->ClientUpdate" + error.Message); return false; }
+            return false;
         }
         private bool Login(Socket socket, ref string data, out string user) {
             user = ""; // 初始化out
@@ -123,6 +142,8 @@ namespace Weteoes
         private void ForwardData(Socket socket, byte[] data) {
             try {
                 Socket a;
+                if (!controlConnectList.TryGetValue(socket, out a)) { return; }
+                if (a == null) { return; }
                 //string bb = System.Text.Encoding.ASCII.GetString(data);
                 //if (bb.Length > 20) bb = bb.Substring(0, 20);
                 byte[] sendData = System.Text.Encoding.ASCII.GetBytes(controlSocketClass.flac_Start);
@@ -132,10 +153,9 @@ namespace Weteoes
 
                 //string aaa = System.Text.Encoding.ASCII.GetString(sendData);
                 //controlSocketClass.WriteMessage("MainClass::debug " + aaa.Substring(0, 10) + " " + aaa.Substring(aaa.Length - 10, 10) + " len:" + aaa.Length);
-                if (!controlConnectList.TryGetValue(socket, out a)) { return; }
-
                 a.Send(sendData);
             }
+            catch (SocketException) { controlConnectList[socket] = null; }
             catch { }
         }
         private int getFunction(ref string data) {
