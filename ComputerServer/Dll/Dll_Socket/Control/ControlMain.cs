@@ -151,8 +151,9 @@ namespace Weteoes
                 Array.Resize(ref sendData, sendDataHeaderLen + data.Length); // 修改byte大小
                 Array.Copy(data, 0, sendData, sendDataHeaderLen, data.Length);
 
-                //string aaa = System.Text.Encoding.ASCII.GetString(sendData);
-                //controlSocketClass.WriteMessage("MainClass::debug " + aaa.Substring(0, 10) + " " + aaa.Substring(aaa.Length - 10, 10) + " len:" + aaa.Length);
+                //string aaa = System.Text.Encoding.ASCII.GetString(sendData);//---------
+                //if(aaa.Length < 50)
+                //    controlSocketClass.WriteMessage("MainClass::debug " + aaa);
                 a.Send(sendData);
             }
             catch (SocketException) { controlConnectList[socket] = null; }

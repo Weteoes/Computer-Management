@@ -202,7 +202,7 @@ namespace Weteoes
                         }
                         break;
                     }
-                    findIndex += onlyDataLength; // 最后在加上(因为找的是组合所以没加1也行)
+                    findIndex += (findStart + onlyDataLength); // 最后在加上(因为找的是组合所以没加1也行)
                 }
                 //if (socket.Available > 0) { goto recv; }
             }
