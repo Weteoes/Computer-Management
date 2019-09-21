@@ -120,6 +120,7 @@ namespace Weteoes
                         Socket clientSocket = controlConnectList[oldServerSocket]; // clientSocket
                         controlConnectList[clientSocket] = newServerSocket;
                         controlConnectList[newServerSocket] = clientSocket;
+                        controlConnectList.Remove(oldServerSocket);
                         controlSocketClass.WriteMessage(String.Format("User:{0},Computer:{1} ClientUpdate", user, computerName));
                         return true;
                     }
@@ -144,19 +145,21 @@ namespace Weteoes
                 Socket a;
                 if (!controlConnectList.TryGetValue(socket, out a)) { return; }
                 if (a == null) { return; }
-                //string bb = System.Text.Encoding.ASCII.GetString(data);
-                //if (bb.Length > 20) bb = bb.Substring(0, 20);
                 byte[] sendData = System.Text.Encoding.ASCII.GetBytes(controlSocketClass.flac_Start);
                 int sendDataHeaderLen = sendData.Length; // 记录头部长度
                 Array.Resize(ref sendData, sendDataHeaderLen + data.Length); // 修改byte大小
                 Array.Copy(data, 0, sendData, sendDataHeaderLen, data.Length);
 
-                //string aaa = System.Text.Encoding.ASCII.GetString(sendData);//---------
-                //if(aaa.Length < 50)
+                ////-------------------DEBUG
+                //string aaa = System.Text.Encoding.ASCII.GetString(sendData);
+                //if (aaa.Length < 50)
                 //    controlSocketClass.WriteMessage("MainClass::debug " + aaa);
+                //else
+                //    controlSocketClass.WriteMessage("MainClass::debug " + aaa.Substring(0, 20));
+
                 a.Send(sendData);
             }
-            catch (SocketException) { controlConnectList[socket] = null; }
+            //catch (SocketException) { controlConnectList[socket] = null; }
             catch { }
         }
         private int getFunction(ref string data) {

@@ -14,7 +14,7 @@ namespace Weteoes
         static List<SocketType> SocketTypeList = new List<SocketType>(); //Socket集合(客户机)
         private Dictionary<IntPtr, int> closeMap = new Dictionary<IntPtr, int>(); //准备退出缓存区(一个Sokcet一个缓存区)
         private Dictionary<IntPtr, byte[]> tempMap = new Dictionary<IntPtr, byte[]>(); //临时缓存区(一个Sokcet一个缓存区)
-        int SocketByteSize = 600000; //设置缓存区大小
+        int SocketByteSize = 3000000; //设置缓存区大小
         static bool status = true; //运行状态
 
         public string flac_Start = "|start|";
@@ -158,6 +158,7 @@ namespace Weteoes
                     Array.Copy(socketType.SocketByte, 0, allResult, byteStart, availableLength);
                     data += onlyData_S; // 全局字符串
                     firstRead = false;
+                    if (byteStart > 60000) { break; } // 防止一直在接受
                 }
                 while (socket.Available > 0);
 
@@ -174,11 +175,11 @@ namespace Weteoes
                 //allRest_S = allRest_S.Trim('\0');
                 while (true) {
                     int findStart = allRest_S.IndexOf(flac_Start, findIndex);
+                    int findEnd = allRest_S.IndexOf(flac_End, findStart);
                     bool quitWhile = false; // 是否退出循环
                     int onlyDataLength = 0; // 数据长度
-                    if (allRest_S.Length <= findStart || findStart == -1) { quitWhile = true; }
+                    if (allRest_S.Length <= findStart || findStart == -1 || findEnd == -1) { quitWhile = true; }
                     else {
-                        int findEnd = allRest_S.IndexOf(flac_End, findStart);
                         onlyDataLength = findEnd - findStart + flac_End.Length - flac_Start.Length; // 加上|end|的长度 减去|start|的长度
                         if (findStart != -1 && findEnd != -1) {
                             byte[] onlyData = SubByte(allResult, findStart + flac_Start.Length, onlyDataLength);
@@ -202,7 +203,7 @@ namespace Weteoes
                         }
                         break;
                     }
-                    findIndex += (findStart + onlyDataLength); // 最后在加上(因为找的是组合所以没加1也行)
+                    findIndex += (findStart + onlyDataLength + flac_Start.Length); // 最后在加上flac_Start
                 }
                 //if (socket.Available > 0) { goto recv; }
             }
