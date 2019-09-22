@@ -159,7 +159,11 @@ namespace Weteoes
 
                 a.Send(sendData);
             }
-            //catch (SocketException) { controlConnectList[socket] = null; }
+            catch (SocketException) {
+                Socket value = controlConnectList[socket];
+                controlConnectList.Remove(socket);
+                controlConnectList.Remove(value);
+            }
             catch { }
         }
         private int getFunction(ref string data) {

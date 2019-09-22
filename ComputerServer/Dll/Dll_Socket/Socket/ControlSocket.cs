@@ -174,28 +174,31 @@ namespace Weteoes
                 string allRest_S = System.Text.Encoding.ASCII.GetString(allResult);
                 //allRest_S = allRest_S.Trim('\0');
                 while (true) {
-                    int findStart = allRest_S.IndexOf(flac_Start, findIndex);
-                    int findEnd = allRest_S.IndexOf(flac_End, findStart);
                     bool quitWhile = false; // 是否退出循环
+                    int findStart = allRest_S.IndexOf(flac_Start, findIndex);
+                    if (allRest_S.Length <= findStart || findStart == -1) { quitWhile = true; } // 判断Start
                     int onlyDataLength = 0; // 数据长度
-                    if (allRest_S.Length <= findStart || findStart == -1 || findEnd == -1) { quitWhile = true; }
-                    else {
-                        onlyDataLength = findEnd - findStart + flac_End.Length - flac_Start.Length; // 加上|end|的长度 减去|start|的长度
-                        if (findStart != -1 && findEnd != -1) {
-                            byte[] onlyData = SubByte(allResult, findStart + flac_Start.Length, onlyDataLength);
-                            string onlyData_s = System.Text.Encoding.ASCII.GetString(onlyData);
-                            onlyData_s = onlyData_s.TrimEnd('\0');
-                            onlyData = SubByte(onlyData, 0, onlyData_s.Length);
-                            int oldDataLen = onlyData_s.Length;
-                            onlyData_s = onlyData_s.TrimStart('\0');
-                            onlyData = SubByte(onlyData, oldDataLen - onlyData_s.Length, onlyData_s.Length);
-                            if (onlyData.Length == 0) { continue; }
-                            if (!new ControlMainClass().Entrance(onlyData, ref socket)) {
-                                IsReturn = true;
+                    if (!quitWhile) { // 不需要退出循环(有数据)
+                        int findEnd = allRest_S.IndexOf(flac_End, findStart);
+                        if (findEnd == -1) { quitWhile = true; } // 判断End
+                        else { // 处理数据
+                            onlyDataLength = findEnd - findStart + flac_End.Length - flac_Start.Length; // 加上|end|的长度 减去|start|的长度
+                            if (findStart != -1 && findEnd != -1) {
+                                byte[] onlyData = SubByte(allResult, findStart + flac_Start.Length, onlyDataLength);
+                                string onlyData_s = System.Text.Encoding.ASCII.GetString(onlyData);
+                                onlyData_s = onlyData_s.TrimEnd('\0');
+                                onlyData = SubByte(onlyData, 0, onlyData_s.Length);
+                                int oldDataLen = onlyData_s.Length;
+                                onlyData_s = onlyData_s.TrimStart('\0');
+                                onlyData = SubByte(onlyData, oldDataLen - onlyData_s.Length, onlyData_s.Length);
+                                if (onlyData.Length == 0) { continue; }
+                                if (!new ControlMainClass().Entrance(onlyData, ref socket)) {
+                                    IsReturn = true;
+                                }
                             }
                         }
                     }
-                    if (quitWhile) { // 是否退出循环
+                    else { // 退出循环
                         int len = allRest_S.Length - findIndex;
                         if (len != 0) {
                             temp = SubByte(allResult, findIndex, len); // 临时数据(未接受完整的)
@@ -203,7 +206,7 @@ namespace Weteoes
                         }
                         break;
                     }
-                    findIndex += (findStart + onlyDataLength + flac_Start.Length); // 最后在加上flac_Start
+                    findIndex = (findStart + onlyDataLength + flac_Start.Length); // 最后在加上flac_Start
                 }
                 //if (socket.Available > 0) { goto recv; }
             }
