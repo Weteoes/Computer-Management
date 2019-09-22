@@ -9,7 +9,7 @@
 #endif // w_Debug
 
 #define Config_UI_URL "http://127.0.0.1:23332"
-//#define Config_UI_URL "http://127.0.0.1:8080"
+//#define Config_UI_URL "http://127.0.0.1:80
 #define Config_Software_Title "Computer Management"
 #define Config_Software_Name "Computer" // 主程序运行进程名称
-#define Config_Version "3.11.19914.1913"
+#define Config_Version "3.11.19922.1926"
