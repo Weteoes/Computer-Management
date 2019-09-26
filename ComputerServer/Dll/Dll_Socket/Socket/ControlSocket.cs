@@ -172,7 +172,6 @@ namespace Weteoes
 
                 int findIndex = 0;
                 string allRest_S = System.Text.Encoding.ASCII.GetString(allResult);
-                //allRest_S = allRest_S.Trim('\0');
                 while (true) {
                     bool quitWhile = false; // 是否退出循环
                     int findStart = allRest_S.IndexOf(flac_Start, findIndex);
@@ -201,12 +200,13 @@ namespace Weteoes
                     else { // 退出循环
                         int len = allRest_S.Length - findIndex;
                         if (len != 0) {
-                            temp = SubByte(allResult, findIndex, len); // 临时数据(未接受完整的)
+                            temp = SubByte(allResult, findIndex - flac_Start.Length, len + flac_Start.Length); // 临时数据(未接受完整的)
+                            string aaa = System.Text.Encoding.ASCII.GetString(temp); //--------------------------
                             tempMap[socket.Handle] = temp; // 放入临时数据列表
                         }
                         break;
                     }
-                    findIndex = (findStart + onlyDataLength + flac_Start.Length); // 最后在加上flac_Start
+                    findIndex = findStart + onlyDataLength + flac_Start.Length;
                 }
                 //if (socket.Available > 0) { goto recv; }
             }

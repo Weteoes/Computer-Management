@@ -124,8 +124,7 @@ namespace Weteoes
                         controlSocketClass.WriteMessage(String.Format("User:{0},Computer:{1} ClientUpdate", user, computerName));
                         return true;
                     }
-                }
-                
+                }  
             }
             catch(Exception error) { controlSocketClass.WriteMessage("ControlMainClass->ClientUpdate" + error.Message); return false; }
             return false;
@@ -144,7 +143,10 @@ namespace Weteoes
             try {
                 Socket a;
                 if (!controlConnectList.TryGetValue(socket, out a)) { return; }
-                if (a == null) { return; }
+                if (a == null) {
+                    controlSocketClass.WriteMessage("ControlMainClass->ForwardData Socket NULL");
+                    return;
+                }
                 byte[] sendData = System.Text.Encoding.ASCII.GetBytes(controlSocketClass.flac_Start);
                 int sendDataHeaderLen = sendData.Length; // 记录头部长度
                 Array.Resize(ref sendData, sendDataHeaderLen + data.Length); // 修改byte大小
@@ -160,9 +162,9 @@ namespace Weteoes
                 a.Send(sendData);
             }
             catch (SocketException) {
-                Socket value = controlConnectList[socket];
-                controlConnectList.Remove(socket);
-                controlConnectList.Remove(value);
+                //Socket value = controlConnectList[socket];
+                //controlConnectList.Remove(socket);
+                //controlConnectList.Remove(value);
             }
             catch { }
         }
