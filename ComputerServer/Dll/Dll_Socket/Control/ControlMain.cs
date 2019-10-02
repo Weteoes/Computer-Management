@@ -56,6 +56,14 @@ namespace Weteoes
                     }
                     goto flac_result;
                 }
+                // 如果是桌面信息，判断时间戳
+                string dataString = System.Text.Encoding.ASCII.GetString(controlSocketClass.SubByte(data, 0, 40));
+                string image = getConfig(ref dataString);
+                if (image == "Control_image") {
+                    long recvTime = long.Parse(getConfig(ref dataString));
+                    long nowTime = (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000;
+                    //if (nowTime - recvTime > 3000) { return true; } // 超过3s的桌面信息丢弃
+                }
                 ForwardData(socket, data); // 转发数据
             flac_result:
                 return true;
@@ -151,20 +159,14 @@ namespace Weteoes
                 int sendDataHeaderLen = sendData.Length; // 记录头部长度
                 Array.Resize(ref sendData, sendDataHeaderLen + data.Length); // 修改byte大小
                 Array.Copy(data, 0, sendData, sendDataHeaderLen, data.Length);
-
-                ////-------------------DEBUG
-                //string aaa = System.Text.Encoding.ASCII.GetString(sendData);
-                //if (aaa.Length < 50)
-                //    controlSocketClass.WriteMessage("MainClass::debug " + aaa);
-                //else
-                //    controlSocketClass.WriteMessage("MainClass::debug " + aaa.Substring(0, 20));
-
                 a.Send(sendData);
             }
-            catch (SocketException) {
-                //Socket value = controlConnectList[socket];
-                //controlConnectList.Remove(socket);
-                //controlConnectList.Remove(value);
+            catch (SocketException error) {
+                if (error.SocketErrorCode == SocketError.ConnectionReset) {
+                    Socket value = controlConnectList[socket];
+                    controlConnectList.Remove(socket);
+                    controlConnectList.Remove(value);
+                }
             }
             catch { }
         }
@@ -180,6 +182,13 @@ namespace Weteoes
         class controlStruct {
             public string computerName;
             public Socket socket;
+        }
+        private string getConfig(ref string data, string flac = "|w|") {
+            int i = data.IndexOf(flac);
+            if (i == -1) { return data; }
+            string result = data.Substring(0, i);
+            data = data.Substring(i + flac.Length);
+            return result;
         }
     }
 }

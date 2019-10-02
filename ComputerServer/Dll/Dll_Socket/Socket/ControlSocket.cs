@@ -12,9 +12,9 @@ namespace Weteoes
     {
         List<TcpListener> allTcpListener = new List<TcpListener>(); //监听ip集合
         static List<SocketType> SocketTypeList = new List<SocketType>(); //Socket集合(客户机)
-        private Dictionary<IntPtr, int> closeMap = new Dictionary<IntPtr, int>(); //准备退出缓存区(一个Sokcet一个缓存区)
-        private Dictionary<IntPtr, byte[]> tempMap = new Dictionary<IntPtr, byte[]>(); //临时缓存区(一个Sokcet一个缓存区)
-        int SocketByteSize = 3000000; //设置缓存区大小
+        private Dictionary<IntPtr, int> closeMap = new Dictionary<IntPtr, int>(); // 判断是否需要退出缓存区(一个Sokcet一个缓存区)（兼容）
+        private Dictionary<IntPtr, byte[]> tempMap = new Dictionary<IntPtr, byte[]>(); // 临时缓存区(一个Sokcet一个缓存区)
+        int SocketByteSize = 100000; //设置缓存区大小
         static bool status = true; //运行状态
 
         public string flac_Start = "|start|";
