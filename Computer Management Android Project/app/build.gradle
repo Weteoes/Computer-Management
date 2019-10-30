@@ -6,8 +6,8 @@ android {
         applicationId "com.weteoes.computermanagement"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 3
-        versionName "3.0.190415.1536"
+        versionCode 4
+        versionName "3.0.191030.1713"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

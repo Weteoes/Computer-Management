@@ -46,7 +46,7 @@ public class dlg_start extends AppCompatActivity {
                     final Intent intent = new Intent(dlg_start.this, dlg_web.class);
                     intent.putExtras(web_bundle);
 
-                    Thread.sleep(1200);
+                    Thread.sleep(600);
                     //启动主窗口
                     runOnUiThread(new Runnable() {
                         @Override
