@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>login</title>
+    <link rel="stylesheet" href="../../../css/client/index.css" />
+    <link rel="stylesheet" href="../../../css/client/systemMenu.css" />
+    <link rel="stylesheet" href="css/0.css" />
+  </head>
+  
+  <body>
+    <div id="app">
+      <!-- 设置宽高 keydown事件 -->
+      <div class="w_data" :style="'width:'+this.ready.w+'px;'+'height:'+this.ready.h+'px'" @keydown="sumbitKeydown">
+        <!-- Css -->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <!-- Html -->
+        <div class="w_body">
+          <!-- SystemMenu -->
+          <div class="systemMenu"></div>
+          <!-- Data -->
+          <div class="login_body_data">
+            <div class="data_icon">
+              <div class="data_icon_img"></div>
+              <div class="data_icon_title">Computer Management</div>
+            </div>
+            <!-- User -->
+            <div class="data_input" style="margin-top:50px;">
+              <input type="text" v-model="input.user" placeholder="User">
+            </div>
+            <!-- Pass -->
+            <div class="data_input">
+              <input type="password" v-model="input.pass" placeholder="Password">
+            </div>
+            <!-- Sumbit -->
+            <div class="data_sumbit" @click="sumbitClick">登录</div>
+          </div>
+        </div>
+        <div class="w_background login_background"></div>
+      </div>
+    </div>
+    <script src="../../../script/vue.js"></script>
+    <script src="../../../script/axios.js"></script>
+    <script src="../../../script/weteoes.js"></script>
+    <script src="../../../script/client/weteoes.js"></script>
+    <script src="js/0.js"></script>
+  </body>
+</html>

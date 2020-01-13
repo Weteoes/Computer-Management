@@ -25,20 +25,20 @@ public class WebViewClass extends WebViewClient {
     /* 404 500 */
     @Override
     public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
-        super.onReceivedHttpError(view, request, errorResponse);
-        int statusCode = errorResponse.getStatusCode();
-        if (404 == statusCode || 500 == statusCode) {
-            view.loadUrl("file:///android_asset/web/error.html?url="+view.getUrl()); // 避免出现默认的错误界面
-        }
+//        super.onReceivedHttpError(view, request, errorResponse);
+//        int statusCode = errorResponse.getStatusCode();
+//        if (404 == statusCode || 500 == statusCode) {
+//            view.loadUrl("file:///android_asset/web/error.html?url="+view.getUrl()); // 避免出现默认的错误界面
+//        }
     }
 
     /* 无网络 */
     @Override
     public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-        super.onReceivedError(view, request, error);
-        if (request.isForMainFrame()) { // 或者： if(request.getUrl().toString() .equals(getUrl()))
-            // 在这里显示自定义错误页
-            view.loadUrl("file:///android_asset/web/error.html?url="+view.getUrl()); // 避免出现默认的错误界面
-        }
+//        super.onReceivedError(view, request, error);
+//        if (request.isForMainFrame()) { // 或者： if(request.getUrl().toString() .equals(getUrl()))
+//            // 在这里显示自定义错误页
+//            view.loadUrl("file:///android_asset/web/error.html?url="+view.getUrl()); // 避免出现默认的错误界面
+//        }
     }
 }

@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <title>mainComputer</title>
+    <link rel="stylesheet" href="../../../css/client/index.css" />
+    <link rel="stylesheet" href="../../../css/client/systemMenu.css" />
+    <link rel="stylesheet" href="../../../css/client/nav.css" />
+    <link rel="stylesheet" href="css/0.css" />
+    <link rel="stylesheet" href="css/leftMenu.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="main_computer">
+        <!-- 设置宽高 -->
+        <div
+          class="w_data"
+          :style="'width:'+this.ready.w+'px;'+'height:'+this.ready.h+'px;'"
+        >
+          <div class="w_body">
+            <div class="main_nav">
+              <div class="one"></div>
+              <div class="two main_nav_two">
+                <div class="left main_nav_two main_nav_inline"></div>
+                <div
+                  v-on:click="leftMenu_show"
+                  class="menu main_nav_menu main_nav_two main_nav_inline"
+                >
+                  <img
+                    class="main_nav_menu"
+                    src="../../../image/client/main/computer/image/more.png"
+                  />
+                </div>
+                <div class="title main_nav_two main_nav_inline">电脑管理</div>
+              </div>
+            </div>
+            <div class="computer_data">
+              <div class="data_png computer_data_png">
+                <img
+                  src="../../../image/client/main/computer/image/control_2.png"
+                  class="computer_data_png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="w_background computer_background"></div>
+        </div>
+        <div class="leftMenu">
+          <!-- 
+                    设置leftMenu_background动态绑定class,如果要显示菜单就添加class
+                    自动设置宽高，修复背景布全屏的情况
+                    点击背景退出菜单
+      -->
+          <div
+            class="leftMenu_background"
+            v-on:click="leftMenu_close"
+            :style="'width:'+leftMenu_Background.w+'px;height:'+leftMenu_Background.h+'px'"
+            :class="{leftMenu_background_Visble:leftMenu_Visible}"
+          ></div>
+          <!-- 如果显示等于真则添加class -->
+          <!-- 设置leftMenu_data动态绑定class,如果要显示菜单就添加class -->
+          <div
+            class="leftMenu_data"
+            :class="{leftMenu_data_Visble:leftMenu_Visible}"
+          >
+            <!-- 设置navMenu的高度，修复菜单下面空白的情况 -->
+            <div class="navMenu" :style="'height:'+leftMenu_Background.h+'px'">
+              <div class="top_">
+                <div class="data">
+                  <div class="png only_"></div>
+                  <div class="more only_">
+                    <div class="moreData">
+                      <div class="title" v-html="user.user"></div>
+                      <div
+                        class="title twoTitle"
+                        v-html="user.computerName"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="menu_">
+                <div
+                  class="onlyMenu"
+                  v-for="(onlyMenu, number) in leftMenu"
+                  :key="number"
+                  :data="onlyMenu.data"
+                  v-on:click="leftMenu_click(number)"
+                >
+                  <div class="onlyMenuData">
+                    <div
+                      class="png only_"
+                      :style="'background: url(\''+get_modelUrl(onlyMenu.png)+'\') 0/100% no-repeat;'"
+                    ></div>
+                    <div class="title only_" v-html="onlyMenu.title"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../../../script/vue.js"></script>
+    <script src="../../../script/axios.js"></script>
+    <script src="../../../script/weteoes.js"></script>
+    <script src="../../../script/client/weteoes.js"></script>
+    <script src="js/0.js"></script>
+  </body>
+</html>
