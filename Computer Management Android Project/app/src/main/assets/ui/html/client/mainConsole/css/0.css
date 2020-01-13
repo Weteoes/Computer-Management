@@ -1,0 +1,50 @@
+.w_data {
+  /* 设置不闪烁，默认不隐藏 */
+  display: block;
+  /* 背景颜色 */
+  background: #f1f2f3;
+}
+.console_data {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.console_data .row {
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  background: #fff;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  /* display: -webkit-box;
+  display: -moz-box;
+  display: box; */
+}
+.console_data .row .column {
+  width: 100%;
+  text-align: center;
+  -moz-box-flex: 1; /* Firefox */
+  -webkit-box-flex: 1; /* Safari and Chrome */
+  box-flex: 1;
+  border: 1px solid #e4e4e4;
+  margin: 0 -1px -1px 0;
+}
+.console_icon {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.console_icon .model {
+  width: 60%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

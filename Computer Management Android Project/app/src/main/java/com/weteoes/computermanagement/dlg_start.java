@@ -1,6 +1,5 @@
 package com.weteoes.computermanagement;
 
-import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -46,7 +45,7 @@ public class dlg_start extends AppCompatActivity {
                     final Intent intent = new Intent(dlg_start.this, dlg_web.class);
                     intent.putExtras(web_bundle);
 
-                    Thread.sleep(600);
+                    Thread.sleep(400);
                     //启动主窗口
                     runOnUiThread(new Runnable() {
                         @Override
@@ -62,7 +61,7 @@ public class dlg_start extends AppCompatActivity {
         }).start();
     }
     private void loading_webUrl(){ //获取webUrl
-        String url = AppConfig.AppUrl.Login_Url; //默认为登录页面
+        String url = AppConfig.AppUrl.START_URL; //默认为登录页面
         try{
             /* 获取配置 */
             JSONObject result = new XML_EntranceClass().Entrance(Weteoes.Application.AppConfig.appConfigDirectory+"/users.xml");

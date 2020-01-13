@@ -10,7 +10,7 @@ class Login
 		/* 判断是否已经登录 */
 		$SessionClass_ = new \Weteoes\SessionClass();
 		if($SessionClass_->Session_PD()){ 
-			$json = array('code'=>0,'msg'=>'Has Login');
+			$json = array('code'=>0,'msg'=>'Has Login','w'=>session_id());
 			goto result;
 		}
 		$user = request()->param('user');

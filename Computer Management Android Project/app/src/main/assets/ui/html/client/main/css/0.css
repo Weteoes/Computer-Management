@@ -1,0 +1,79 @@
+.main_background {
+  background: #fff;
+}
+.main_data {
+  width: 100%;
+  height: auto;
+}
+.main_computer {
+  padding-bottom: 22px;
+}
+/* .data_computer {
+} */
+.data_computer_null {
+  width: 80px;
+  height: 80px;
+  background: url("../../../../image/client/main/index/image/TAT.png") no-repeat;
+  background-size: 100%;
+  margin: 260px auto 0;
+}
+.data_computer_ {
+  height: 90px;
+}
+.data_computer .left {
+  width: 100px;
+  display: inline-block;
+  vertical-align: top;
+}
+.data_computer .right {
+  display: inline-block;
+  vertical-align: top;
+}
+.data_computer_right_ {
+  /* width适配手机像素 */
+  width: 200px;
+}
+.data_computer .bottom {
+  height: 2px;
+  background: url("../../../../image/client/main/index/image/bottom.png") 100%;
+}
+.data_computer .icon {
+  margin: 12px 0 0 20px;
+  width: 70px;
+  height: 70px;
+  background: url("../../../../image/client/main/index/image/computer.png");
+  background-size: 100%;
+}
+.data_computer .right .computer {
+  height: 60px;
+  padding-left: 20px;
+  padding-top: 17px;
+}
+.data_computer .right .computer .one {
+  height: 30px;
+  line-height: 30px;
+  color: #46abf8;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.computer .one .online_icon {
+  height: 30px;
+  display: inline-block;
+  vertical-align: top;
+}
+.computer .one .online_icon div {
+  width: 16px;
+  height: 16px;
+  margin: 7px 0;
+  background: url("../../../../image/client/main/index/image/online.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+}
+.computer .one .online_title {
+  height: 30px;
+  margin-left: 6px;
+  display: inline-block;
+  vertical-align: top;
+}

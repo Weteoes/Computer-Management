@@ -1,6 +1,7 @@
 package com.weteoes.computermanagement;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -107,6 +108,9 @@ public class dlg_web extends AppCompatActivity {
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true); //开启JavaScript
         webSettings.setDomStorageEnabled(true); //打开本地缓存提供JS调用(window.localStorage)
+        if (Build.VERSION.SDK_INT > 19) {
+            webview.setWebContentsDebuggingEnabled(true);  // Debug
+        }
 //        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); //无缓存模式
         webview.addJavascriptInterface(new Weteoes.Application.Web.js.web(this, webview, pullToRefreshLayout), "Weteoes_App");
         webview.loadUrl(url);
