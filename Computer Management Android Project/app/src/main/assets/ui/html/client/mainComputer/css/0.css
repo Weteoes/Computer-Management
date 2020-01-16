@@ -1,6 +1,5 @@
-.w_data {
-  /* 设置不闪烁，默认不隐藏 */
-  display: block;
+.main_computer {
+  height: auto;
 }
 .computer_background {
   background: #fff;

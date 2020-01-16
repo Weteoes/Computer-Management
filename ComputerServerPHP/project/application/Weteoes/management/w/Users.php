@@ -26,7 +26,7 @@ class Management_W_UserClass {
                 'ID' => count($result) + 1,
                 'User' => $LoginClass_ -> sumbit_GetUser(),
                 'LoginTime' => $LoginClass_ -> sumbit_GetLoginTime(),
-                'Type' => $LoginClass_ -> sumbit_GetType(),
+                'Type' => $LoginClass_ -> getType($LoginClass_ -> sumbit_GetType()),
                 'w' => $session,
             );
             array_push($result, $sessionData);

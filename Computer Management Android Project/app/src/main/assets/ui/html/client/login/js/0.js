@@ -11,8 +11,8 @@
           ready: { w: window.screen.width, h: window.screen.height },
           // input
           input: {
-            user: "Weteoes",
-            pass: "Computer20000125"
+            user: "",
+            pass: ""
           }
         };
       },

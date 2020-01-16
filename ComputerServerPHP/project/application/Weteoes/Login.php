@@ -2,14 +2,19 @@
 namespace Weteoes;
 class LoginClass {
     public function getTypeList() {
-        $typeList=[-1=>"旧版设备",0=>"电脑",1=>"手机",2=>"后台"];
+        $typeList=array(-1=>"旧版设备", 0=>"电脑", 1=>"手机", 2=>"后台", 3=>"APICloud");
         return $typeList;
     }
     public function setType($i) {
         session('type', $i);
     }
     public function getType($i) {
-        echo $this->getTypeList()[$i];
+        $typeList = $this->getTypeList();
+        $result = "未知";
+        if (array_key_exists($i, $typeList)) {
+            $result = $typeList[$i];
+        }
+        return $result;
     }
     // 是否过期
     public function isExpired($i) {

@@ -19,18 +19,18 @@
         // ready_
         ready_: function() {
           // android
-          // (() => {
-          //   // 设置下拉刷新
-          //   this.w.app.dlg_setPullToRefreshLayout(false, true);
-          //   // 设置下拉刷新的事件
-          //   var a = this.w.android;
-          //   /* android调用重新获取 */
-          //   a.finishRefresh = () => {
-          //     this.w.function.msg("重新获取设备列表", 1);
-          //     // 调用刷新
-          //     this.getComputer();
-          //   };
-          // })();
+          (() => {
+            // 设置下拉刷新
+            this.w.app.dlg_setPullToRefreshLayout(false, true);
+            // 设置下拉刷新的事件
+            var a = this.w.android;
+            /* android调用重新获取 */
+            a.finishRefresh = () => {
+              this.w.function.msg("重新获取设备列表", 1);
+              // 调用刷新
+              this.getComputer();
+            };
+          })();
           // android End
           // 获取电脑列表
           this.getComputer();
@@ -95,7 +95,7 @@
           let body_ = document.getElementsByClassName("w_data")[0];
           // body_.width = w;
           // body_.height = h;
-          body_.style.position = "relative";
+          //body_.style.position = "relative";
           body_.style.display = "block";
           let msg = "Photo width:{w} height:{h}".format({
             w: this.ready.w,

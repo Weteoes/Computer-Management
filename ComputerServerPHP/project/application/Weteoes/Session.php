@@ -20,17 +20,15 @@ class SessionClass{
     }
     public function Session_PD($SessionName = NULL){ //判断Session是否有效
         /* $SessionName Not NULL */
-        if(!is_null($SessionName)){
-            $SessFile = $this->Get_SessionFileName($SessionName);
-            if(!file_exists($SessFile)) { return false; } //ToKen文件不存在
+        if(is_null($SessionName)){
+            $SessionName = cookie('w');  //如果$SessionName为空则取cookie
         }
-        else { $SessionName = cookie('w'); } //如果$SessionName为空则取cookie
         if(is_null($SessionName)) { return false; } //执行前判断是否为NUL
-
+        $SessFile = $this->Get_SessionFileName($SessionName);
+        if(!file_exists($SessFile)) { return false; } //ToKen文件如果不存在
         $this->Session_Init($SessionName); //初始化session
         if(!$this->session_Time($SessionName)){ return false; } //是否过期
         if(!$this->session_UP($SessionName)){ return false; } //用户名密码判断
-
         return true;
     }
     // 初始化Session
@@ -38,7 +36,7 @@ class SessionClass{
     {
         $config = array(
             'name' => "w",
-            'expire' => 3600,
+            'expire' => 0,
             'path' => Define_SESSION_PATH,
             'use_cookies' => false
         );

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -14,6 +13,7 @@ import com.jwenfeng.library.pulltorefresh.BaseRefreshListener;
 import com.jwenfeng.library.pulltorefresh.PullToRefreshLayout;
 
 import Weteoes.Application.AppConfig;
+import Weteoes.Application.DebugClass;
 import Weteoes.Application.Web.Application.*;
 
 public class dlg_web extends AppCompatActivity {
@@ -108,8 +108,10 @@ public class dlg_web extends AppCompatActivity {
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true); //开启JavaScript
         webSettings.setDomStorageEnabled(true); //打开本地缓存提供JS调用(window.localStorage)
-        if (Build.VERSION.SDK_INT > 19) {
-            webview.setWebContentsDebuggingEnabled(true);  // Debug
+        if (DebugClass.isInDebug(this)) {  // Debug
+            if (Build.VERSION.SDK_INT > 19) {
+                webview.setWebContentsDebuggingEnabled(true);
+            }
         }
 //        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); //无缓存模式
         webview.addJavascriptInterface(new Weteoes.Application.Web.js.web(this, webview, pullToRefreshLayout), "Weteoes_App");

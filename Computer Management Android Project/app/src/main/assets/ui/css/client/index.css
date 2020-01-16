@@ -12,6 +12,11 @@ body {
   min-width: 360px;
   position: relative;
 }
+
+#app {
+  height: auto;
+}
+
 .w_data {
   width: 100%;
   height: auto;
@@ -20,7 +25,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  display: none;
+  /* display: none; */
 }
 .w_body {
   width: 100%;

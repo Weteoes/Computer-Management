@@ -5,12 +5,12 @@
         v-loading="loadingList"
         :data="wList.slice((currentPage-1)*pageSize,currentPage*pageSize)"
         style="width: 100%"
-        :default-sort="{prop: 'ID', order: 'ascending'}"
+        :default-sort="{prop: 'LoginTime', order: 'descending'}"
       >
         <el-table-column prop="ID" label="ID" sortable></el-table-column>
         <el-table-column prop="User" label="用户名" sortable></el-table-column>
         <el-table-column prop="LoginTime" width="200" label="登录时间" :formatter="format_LoginTime" sortable></el-table-column>
-        <el-table-column prop="Type" label="设备" :formatter="format_Type" sortable></el-table-column>
+        <el-table-column prop="Type" label="设备" sortable></el-table-column>
         <el-table-column prop="w" label="W值" width="300"></el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
@@ -131,18 +131,6 @@ export default {
       return result;
     },
     // table_LoginTime End
-    // format_Type
-    //// 格式化类型
-    format_Type: function(row) {
-      let result = "未知";
-      switch(row.Type) {
-        case "0": result = "电脑"; break;
-        case "1": result = "手机"; break;
-        case "2": result = "后台"; break;
-      }
-      return result;
-    },
-    // format_Type End
     // pagination_next
     pagination_next: function(page) {
       this.currentPage = page;
