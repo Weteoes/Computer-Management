@@ -51,7 +51,7 @@ public class dlg_web extends AppCompatActivity {
         }
     }
     private WebView webview; //浏览器控件
-    public static PullToRefreshLayout pullToRefreshLayout; //上拉下拉刷新控件
+    public PullToRefreshLayout pullToRefreshLayout; //上拉下拉刷新控件
     /* Init */
     private void loading(){
         loading_pullToRefreshLayout(); //先初始化上拉下拉控件,在loading_Intent -> loading_web函数需要使用全局变量
