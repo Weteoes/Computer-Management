@@ -18,9 +18,12 @@
       methods: {
         // ready_
         ready_: function() {
-          // android
-          (() => {
-            // 设置下拉刷新
+          this.android_ready(); // android
+          this.getComputer(); // 获取电脑列表
+        },
+        // android_ready
+        android_ready: function () {
+          // 设置下拉刷新
             this.w.app.dlg_setPullToRefreshLayout(false, true);
             // 设置下拉刷新的事件
             var a = this.w.android;
@@ -30,10 +33,6 @@
               // 调用刷新
               this.getComputer();
             };
-          })();
-          // android End
-          // 获取电脑列表
-          this.getComputer();
         },
         // ready_ End
         // getComputer
@@ -78,7 +77,8 @@
             url: this.w.url.mainComputer,
             computerName: computerName
           });
-          location.href = url;
+          this.w.app.openWeb(url);
+          // location.href = url;
           //location.href = this.w.url.mainComputer + "computerName=" + computerName;
         }
         // 电脑点击事件 End

@@ -1,10 +1,13 @@
 package Weteoes.Application.Web.js;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 
 import com.jwenfeng.library.pulltorefresh.PullToRefreshLayout;
+import com.weteoes.computermanagement.dlg_web;
 
 import org.json.JSONObject;
 
@@ -56,6 +59,24 @@ public class web extends Object {
             @Override
             public void run() {
                 webView.loadUrl(url);
+            }
+        });
+    }
+
+    /* 打开新页面 */
+    @JavascriptInterface
+    public void openWeb(final String url){
+        this_.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    Bundle web_bundle = new Bundle(); //传到Web窗口的参数
+                    web_bundle.putString("webUrl", url);
+                    /* 初始化窗口和传参 */
+                    final Intent intent = new Intent(this_, dlg_web.class);
+                    intent.putExtras(web_bundle);
+                    this_.startActivityForResult(intent, 0);// 跳转并要求返回值，0代表请求值(可以随便写)
+                } catch (Exception e){ e.printStackTrace();}
             }
         });
     }

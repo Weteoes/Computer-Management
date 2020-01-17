@@ -27,20 +27,8 @@
       methods: {
         // ready_
         ready_: function() {
-          // 全局函数
-          let w = this.w;
-          // 全局this
-          let this_ = this;
-
-          // Android
-          (() => {
-            let a = w.android;
-            a.software_onBackPressed = software_onBackPressed; //客户端返回按钮
-            function software_onBackPressed() {
-              return 1;
-            }
-          })();
-          // Android End
+          let w = this.w; // 全局函数
+          let this_ = this; // 全局this
           // 获取控制列表
           (() => {
             let data = w.JS_Basic.GetQueryString("data");
@@ -70,6 +58,14 @@
           // 获取控制列表 End
         },
         // ready_ End
+        // android_ready(无调用)
+        android_ready: function () {
+          // let a = w.android;
+          // a.software_onBackPressed = software_onBackPressed; //客户端返回按钮
+          // function software_onBackPressed() {
+          //   return 1;
+          // }
+        },
         // get_modelUrl
         get_modelUrl: function(data) {
           return "../../../image/client/main/all/image/model/{data}_1.png".format(

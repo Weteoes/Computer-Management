@@ -215,7 +215,7 @@ return [
         'auto_start'     => false,
         //Weteoes
         'name' => "w",
-        'expire' => 3600,
+        'expire' => 0,
         'path' => Define_SESSION_PATH
     ],
 

@@ -23,6 +23,7 @@ public class dlg_web extends AppCompatActivity {
         setContentView(R.layout.dlg_web);
         loading();
     }
+
     @Override
     public void onBackPressed() {
         ValueCallback<String> valueCallback = new ValueCallback<String>(){
@@ -33,11 +34,20 @@ public class dlg_web extends AppCompatActivity {
         };
         webview.evaluateJavascript(AppConfig.js_function + "software_onBackPressed();", valueCallback);
     }
+
+    @Override
+    public void finish() {
+        webview.destroy();
+        super.finish();
+    }
+
     public void onBackPressed_callback(String value){
+
         switch (value){
             case "0": break;
             case "1": webview.goBack(); break;
             case "2": super.onBackPressed(); break;
+            default: super.onBackPressed(); break; // 不存在改方法(其他页面)
         }
     }
     private WebView webview; //浏览器控件

@@ -28,16 +28,6 @@
           // 全局函数
           let w = this.w;
           let this_ = this;
-
-          // Android
-          (() => {
-            let a = w.android;
-            a.software_onBackPressed = software_onBackPressed; //客户端返回按钮
-            function software_onBackPressed() {
-              return 1;
-            }
-          })();
-          // Android End
           // 获取菜单列表
           (() => {
             w.JS_Basic.Ajax(
@@ -90,6 +80,14 @@
           })();
           // 获取电脑名称 End
         },
+        // android_ready(无调用)
+        android_ready: function() {
+          // let a = w.android;
+          // a.software_onBackPressed = software_onBackPressed; //客户端返回按钮
+          // function software_onBackPressed() {
+          //   return 1;
+          // }
+        },
         // ready_ End
         // get_modelUrl
         //// 获取LeftMenu的图片URL(给html代码调用)
@@ -102,13 +100,16 @@
         leftMenu_click: function(number) {
           let data = this.leftMenu[number].data; //菜单code
           let computerName = this.w.JS_Basic.GetQueryString("computerName"); //电脑名称
-          if (computerName == null) { computerName = ""; }
+          if (computerName == null) {
+            computerName = "";
+          }
           let url = "{url}data={data}&computerName={computerName}".format({
             url: this.w.url.mainConsole,
             data: data,
             computerName: computerName
           });
-          location.href = url;
+          this.w.app.openWeb(url);
+          // location.href = url;
           // location.href = this.w.url.mainConsole + "data=" + data + "&computerName=" + computerName;
 
           /* 收起leftMenu */
@@ -177,7 +178,7 @@
           }
         );
         // 判断是否登录 End
-      },
+      }
     });
   }
 })();

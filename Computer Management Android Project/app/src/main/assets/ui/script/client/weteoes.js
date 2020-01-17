@@ -18,34 +18,31 @@
 
   /* Toast */
   obj_app.dlg_Toast = function(data) {
-    if (
-      typeof obj_app_ == "object" &&
-      typeof obj_app_.dlg_Toast == "function"
-    ) {
+    if (typeof obj_app_ == "object" && typeof obj_app_.dlg_Toast == "function") {
       obj_app_.dlg_Toast(data);
     }
   };
 
   /* login_setW */
   obj_app.login_setW = function(data) {
-    if (
-      typeof obj_app_ == "object" &&
-      typeof obj_app_.login_setW == "function"
-    ) {
+    if (typeof obj_app_ == "object" && typeof obj_app_.login_setW == "function") {
       obj_app_.login_setW(data);
     }
   };
 
   /* dlg_setPullToRefreshLayout */
   obj_app.dlg_setPullToRefreshLayout = function(a, b) {
-    if (
-      typeof obj_app_ == "object" &&
-      typeof obj_app_.dlg_setPullToRefreshLayout == "function"
-    ) {
+    if (typeof obj_app_ == "object" && typeof obj_app_.dlg_setPullToRefreshLayout == "function") {
       obj_app_.dlg_setPullToRefreshLayout(a, b);
     }
   };
 
+  /* 打开新窗口openWeb */
+  obj_app.openWeb = function (url) { 
+    if (typeof obj_app_ == "object" && typeof obj_app_.openWeb == "function") {
+      obj_app_.openWeb(url);
+    }
+  }
   /* URL */
   if (typeof obj.url == "undefined") {
     let local_android_asset = "file:///android_asset/ui";
