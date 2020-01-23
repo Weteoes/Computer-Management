@@ -1,0 +1,18 @@
+.w_data {
+  /* 设置不闪烁，默认不隐藏 */
+  display: block;
+}
+.computer_background {
+  background: #fff;
+}
+.computer_data {
+  height: 260px;
+  margin-top: 140px;
+}
+.computer_data_png {
+  /* 图片大小 */
+  width: 260px;
+}
+.computer_data .data_png {
+  margin: 0 auto;
+}

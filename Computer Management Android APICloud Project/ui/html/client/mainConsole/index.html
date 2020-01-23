@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>mainConsole</title>
+    <link rel="stylesheet" href="../../../css/client/index.css" />
+    <link rel="stylesheet" href="../../../css/client/systemMenu.css" />
+    <link rel="stylesheet" href="../../../css/client/nav.css" />
+    <link rel="stylesheet" href="css/0.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 设置宽高 -->
+      <div
+        class="w_data"
+        :style="'width:'+this.ready.w+'px;'+'height:'+this.ready.h+'px;'"
+      >
+        <div class="w_body">
+          <!-- class console 用于vue -->
+          <div class="console">
+            <!-- 状态栏 -->
+            <div class="main_nav console_nav">
+              <div class="one"></div>
+              <div class="two main_nav_two">
+                <div class="left main_nav_two main_nav_inline"></div>
+                <div
+                  class="menu main_nav_menu main_nav_two main_nav_inline"
+                  v-on:click="callbackClick"
+                >
+                  <img
+                    class="main_nav_menu"
+                    src="../../../image/client/main/console/image/callback.png"
+                  />
+                </div>
+                <div class="title main_nav_two main_nav_inline">返回</div>
+              </div>
+            </div>
+            <!-- 状态栏 End -->
+            <!-- 中间图片 -->
+            <!-- :style用于垂直居中 -->
+            <div
+              class="console_icon"
+              :style="'bottom:'+features.row.length*70+'px'"
+            >
+              <img class="model" v-if="model!=''" :src="get_modelUrl(model)" />
+              <!-- <div class='model'></div> -->
+            </div>
+            <!-- 中间图片 End -->
+            <!-- Console -->
+            <div class="console_data">
+              <div
+                class="row"
+                v-for="(onlyRow,rowNumber) in features.row"
+                :key="rowNumber"
+              >
+                <div
+                  class="column"
+                  v-for="(onlyColumn,columnNumber) in onlyRow.column"
+                  :key="columnNumber"
+                  :data="onlyColumn.data"
+                  v-on:click="featuresClick(rowNumber,columnNumber)"
+                >
+                  <span v-html="onlyColumn.title"></span>
+                </div>
+              </div>
+            </div>
+            <!-- Console End -->
+          </div>
+        </div>
+        <div class="w_background main_background"></div>
+      </div>
+    </div>
+    <script src="../../../script/api.js"></script>
+    <script src="../../../script/vue.js"></script>
+    <script src="../../../script/weteoes.js"></script>
+    <script src="../../../script/client/weteoes.js"></script>
+    <script src="js/0.js"></script>
+  </body>
+</html>

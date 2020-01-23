@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <title>main</title>
+    <link rel="stylesheet" href="../../../css/client/index.css" />
+    <link rel="stylesheet" href="../../../css/client/nav.css" />
+    <link rel="stylesheet" href="../../../css/client/systemMenu.css" />
+    <link rel="stylesheet" href="css/0.css" />
+    <link rel="stylesheet" href="css/main_bottom.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 设置宽高 -->
+      <div
+        class="w_data"
+        :style="'width:'+this.ready.w+'px;'+'height:'+this.ready.h+'px'"
+      >
+        <div class="w_body">
+          <!-- <div class='systemMenu'>Main1</div> -->
+          <div class="main_nav">
+            <div class="one"></div>
+            <div class="two main_nav_two">
+              <div class="left main_nav_two main_nav_inline"></div>
+              <!-- <div class='menu main_nav_menu main_nav_two main_nav_inline'>
+                            <img class='main_nav_menu' src='/Weteoes/Client_apk/Main/computer/image/more.png' />
+          </div>-->
+              <div class="title main_nav_two main_nav_inline">控制中心</div>
+            </div>
+          </div>
+          <div class="main_data">
+            <!-- All Computer Vue -->
+            <div class="main_computer">
+              <!-- Only Computer -->
+              <!-- 
+            For循环电脑
+            设置点击事件
+          -->
+              <div v-if="allComputer != 0 && allComputer.length > 0">
+                <div
+                  class="data_computer data_computer_"
+                  v-for="(onlyComputer,number) in allComputer"
+                  :key="number"
+                  @click="click_computer(onlyComputer.name)"
+                  @click.stop
+                >
+                  <div class="left data_computer_">
+                    <div class="icon"></div>
+                  </div>
+                  <div class="right data_computer_ data_computer_right_">
+                    <div class="computer data_computer_right_">
+                      <div class="one">
+                        电脑名称:
+                        <span v-text="onlyComputer.name">NoteBook</span>
+                      </div>
+                      <div class="one">
+                        <div class="online_icon">
+                          <!--这个空div是icon-->
+                          <div></div>
+                        </div>
+                        <div class="online_title">在线</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bottom"></div>
+                </div>
+              </div>
+
+              <div
+                class="data_computer_null"
+                v-if="allComputer.length == 0"
+              ></div>
+              <!-- Only Computer End -->
+            </div>
+            <!-- All Computer Vue End -->
+          </div>
+          <!-- Bottom -->
+          <div class="main_bottom">
+            <span>仅展示当前在线设备</span>
+          </div>
+          <!-- Bottom End -->
+        </div>
+        <div class="w_background main_background"></div>
+      </div>
+    </div>
+    <script src="../../../script/api.js"></script>
+    <script src="../../../script/vue.js"></script>
+    <script src="../../../script/weteoes.js"></script>
+    <script src="../../../script/client/weteoes.js"></script>
+    <script src="js/0.js"></script>
+  </body>
+</html>
