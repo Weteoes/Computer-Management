@@ -207,6 +207,7 @@ export default {
     //// 退出登录
     topNav_quit: function() {
       window.localStorage.clear();
+      this.w.JS_Basic.cookie.del("w");
       this.$router.push(this.w.url.login);
     },
     // topNav_quit End

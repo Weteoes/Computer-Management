@@ -18,9 +18,11 @@ class User
 
 		/* 获取用户 */
 		$LoginClass_ = new \Weteoes\LoginClass();
-		$user = $LoginClass_->sumbit_GetUser();
-		$json = array('code'=>0,'user'=>$user);
-		goto result;
+		$json = array(
+			'code' => 0,
+			'user' => $LoginClass_->sumbit_GetUser(),
+			'management' => $LoginClass_->sumbit_GetManagement()
+		);
 
 		result:
 		return json($json);

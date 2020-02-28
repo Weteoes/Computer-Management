@@ -28,7 +28,7 @@ class SessionClass{
         if(!file_exists($SessFile)) { return false; } //ToKen文件如果不存在
         $this->Session_Init($SessionName); //初始化session
         if(!$this->session_Time($SessionName)){ return false; } //是否过期
-        if(!$this->session_UP($SessionName)){ return false; } //用户名密码判断
+        // if(!$this->session_UP($SessionName)){ return false; } //用户名密码判断
         return true;
     }
     // 初始化Session

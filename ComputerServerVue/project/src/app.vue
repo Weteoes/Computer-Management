@@ -61,6 +61,23 @@ export default {
           .catch(error);
       };
       // Ajax End
+      // cookie
+      w_JS_Basic.cookie = {
+        get(name){
+          let arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+          if (arr != null) return unescape(arr[2]); 
+          return null;
+        },
+        del(name){
+          var exp = new Date();
+          exp.setTime(exp.getTime() - 1);
+          var cval = w_JS_Basic.cookie.get(name);
+          if (cval != null) {
+            document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString()+";path=/";
+          }
+        }
+      };
+      // cookie End
       // String.format
       //// "{a}".format({a:1})
       String.prototype.format = function(args) {

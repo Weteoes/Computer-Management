@@ -2,7 +2,7 @@
 namespace Weteoes;
 class LoginClass {
     public function getTypeList() {
-        $typeList=array(-1=>"旧版设备", 0=>"电脑", 1=>"手机", 2=>"后台", 3=>"APICloud");
+        $typeList = array(-1=>"旧版设备", 0=>"电脑", 1=>"手机", 2=>"后台", 3=>"APICloud");
         return $typeList;
     }
     public function setType($i) {
@@ -26,20 +26,25 @@ class LoginClass {
     public function sumbit($user, $pass) { //登录
         /* sql */
         try{
-            $condition['user'] = $user;
-            $condition['pass'] = $pass;
+            $condition = array(
+                "user"=> $user,
+                "pass" => $pass
+            );
             $m = db("login");
-            if($m->where($condition)->count() > 0){
-                if($m->where($condition)->find()['pass'] == $pass){ //比较大小写,密码正确
-                    // 如果有权限返回权限值
-                    $management = $m->where($condition)->find()['management'];
-                    if($management > 0) return $management;
-                    return 0;
-                }	
+            $m = $m->where($condition)->select();
+            if(count($m) > 0){
+                if($m[0]['pass'] == $pass){ //比较大小写,密码正确
+                    $result = array(
+                        "user" => $m[0]['user'],
+                        "pass" => $m[0]['pass'],
+                        "management" => $m[0]['management'] //权限
+                    );
+                    return $result;
+                }
             }
         }
         catch(\Exception $Error) { }
-		return -1;
+		return NULL;
     }
     public function sumbit_session($user, $pass, $type, $management = NULL) { //登录后session操作
         include_once(Define_Weteoes_PATH."Session.php");

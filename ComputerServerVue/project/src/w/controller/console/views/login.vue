@@ -145,9 +145,17 @@ export default {
           if(result.status != 200) { w.function.msg("登录失败", 2, "error"); end(); return; }
           let resultData = result.data;
           if (resultData.code != 0) { w.function.msg("用户名或密码错误", 2, "error"); end(); return; }
-          // Session
+
+          // 保存获取到的w到localStorage
           window.localStorage.setItem("w", resultData.w);
-          this_.$router.push(w.url.management);
+          this_.w.function.isLogin(()=>{
+            // 有权限登录
+            this_.$router.push(w.url.management);
+          },()=>{
+            // 无权限登录
+            w.function.msg("用户名或密码错误", 2, "error"); 
+            end();
+          });
         },
         function(error) {
           w.function.msg("服务器开小差了 msg:"+error, 2, "error");

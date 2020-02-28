@@ -55,8 +55,8 @@ export default {
         obj.url = {
           login: "/console/login", //登录界面
           management: "/console/management", //控制中心
-          operating_sign_in: serverAPI + "/operatingManagement/Login/sign_in?w_Type=1", //登录API
-          operating_getUserInfo: serverAPI + "/operatingManagement/User/get?", //获取用户信息（也被用于判断是否登录）
+          operating_sign_in: serverAPI + "/operating/Login/sign_in?w_Type=2", //登录API
+          operating_getUserInfo: serverAPI + "/operating/User/get?", //获取用户信息（也被用于判断是否登录）
         };
         // 管理台API
         obj.url.management_ = {
@@ -134,15 +134,14 @@ export default {
               error();
               return;
             }
-            if (result.data.code != 0) {
-              obj_function.msg("自动登录失败 w:" + session, 1);
-              error();
+            if (result.data.code == 0 && result.data.management > 0) {
+              window.localStorage.setItem("w", session);
+              obj_function.msg("自动登录成功 w:" + session, 1);
+              success();
               return;
             }
-            window.localStorage.setItem("w", session);
-            obj_function.msg("自动登录成功 w:" + session, 1);
-            success();
-            return;
+            obj_function.msg("自动登录失败 w:" + session, 1);
+            error();
           },
           function() {
             error();
