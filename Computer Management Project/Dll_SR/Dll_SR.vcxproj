@@ -148,6 +148,8 @@
     <ClCompile Include="Weteoes\Dll\ManagementDll.cpp" />
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp" />
     <ClCompile Include="Weteoes\Application\RSA.cpp" />
+    <ClCompile Include="Weteoes\Model\Sockets\CSocket.cpp" />
+    <ClCompile Include="Weteoes\Model\Sockets\SSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
