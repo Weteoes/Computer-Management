@@ -374,12 +374,6 @@
     <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Model\Sockets\CSocket.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\Model\Sockets\SSocket.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\Application\Sockets\ServerSocket.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -399,6 +393,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Weteoes\Application\Sockets\WebSocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Model\Sockets\CSocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Model\Sockets\SSocket.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

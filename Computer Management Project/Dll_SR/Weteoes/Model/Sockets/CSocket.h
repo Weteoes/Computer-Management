@@ -32,10 +32,11 @@ public:
 public:
 	bool hasThread = false; // 是否已经开始线程entrance
 	bool SocketStopFlac = false; // 是否停止Socket
-	SOCKET sClient; //Socket
+	SOCKET sClient = NULL; //Socket
 
 public:
 	std::string recvTemp = ""; // 临时数据s
+	std::string flac_Start = "|start|"; // 开始flac
 	std::string flac_End = "|end|"; // 结束flac
 	std::string flac_w = "|w|"; // 分割flac
 	int socketCache = 100000; // 缓存区大小

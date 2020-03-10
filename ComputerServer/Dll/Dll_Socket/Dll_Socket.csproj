@@ -53,8 +53,8 @@
     <Compile Include="Control\ControlMain.cs" />
     <Compile Include="RSA.cs" />
     <Compile Include="Basic\Actions\Server.cs" />
-    <Compile Include="Socket\ControlSocket.cs" />
     <Compile Include="Socket\BasicSocket.cs" />
+    <Compile Include="Socket\ControlSocket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\WebClass.cs" />
     <Compile Include="User.cs" />
@@ -73,6 +73,5 @@
       <Name>Dll_Network</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,7 +9,7 @@ class SocketClass{
         if($encode) $data = $RSA::pubEncrypt($data);
         if($this->debug){
             $host = '127.0.0.1';
-            $host_port = 1;
+            $host_port = 6666;
         }else{
             $host = 'computer.weteoes.cn';
             $host_port = 6666;

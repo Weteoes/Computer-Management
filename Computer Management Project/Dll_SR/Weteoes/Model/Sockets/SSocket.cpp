@@ -1,6 +1,7 @@
 #ifndef SSocketClass_CPP
 #define SSocketClass_CPP
 #include "SSocket.h"
+
 int SSocketClass::Entrance() {
 	Loading();
 	SocketStart();
@@ -12,9 +13,6 @@ void SSocketClass::SocketStart() {
 
 	sServer = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP); //创建客户端套节字
 	SOCKADDR_IN server = Socket_Initialization();
-
-	// 客户端列表
-	std::vector<SOCKET> clientList;
 
 	// 绑定Socket Server到本地地址
 	int result; //返回
@@ -74,7 +72,7 @@ void SSocketClass::Recv_Socket_While(SOCKET socket) {
 bool SSocketClass::Send_Socket(SOCKET socket, std::string data) {
 	int result; //send result
 	while (true) {
-		if (w) { data += flac_End; } // 需要根据w规则
+		if (w) { data = flac_Start + data + flac_End; } // 需要根据w规则
 		result = send(socket, data.c_str(), (int)data.size(), 0); //发送数据
 		if (result == SOCKET_ERROR) {
 			int err = WSAGetLastError();
@@ -96,6 +94,8 @@ bool SSocketClass::Recv_Socket(SOCKET socket, std::vector<std::string>* allResul
 	char* result_byte = new char[ConfigCache]; //缓存数据byte
 	std::string allData = ""; //已经接收数据
 	ULONG MoreLen; //剩下的数据大小
+	std::string recvTemp = recvTempList[socket];
+	if (recvTemp.empty()) { recvTempList[socket] = ""; } // 没有数据就创建
 
 	/* While Reve */
 W_recv:
@@ -107,25 +107,33 @@ W_recv:
 				continue;
 			}
 			else { //接收失败
-				SocketStop(socket);
+				//SocketStop(socket);
 				return false;
 			}
 		}
 		// 是否有临时数据
-		if (!recvTemp.empty()) { recvTemp = ""; allData += recvTemp; }
+		if (!recvTemp.empty()) { allData = recvTemp; recvTemp = ""; }
 		/* Recv */
 		result_byte[result] = 0x00; //添加结束标记
 		allData += std::string(result_byte, result); //Cache >> AllResult
 		memset(result_byte, 0, ConfigCache); //清空之前的数据
 		ioctlsocket(socket, FIONREAD, &MoreLen); //检查剩下的数据
-		if (MoreLen == 0) { //接收完毕
+		if (MoreLen == 0 || allData.length() > 50000) { //接收完毕
 			// 需要根据w规则
 			if (w) {
-				int find;
-				while ((find = (int)allData.find(flac_End)) != -1) {
+				int findStart, findEnd;
+				while ((findStart = (int)allData.find(flac_Start)) != -1 && findStart < allData.length() && (findEnd = (int)allData.find(flac_End, findStart)) != -1) {
 					// 先放数据，再修改数据
-					allResult->push_back(allData.substr(0, find));
-					allData = allData.substr(find + flac_End.length());
+					int subStart = findStart + (int)flac_Start.length();
+					std::string onlyData = allData.substr(subStart, findEnd - subStart);
+					if (onlyData.empty()) { continue; }
+					while (true) { // 如果数据包错乱，丢掉前面一个包
+						int findStart_ = (int)onlyData.find(flac_Start);
+						if (findStart_ == -1) { break; }
+						onlyData = onlyData.substr(findStart_ + (int)flac_Start.length());
+					}
+					allResult->push_back(onlyData);
+					allData = allData.substr(findEnd + flac_End.length());
 				}
 				// 如果还有临时数据就存起来(没必要判断)
 				recvTemp = allData;
@@ -140,6 +148,7 @@ W_recv:
 		goto W_recv;
 	}
 W_success:
+	recvTempList[socket] = recvTemp;
 	delete result_byte;
 	return true;
 }

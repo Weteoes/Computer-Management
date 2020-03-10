@@ -4,6 +4,7 @@
 #include <WS2tcpip.h>
 #pragma comment(lib,"ws2_32.lib")
 #include <vector>
+#include <map>
 #include <thread>
 #include <string>
 
@@ -28,12 +29,14 @@ public:
 
 public:
 	bool SocketStopFlac = false; // 是否停止Socket
-	SOCKET sServer; // Socket
+	SOCKET sServer = NULL; // Socket
 
 public:
-	std::string recvTemp = ""; // 临时数据s
+	std::vector<SOCKET> clientList; // 客户端列表
+	std::map<SOCKET, std::string> recvTempList; // 接收Recv临时数据
+	std::string flac_Start = "|start|"; // 开始flac
 	std::string flac_End = "|end|"; // 结束flac
-	int socketCache = 100000; // 缓存区大小
+	int socketCache = 5000; // 缓存区大小
 	bool w = true; // 接收和发送时是否根据w规则
 
 };
