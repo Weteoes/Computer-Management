@@ -11,5 +11,5 @@ void MessageClass::WriteFileLog(std::string data)
 		WriteFileLogFile = temp;
 	}
 	else { data = "\n" + data; } //如果不是第一条数据加\n
-	WeteoesDll::IO_WriteFile((char*)WriteFileLogFile.c_str(), (char*)data.c_str());
+	WeteoesDll::IO_WriteFile((char*)WriteFileLogFile.c_str(), (char*)data.c_str(), (int)data.length());
 }

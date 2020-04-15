@@ -1,9 +1,8 @@
-#include <Weteoes/Loading.h>
-
-class ConfigFileClass
-{
+#ifndef ConfigFileClass_H
+#define ConfigFileClass_H
+class ConfigFileClass {
 public:
-	static std::string User;
-	static std::string Computer;
+	static std::string UserConfig;
+	static std::string ComputerConfig;
 };
-
+#endif

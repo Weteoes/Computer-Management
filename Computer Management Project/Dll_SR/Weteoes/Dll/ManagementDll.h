@@ -1,8 +1,7 @@
-#include <Windows.h>
-
 #ifdef ManagementDll_
 #else
 #define ManagementDll_
+#include <Windows.h>
 class ManagementDll
 {
 private:

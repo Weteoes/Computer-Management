@@ -1,3 +1,4 @@
+#include <pch.h>
 #include <Weteoes/Application/Dlg.h>
 #include <Weteoes/Application/Icon.h>
 #include <Weteoes/Application/AppConfig.h>
@@ -43,7 +44,7 @@ void DlgClass::Dlg_Show(bool first) {
 	}
 }
 void DlgClass::Dlg_Icon_Add() {
-	IconClass().Icon_Add(Dlg_HWND, Dlg_HINSTANCE);
+	IconClass().Icon_Add(Dlg_HWND, Dlg_HINSTANCE); // ´ýÐÞ¸Ä
 }
 void DlgClass::Dlg_Icon_Remove() { 
 	IconClass().Icon_Remove();

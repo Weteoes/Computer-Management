@@ -225,7 +225,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Weteoes\Application\AppConfig.h" />
     <ClInclude Include="Weteoes\Dlg\UpdateDlg.h" />
-    <ClInclude Include="Update_.h" />
+    <ClInclude Include="Update.h" />
     <ClInclude Include="Weteoes\Application\WUpdate.h" />
     <ClInclude Include="Weteoes\Dll\ManagementDll.h" />
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h" />
@@ -252,7 +252,7 @@
     </ClCompile>
     <ClCompile Include="Weteoes\Application\AppConfig.cpp" />
     <ClCompile Include="Weteoes\Dlg\UpdateDlg.cpp" />
-    <ClCompile Include="Update_.cpp" />
+    <ClCompile Include="Update.cpp" />
     <ClCompile Include="Weteoes\Application\WUpdate.cpp" />
     <ClCompile Include="Weteoes\Dll\ManagementDll.cpp" />
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp" />

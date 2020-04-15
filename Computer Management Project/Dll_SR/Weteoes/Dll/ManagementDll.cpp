@@ -1,3 +1,4 @@
+#include <pch.h>
 #include "ManagementDll.h"
 
 ManagementDll::Get_ ManagementDll::Get;

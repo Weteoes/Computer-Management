@@ -18,9 +18,6 @@
     <ClInclude Include="Computer.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -798,12 +795,12 @@
     <ClInclude Include="Weteoes\Dll\SRWDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Computer.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\More\CEF\Application\simple_app.cc">
@@ -854,11 +851,15 @@
     <ClCompile Include="Weteoes\Dll\SRWDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Computer.rc2">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\Dll_Config\Dll_Config.vcxproj" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Computer.ico">

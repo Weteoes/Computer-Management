@@ -1,3 +1,4 @@
+#include <pch.h>
 #include "Icon.h"
 #include <resource.h>
 

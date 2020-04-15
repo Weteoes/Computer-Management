@@ -1,6 +1,5 @@
-#ifdef WeteoesDll_
-#else
-#define WeteoesDll_
+#ifndef WeteoesDll_H
+#define WeteoesDll_H
 #include <Windows.h>
 /*
 	Process_AsUser 需要管理员权限
@@ -17,8 +16,8 @@ private:
 	typedef char*(__stdcall *Http_HttpRequest_)(char* Url, short Port, char* lpUrl, char* Method, char* lpPostData, int nPostDataLen);
 	typedef LPCUWSTR(__stdcall *Convert_CharToLpcuwstr_)(char*);
 	typedef bool(__stdcall *Convert_CharToBool_)(char*);
-	typedef void(__stdcall *IO_WriteFile_)(char* file, char* data);
-	typedef char*(__stdcall *IO_ReadFile_)(char*);
+	typedef void(__stdcall *IO_WriteFile_)(char* file, char* data, int dataLen);
+	typedef int(__stdcall *IO_ReadFile_)(char* file, char*& result);
 	typedef void(__stdcall *IO_CreatePath_)(char*);
 	typedef bool(__stdcall *IO_Exists_)(char*);
 	typedef void(__stdcall *IO_Remove_)(char*);
@@ -31,7 +30,7 @@ private:
 	typedef int*(__stdcall *Process_GetProcessidFromName_)(char* name,int *count);
 	typedef bool(__stdcall *Process_SoftwareExist_)(char* name, char* title);
 	typedef char*(__stdcall *Base64_Encode_)(char* data, int length);
-	typedef char*(__stdcall *Base64_UnEncode_)(char* data, int length);
+	typedef int(__stdcall *Base64_UnEncode_)(char* data, int length, char*& result);
 	typedef char*(__stdcall *CMD_Run_)(char* shell);
 
 public:

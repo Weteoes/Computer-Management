@@ -1,3 +1,4 @@
+#include <pch.h>
 #include "V8Handler.h"
 #include <Weteoes/Application/Dlg.h>
 #include <Weteoes/Application/App.h>

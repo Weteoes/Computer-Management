@@ -1,44 +1,41 @@
-#include <Weteoes/Loading.h>
+#include <pch.h>
 #include <Weteoes/Dll/WeteoesDll.h>
 #include <Weteoes/Dll/SRWDll.h>
-#include <Weteoes/Application/CreateXMLConfig.h>
-#include <Weteoes/Application/ReadXMLConfig.h>
-#include <Weteoes/Application/SetXMLConfig.h>
-#include <Weteoes/Application/ReturnXMLStruct.h>
 
 bool Loading() {
 	if (!WeteoesDll().Loading()) { return false; }
 	if (!SRWDll().Loading()) { return false; }
+	VariableClass::setVariable("AES_Password", "aisdjf213adhfkjs2dcawd55ni"); 
 	return true;
 }
 
-#ifndef CreateConfig
-extern "C" _declspec(dllexport) bool Config_CreateUser(char* user) {
+extern "C" _declspec(dllexport) bool Config_CreateUser(const char* user) {
 	if (!Loading()) { return false; }
-	return CreateXMLConfigClass().User(user);
+	return VariableClass::createXMLConfigClass.UserConfig(user);
 }
-extern "C" _declspec(dllexport) bool Config_CreateComputer(char* ComputerName,char* Language) {
+
+extern "C" _declspec(dllexport) bool Config_CreateComputer(const char* ComputerName, const char* Language) {
 	if (!Loading()) { return false; }
-	return CreateXMLConfigClass().Computer(ComputerName, Language);
+	return VariableClass::createXMLConfigClass.ComputerConfig(ComputerName, Language);
 }
-#endif // !CreateConfig
 
-#ifndef ReadConfig
-extern "C" _declspec(dllexport) ReturnXMLStruct::UserConfig_ Config_ReadUser() {
-	if (!Loading()) { return ReturnXMLStruct::UserConfig_(); }
-	return ReadXMLConfigClass().User();
+extern "C" _declspec(dllexport) ReturnXMLStruct::UserConfig Config_ReadUser() {
+	if (!Loading()) { return ReturnXMLStruct::userConfig; }
+	return VariableClass::readXMLConfigClass.UserConfig();
 }
-extern "C" _declspec(dllexport) ReturnXMLStruct::ComputerConfig_ Config_ReadComputer() {
-	if (!Loading()) { return ReturnXMLStruct::ComputerConfig_(); }
-	return ReadXMLConfigClass().Computer();
-}
-#endif // !ReadConfig
 
-#ifndef SetConfig
-extern "C" _declspec(dllexport) bool Config_SetComputer(char* menu,char* data) {
+extern "C" _declspec(dllexport) ReturnXMLStruct::ComputerConfig Config_ReadComputer() {
+	if (!Loading()) { return ReturnXMLStruct::computerConfig; }
+	return VariableClass::readXMLConfigClass.ComputerConfig();
+}
+
+extern "C" _declspec(dllexport) bool Config_SetComputer(const char* element, const char* data) {
 	if (!Loading()) { return false; }
-	return SetXMLConfigClass().Computer(menu, data);
+	return VariableClass::setXMLConfigClass.ComputerConfig(element, data);
 }
-#endif // !SetConfig
 
-
+extern "C" _declspec(dllexport) bool Set_Variable(const char* key, const char* value) {
+	if (!Loading()) { return false; }
+	VariableClass::setVariable(key, value);
+	return true;
+}

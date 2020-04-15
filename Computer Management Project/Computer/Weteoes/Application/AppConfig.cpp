@@ -1,3 +1,4 @@
+#include <pch.h>
 #include "AppConfig.h"
 #include <Weteoes/Dll/ManagementDll.h>
 

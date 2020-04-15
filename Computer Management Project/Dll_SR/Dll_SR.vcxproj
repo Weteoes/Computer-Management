@@ -94,6 +94,8 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <ModuleDefinitionFile>Source.def</ModuleDefinitionFile>
@@ -133,21 +135,29 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <ModuleDefinitionFile>Source.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DllSRW.cpp" />
     <ClCompile Include="Weteoes\Application\Config.cpp" />
+    <ClCompile Include="Weteoes\Application\Security\AES.cpp" />
+    <ClCompile Include="Weteoes\Application\Security\SecurityAES.cpp" />
+    <ClCompile Include="Weteoes\Application\Web\WebBasic.cpp" />
     <ClCompile Include="Weteoes\Dll\ClientDll.cpp" />
+    <ClCompile Include="Weteoes\Variable.cpp" />
+    <ClCompile Include="Weteoes\Application\Web\WebOperating.cpp" />
     <ClCompile Include="Weteoes\Dll\ConfigDll.cpp" />
     <ClCompile Include="Weteoes\Dll\ManagementDll.cpp" />
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp" />
-    <ClCompile Include="Weteoes\Application\RSA.cpp" />
+    <ClCompile Include="Weteoes\Application\Security\RSA.cpp" />
     <ClCompile Include="Weteoes\Model\Sockets\CSocket.cpp" />
     <ClCompile Include="Weteoes\Model\Sockets\SSocket.cpp" />
   </ItemGroup>
@@ -155,13 +165,18 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="Weteoes\Application\Actions\Software.h" />
     <ClInclude Include="Weteoes\Application\Config.h" />
+    <ClInclude Include="Weteoes\Application\Security\AES.h" />
+    <ClInclude Include="Weteoes\Application\Security\SecurityAES.h" />
     <ClInclude Include="Weteoes\Application\Sockets\ServerSocket.h" />
     <ClInclude Include="Weteoes\Application\Sockets\WebSocket.h" />
+    <ClInclude Include="Weteoes\Application\Web\WebBasic.h" />
     <ClInclude Include="Weteoes\Dll\ClientDll.h" />
+    <ClInclude Include="Weteoes\Variable.h" />
+    <ClInclude Include="Weteoes\Application\Web\WebOperating.h" />
     <ClInclude Include="Weteoes\Dll\ConfigDll.h" />
     <ClInclude Include="Weteoes\Dll\ManagementDll.h" />
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h" />
-    <ClInclude Include="Weteoes\Loading.h" />
+    <ClInclude Include="pch.h" />
     <ClInclude Include="Weteoes\Model\Sockets\CSocket.h" />
     <ClInclude Include="Weteoes\Model\Sockets\SSocket.h" />
     <ClInclude Include="Weteoes\More\openssl\include\openssl\aes.h" />
@@ -270,7 +285,7 @@
     <ClInclude Include="Weteoes\More\openssl\include\openssl\x509_vfy.h" />
     <ClInclude Include="Weteoes\More\openssl\include\openssl\__DECC_INCLUDE_EPILOGUE.H" />
     <ClInclude Include="Weteoes\More\openssl\include\openssl\__DECC_INCLUDE_PROLOGUE.H" />
-    <ClInclude Include="Weteoes\Application\RSA.h" />
+    <ClInclude Include="Weteoes\Application\Security\RSA.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source.def" />

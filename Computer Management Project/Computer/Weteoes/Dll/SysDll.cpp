@@ -1,3 +1,4 @@
+#include <pch.h>
 #include "SysDll.h"
 
 SysDll::Fun1 SysDll::Install;

@@ -1,4 +1,8 @@
 LIBRARY "Config"
 EXPORTS
 	Config_CreateUser
+	Config_CreateComputer
 	Config_ReadUser
+	Config_ReadComputer
+	Config_SetComputer
+	Set_Variable

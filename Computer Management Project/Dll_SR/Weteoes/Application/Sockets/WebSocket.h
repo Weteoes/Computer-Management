@@ -1,6 +1,6 @@
 #ifndef WebSocketClass_H
 #define WebSocketClass_H
-#include <Weteoes/Loading.h>
+#include <pch.h>
 #include <Weteoes/Model/Sockets/SSocket.h>
 
 class WebSocketClass : public SSocketClass
@@ -45,7 +45,16 @@ void WebSocketClass::Loading() {
 SOCKADDR_IN WebSocketClass::Socket_Initialization() {
 	SOCKADDR_IN server;
 	memset(&server, 0, sizeof(SOCKADDR_IN)); //初始化(先将保存地址的server置为全0)
-	int Socket_Port = 23332; // 监听端口
+	int Socket_Port = 23330; // 默认监听端口
+#ifndef _DEBUG
+	string Software_UI_Port = ManagementDll::Get((char*)"Software_UI_Port");
+#else
+	string Software_UI_Port = "8080";
+#endif
+	if (!Software_UI_Port.empty()) { 
+		// 不为空,替换
+		Socket_Port = atoi(Software_UI_Port.c_str());
+	}
 	server.sin_family = PF_INET; //声明地址格式是TCP/IP地址格式
 	server.sin_port = htons(Socket_Port); //指明连接服务器的端口号
 	server.sin_addr.S_un.S_addr = htonl(INADDR_ANY); // Server服务端Socket
@@ -59,25 +68,37 @@ void WebSocketClass::Socket_RunShell(SOCKET client, std::string data) { //执行动
 		std::string file = data.substr(4);
 		file = file.substr(0, file.find(" "));
 		if (file == "/") { file = "/index.html"; }
-		if (file.find(".") == -1) { file = "/index.html"; }
-		file = this->webPath + file;
-		if(WeteoesDll::IO_Exists((char*)file.c_str())) { 
+#ifdef NoBuild
+		// operating
+		if (VariableClass::webOperatingClass.Entrance(file, result)) {
+			result = GetHeader("") + result;
+			goto f_result;
+		}
+#endif
+		if (file.find(".") == -1) { file = "/index.html"; } // VUE 转发
+		std::string pathFile = this->webPath + file;
+		if(WeteoesDll::IO_Exists((char*)pathFile.c_str())) {
 			//fileByte.
-			std::string urlType = file.substr(file.find_last_of(".") + 1);
+			std::string urlType = pathFile.substr(pathFile.find_last_of(".") + 1);
 			if (fileByte(urlType)) {
-				std::fstream filea(file.c_str(), std::ios::binary | std::ios::in);
+				std::fstream filea(pathFile.c_str(), std::ios::binary | std::ios::in);
 				filea.seekg(0, std::ios::end); //文件指针指向结尾
 				int length = (int)filea.tellg(); //获取文件长度
 				filea.seekg(0, std::ios::beg); //文件指针从新指向开头
 				char* buffer = (char*)calloc(length, sizeof(char));           //存储读取字符串
 				filea.read(buffer, length);
-				result = GetHeader(file);
-				Send_Socket(client, result);
+				result = GetHeader(pathFile);
+				if (Send_Socket(client, result)) {
+					send(client, buffer, length, 0);
+				}
 				result = "";
-				send(client, buffer, length, 0);
+				free(buffer); //释放内存
 			}
-			else
-				result = GetHeader(file) + WeteoesDll::IO_ReadFile((char*)file.c_str()); 
+			else {
+				char* pathFile_c;
+				int pathFile_c_len = WeteoesDll::IO_ReadFile((char*)pathFile.c_str(), pathFile_c);
+				result = GetHeader(pathFile) + string(pathFile_c, pathFile_c_len);
+			}
 		}
 		else { result = OtherSend(); }
 	}
@@ -95,12 +116,16 @@ std::string WebSocketClass::OtherSend() {
 }
 inline std::string WebSocketClass::GetHeader(std::string file) {
 	std::string result = "HTTP/1.1 200 OK\r\ncharset=UTF-8\r\nServer: Weteoes\r\n";
-	std::string type = "text/html";
+#ifdef _DEBUG
+	result += "Access-Control-Allow-Origin:*\r\n";
+#endif
 	if (!file.empty()) { 
 		std::string urlType = file.substr(file.find_last_of(".") + 1);
-		if (fileByte(urlType)) { result += "Accept-Ranges: bytes\r\nDate: Weteoes\r\n\r\n"; }
-		else { result += "\r\n"; }
+		if (urlType == "woff") { result += "Content-Type: application/font-woff\r\n"; }
+		else if (urlType == "ttf") { result += "Content-Type: font/ttf\r\n"; }
+		if (fileByte(urlType)) { result += "Accept-Ranges: bytes\r\nDate: Weteoes\r\n"; }
 	}
+	result += "\r\n";
 	return result;
 }
 bool WebSocketClass::fileByte(std::string urlType) {

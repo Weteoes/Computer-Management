@@ -1,6 +1,6 @@
 #include "App.h"
 #include <thread>
-#include <stdafx.h>
+#include <pch.h>
 #include <Resource.h>
 #include <Weteoes/Application/Dlg.h>
 #include <Weteoes/Application/AppConfig.h>

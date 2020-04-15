@@ -27,9 +27,6 @@
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Update_.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\More\Json\include\allocator.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -81,15 +78,15 @@
     <ClInclude Include="Weteoes\Dll\ManagementDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Update.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Update_.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Application\WUpdate.cpp">
@@ -102,6 +99,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Dll\ManagementDll.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Update.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

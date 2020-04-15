@@ -1,6 +1,6 @@
+#include <pch.h>
 #ifndef ServerSocketClass_H
 #define ServerSocketClass_H
-#include <Weteoes/Loading.h>
 #include <Weteoes/Model/Sockets/CSocket.h>
 
 class ServerSocketClass : public CSocketClass
@@ -17,12 +17,16 @@ private:
 
 private:
 	std::string EncryptData(std::string); // 加密数据
+
+private:
+	const char* Config_Socket_OK = "[Weteoes_OK]";
+	const char* Config_Socket_Error = "[Weteoes_Error]";
+	const char* Config_Socket_Hello = "[Hello_Weteoes]";
 };
 #endif
 
 #ifndef ServerSocketClass_CPP
 #define ServerSocketClass_CPP
-#include <Weteoes/Application/RSA.h>
 #include <Weteoes/Application/Config.h>
 #include <Weteoes/Application/Actions/Software.h>
 #include <Weteoes/Dll/ManagementDll.h>
@@ -49,8 +53,8 @@ getDomainIp:
 	return server;
 }
 void ServerSocketClass::Socket_RunShell(std::string data) { //执行动作
-	if (data == ConfigClass::Socket_OK) { return; } // 如果是Success
-	if (data == ConfigClass::Socket_Error) { //如果是Error(密码错误)
+	if (data == Config_Socket_OK) { return; } // 如果是Success
+	if (data == Config_Socket_Error) { //如果是Error(密码错误)
 		SocketStopFlac = true;
 		SoftwareClass().RebootSoftware();
 		return;
@@ -65,7 +69,7 @@ void ServerSocketClass::Socket_RunShell(std::string data) { //执行动作
 }
 void ServerSocketClass::Send_Socket_While(SOCKET socket) {
 	while (1) {
-		if (!Send_Socket(sClient, EncryptData(ConfigClass::Socket_Hello))) { // Error
+		if (!Send_Socket(sClient, EncryptData(Config_Socket_Hello))) { // Error
 			return;
 		}
 		else { ::Sleep(1000 * 60); }
@@ -73,8 +77,8 @@ void ServerSocketClass::Send_Socket_While(SOCKET socket) {
 }
 std::string ServerSocketClass::GetFirstSendData() {
 	if (!ConfigDll().Loading()) { return ""; }
-	ConfigDllStruct::UserConfig_ UserConfig = ConfigDll::Config_ReadUser();
-	ConfigDllStruct::ComputerConfig_ ComputerConfig = ConfigDll::Config_ReadComputer();
+	ConfigDll::Struct_UserConfig UserConfig = ConfigDll::Config_ReadUser();
+	ConfigDll::Struct_ComputerConfig ComputerConfig = ConfigDll::Config_ReadComputer();
 	std::string b = "Weteoes_Server_";
 	b += std::string(UserConfig.w) + "|" + std::string(ComputerConfig.ComputerName);
 	return EncryptData(b);

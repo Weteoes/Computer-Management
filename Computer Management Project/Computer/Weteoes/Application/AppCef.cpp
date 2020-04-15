@@ -1,3 +1,4 @@
+#include <pch.h>
 #include "AppCef.h"
 #include <Weteoes/More/CEF/Config.h> //CEF-Config
 #include <Weteoes/application/AppConfig.h>
@@ -25,9 +26,9 @@ CefSettings AppCefClass::GetSetting()
 
 std::string AppCefClass::GetUrl(std::string url) {
 	if (!ManagementDll().Loading()) { return url; }
-	std::string URL_Client = ManagementDll::Get("URL_Client");
-	if (URL_Client.empty()) { return url; }
-	url = URL_Client + url;
+	std::string Software_UI_Port = ManagementDll::Get("Software_UI_Port");
+	if (Software_UI_Port.empty()) { return url; }
+	url = "http://127.0.0.1:" + Software_UI_Port + url;
 	return url;
 }
 

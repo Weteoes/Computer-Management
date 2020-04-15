@@ -18,19 +18,10 @@
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Application\RSA.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\Application\Config.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Weteoes\Dll\ManagementDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Dll\ConfigDll.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\Dll\ClientDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DllSRW.cpp">
@@ -40,6 +31,30 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Model\Sockets\SSocket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\Web\WebOperating.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Variable.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\Config.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\Web\WebBasic.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\Security\RSA.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\Security\AES.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\Security\SecurityAES.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Dll\ClientDll.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -365,19 +380,7 @@
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Application\RSA.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\Loading.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\Application\Sockets\ServerSocket.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\Application\Config.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Weteoes\Application\Actions\Software.h">
@@ -389,9 +392,6 @@
     <ClInclude Include="Weteoes\Dll\ConfigDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Dll\ClientDll.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\Application\Sockets\WebSocket.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -399,6 +399,36 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Weteoes\Model\Sockets\SSocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Web\WebOperating.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Variable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Web\WebBasic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Security\RSA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Security\AES.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Security\SecurityAES.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Dll\ClientDll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Sockets\ServerSocket.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
