@@ -39,9 +39,9 @@
 #pragma once
 
 #include <vector>
-#include "Weteoes/More/CEF/include/cef_base.h"
-#include "Weteoes/More/CEF/include/cef_image.h"
-#include "Weteoes/More/CEF/include/cef_stream.h"
+#include "include/cef_base.h"
+#include "include/cef_image.h"
+#include "include/cef_stream.h"
 
 ///
 // Class used to represent drag data. The methods of this class may be called

@@ -39,13 +39,13 @@
 
 #include <list>
 
-#include "Weteoes/More/CEF/include/base/cef_macros.h"
-#include "Weteoes/More/CEF/include/base/cef_ref_counted.h"
-#include "Weteoes/More/CEF/include/base/cef_scoped_ptr.h"
-#include "Weteoes/More/CEF/include/base/cef_weak_ptr.h"
-#include "Weteoes/More/CEF/include/cef_request_handler.h"
-#include "Weteoes/More/CEF/include/wrapper/cef_closure_task.h"
-#include "Weteoes/More/CEF/include/wrapper/cef_helpers.h"
+#include "include/base/cef_macros.h"
+#include "include/base/cef_ref_counted.h"
+#include "include/base/cef_scoped_ptr.h"
+#include "include/base/cef_weak_ptr.h"
+#include "include/cef_request_handler.h"
+#include "include/wrapper/cef_closure_task.h"
+#include "include/wrapper/cef_helpers.h"
 
 ///
 // Class for managing multiple resource providers. For each resource request

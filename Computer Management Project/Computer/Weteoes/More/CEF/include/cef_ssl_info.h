@@ -38,10 +38,10 @@
 #define CEF_INCLUDE_CEF_SSL_INFO_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/cef_base.h"
-#include "Weteoes/More/CEF/include/cef_values.h"
+#include "include/cef_base.h"
+#include "include/cef_values.h"
 
-#include "Weteoes/More/CEF/include/cef_x509_certificate.h"
+#include "include/cef_x509_certificate.h"
 
 ///
 // Class representing SSL information.
@@ -64,16 +64,9 @@ class CefSSLInfo : public virtual CefBaseRefCounted {
 };
 
 ///
-// Returns true if the certificate status has any error, major or minor.
+// Returns true if the certificate status represents an error.
 ///
 /*--cef()--*/
 bool CefIsCertStatusError(cef_cert_status_t status);
-
-///
-// Returns true if the certificate status represents only minor errors
-// (e.g. failure to verify certificate revocation).
-///
-/*--cef()--*/
-bool CefIsCertStatusMinorError(cef_cert_status_t status);
 
 #endif  // CEF_INCLUDE_CEF_SSL_INFO_H_

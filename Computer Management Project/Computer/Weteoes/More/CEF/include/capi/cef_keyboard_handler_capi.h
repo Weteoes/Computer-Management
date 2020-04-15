@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Marshall A. Greenblatt. All rights reserved.
+// Copyright (c) 2020 Marshall A. Greenblatt. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,15 +33,15 @@
 // by hand. See the translator.README.txt file in the tools directory for
 // more information.
 //
-// $hash=7efb9ec2ee02bb511c1d0363b8c4d235a6170cad$
+// $hash=70108de432674485dee079e541e0dacd6a437961$
 //
 
 #ifndef CEF_INCLUDE_CAPI_CEF_KEYBOARD_HANDLER_CAPI_H_
 #define CEF_INCLUDE_CAPI_CEF_KEYBOARD_HANDLER_CAPI_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/capi/cef_base_capi.h"
-#include "Weteoes/More/CEF/include/capi/cef_browser_capi.h"
+#include "include/capi/cef_base_capi.h"
+#include "include/capi/cef_browser_capi.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -82,8 +82,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
-    <ReferencePath>$(ReferencePath)</ReferencePath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)Weteoes\More\CEF;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)Weteoes\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -91,7 +91,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(RemoteDebuggerWorkingDirectory);$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)Weteoes\More\CEF;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)Weteoes\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -198,25 +199,37 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Computer.h" />
-    <ClInclude Include="Weteoes\Application\AppCef.h" />
-    <ClInclude Include="Weteoes\Dlg\ComputerDlg.h" />
+    <ClInclude Include="Weteoes\Application\AppDlg.h" />
+    <ClInclude Include="Weteoes\Application\AppIcon.h" />
+    <ClInclude Include="Weteoes\Application\CEF\AppCef.h" />
+    <ClInclude Include="Weteoes\Application\CEF\AppCefBasic.h" />
+    <ClInclude Include="Weteoes\Application\CreateDlg.h" />
+    <ClInclude Include="Weteoes\Application\Dll\APP_Dll_SWR.h" />
     <ClInclude Include="Weteoes\Dlg\Dlg_Main.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Weteoes\Application\App.h" />
     <ClInclude Include="Weteoes\Application\AppConfig.h" />
-    <ClInclude Include="Weteoes\Application\Dlg.h" />
-    <ClInclude Include="Weteoes\Application\Icon.h" />
+    <ClInclude Include="Weteoes\Dlg\INIT_DLG.h" />
     <ClInclude Include="Weteoes\Dll\ConfigDll.h" />
     <ClInclude Include="Weteoes\Dll\ManagementDll.h" />
     <ClInclude Include="Weteoes\Dll\SRWDll.h" />
     <ClInclude Include="Weteoes\Dll\SysDll.h" />
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h" />
-    <ClInclude Include="Weteoes\Loading.h" />
-    <ClInclude Include="Weteoes\More\CEF\Application\simple_app.h" />
-    <ClInclude Include="Weteoes\More\CEF\Application\simple_handler.h" />
-    <ClInclude Include="Weteoes\More\CEF\Application\V8\V8Handler.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\CEF_App.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\CEF_Handler.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\CEF_V8Handler.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\CEF_WindowDelegate.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\ChangePassword\CEF_ChangePassword_App.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\ChangePassword\CEF_ChangePassword_V8Handler.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Init\CEF_Init_App.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Init\CEF_Init_V8Handler.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_App.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_V8Handler.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_App.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_V8Handler.h" />
+    <ClInclude Include="Weteoes\More\CEF\Application\Ready\CEF_App_Ready.h" />
     <ClInclude Include="Weteoes\More\CEF\Config.h" />
     <ClInclude Include="Weteoes\More\CEF\include\base\cef_atomicops.h" />
     <ClInclude Include="Weteoes\More\CEF\include\base\cef_atomic_ref_count.h" />
@@ -242,11 +255,13 @@
     <ClInclude Include="Weteoes\More\CEF\include\base\cef_trace_event.h" />
     <ClInclude Include="Weteoes\More\CEF\include\base\cef_tuple.h" />
     <ClInclude Include="Weteoes\More\CEF\include\base\cef_weak_ptr.h" />
+    <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_atomicops_arm64_msvc.h" />
     <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_atomicops_x86_msvc.h" />
     <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_bind_internal.h" />
     <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_bind_internal_win.h" />
     <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_callback_internal.h" />
     <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_lock_impl.h" />
+    <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_net_error_list.h" />
     <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_raw_scoped_refptr_mismatch_checker.h" />
     <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_thread_checker_impl.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_accessibility_handler_capi.h" />
@@ -291,6 +306,7 @@
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_process_util_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_render_handler_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_render_process_handler_capi.h" />
+    <ClInclude Include="Weteoes\More\CEF\include\capi\cef_request_callback_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_request_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_request_context_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_request_context_handler_capi.h" />
@@ -298,6 +314,7 @@
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_resource_bundle_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_resource_bundle_handler_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_resource_handler_capi.h" />
+    <ClInclude Include="Weteoes\More\CEF\include\capi\cef_resource_request_handler_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_response_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_response_filter_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\cef_scheme_capi.h" />
@@ -340,6 +357,7 @@
     <ClInclude Include="Weteoes\More\CEF\include\capi\views\cef_window_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\capi\views\cef_window_delegate_capi.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_accessibility_handler.h" />
+    <ClInclude Include="Weteoes\More\CEF\include\cef_api_hash.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_app.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_auth_callback.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_base.h" />
@@ -348,6 +366,7 @@
     <ClInclude Include="Weteoes\More\CEF\include\cef_callback.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_client.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_command_line.h" />
+    <ClInclude Include="Weteoes\More\CEF\include\cef_config.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_context_menu_handler.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_cookie.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_crash_util.h" />
@@ -384,12 +403,14 @@
     <ClInclude Include="Weteoes\More\CEF\include\cef_render_handler.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_render_process_handler.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_request.h" />
+    <ClInclude Include="Weteoes\More\CEF\include\cef_request_callback.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_request_context.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_request_context_handler.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_request_handler.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_resource_bundle.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_resource_bundle_handler.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_resource_handler.h" />
+    <ClInclude Include="Weteoes\More\CEF\include\cef_resource_request_handler.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_response.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_response_filter.h" />
     <ClInclude Include="Weteoes\More\CEF\include\cef_sandbox_win.h" />
@@ -458,11 +479,16 @@
     <ClInclude Include="Weteoes\More\CEF\include\wrapper\cef_stream_resource_handler.h" />
     <ClInclude Include="Weteoes\More\CEF\include\wrapper\cef_xml_object.h" />
     <ClInclude Include="Weteoes\More\CEF\include\wrapper\cef_zip_archive.h" />
+    <ClInclude Include="Weteoes\Variable.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Computer.cpp" />
-    <ClCompile Include="Weteoes\Application\AppCef.cpp" />
-    <ClCompile Include="Weteoes\Dlg\ComputerDlg.cpp" />
+    <ClCompile Include="Weteoes\Application\AppDlg.cpp" />
+    <ClCompile Include="Weteoes\Application\AppIcon.cpp" />
+    <ClCompile Include="Weteoes\Application\CEF\AppCef.cpp" />
+    <ClCompile Include="Weteoes\Application\CEF\AppCefBasic.cpp" />
+    <ClCompile Include="Weteoes\Application\CreateDlg.cpp" />
+    <ClCompile Include="Weteoes\Application\Dll\APP_Dll_SWR.cpp" />
     <ClCompile Include="Weteoes\Dlg\Dlg_Main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -472,17 +498,25 @@
     </ClCompile>
     <ClCompile Include="Weteoes\Application\App.cpp" />
     <ClCompile Include="Weteoes\Application\AppConfig.cpp" />
-    <ClCompile Include="Weteoes\Application\Dlg.cpp" />
-    <ClCompile Include="Weteoes\Application\Icon.cpp" />
+    <ClCompile Include="Weteoes\Dlg\INIT_DLG.cpp" />
     <ClCompile Include="Weteoes\Dll\ConfigDll.cpp" />
     <ClCompile Include="Weteoes\Dll\ManagementDll.cpp" />
     <ClCompile Include="Weteoes\Dll\SRWDll.cpp" />
     <ClCompile Include="Weteoes\Dll\SysDll.cpp" />
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp" />
-    <ClCompile Include="Weteoes\More\CEF\Application\simple_app.cc" />
-    <ClCompile Include="Weteoes\More\CEF\Application\simple_handler.cc" />
-    <ClCompile Include="Weteoes\More\CEF\Application\simple_handler_win.cc" />
-    <ClCompile Include="Weteoes\More\CEF\Application\V8\V8Handler.cpp" />
+    <ClCompile Include="Weteoes\More\CEF\Application\CEF_App.cc" />
+    <ClCompile Include="Weteoes\More\CEF\Application\CEF_Handler.cc" />
+    <ClCompile Include="Weteoes\More\CEF\Application\CEF_V8Handler.cpp" />
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\ChangePassword\CEF_ChangePassword_App.cpp" />
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\ChangePassword\CEF_ChangePassword_V8Handler.cpp" />
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Init\CEF_Init_App.cpp" />
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Init\CEF_Init_V8Handler.cpp" />
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_App.cpp" />
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_V8Handler.cpp" />
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_App.cpp" />
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_V8Handler.cpp" />
+    <ClCompile Include="Weteoes\More\CEF\Application\Ready\CEF_App_Ready.cpp" />
+    <ClCompile Include="Weteoes\Variable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Computer.rc" />

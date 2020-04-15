@@ -38,9 +38,9 @@
 #define CEF_INCLUDE_VIEWS_CEF_LABEL_BUTTON_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/cef_image.h"
-#include "Weteoes/More/CEF/include/views/cef_button.h"
-#include "Weteoes/More/CEF/include/views/cef_button_delegate.h"
+#include "include/cef_image.h"
+#include "include/views/cef_button.h"
+#include "include/views/cef_button_delegate.h"
 
 class CefMenuButton;
 
@@ -54,17 +54,12 @@ class CefLabelButton : public CefButton {
   ///
   // Create a new LabelButton. A |delegate| must be provided to handle the
   // button click. |text| will be shown on the LabelButton and used as the
-  // default accessible name. If |with_frame| is true the button will have a
-  // visible frame at all times, center alignment, additional padding and a
-  // default minimum size of 70x33 DIP. If |with_frame| is false the button will
-  // only have a visible frame on hover/press, left alignment, less padding and
-  // no default minimum size.
+  // default accessible name.
   ///
   /*--cef(optional_param=text)--*/
   static CefRefPtr<CefLabelButton> CreateLabelButton(
       CefRefPtr<CefButtonDelegate> delegate,
-      const CefString& text,
-      bool with_frame);
+      const CefString& text);
 
   ///
   // Returns this LabelButton as a MenuButton or NULL if this is not a

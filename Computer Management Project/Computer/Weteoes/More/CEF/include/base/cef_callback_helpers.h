@@ -54,10 +54,10 @@
 // If the Chromium implementation diverges the below implementation should be
 // updated to match.
 
-#include "Weteoes/More/CEF/include/base/cef_basictypes.h"
-#include "Weteoes/More/CEF/include/base/cef_build.h"
-#include "Weteoes/More/CEF/include/base/cef_callback.h"
-#include "Weteoes/More/CEF/include/base/cef_macros.h"
+#include "include/base/cef_basictypes.h"
+#include "include/base/cef_build.h"
+#include "include/base/cef_callback.h"
+#include "include/base/cef_macros.h"
 
 namespace base {
 

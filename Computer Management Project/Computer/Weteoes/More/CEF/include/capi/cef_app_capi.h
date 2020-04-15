@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Marshall A. Greenblatt. All rights reserved.
+// Copyright (c) 2020 Marshall A. Greenblatt. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,19 +33,19 @@
 // by hand. See the translator.README.txt file in the tools directory for
 // more information.
 //
-// $hash=ca069c86d9b09fb6f939ce72682e15ce95571ead$
+// $hash=04cfae434fe901644c1c78f1c30c0921518cc666$
 //
 
 #ifndef CEF_INCLUDE_CAPI_CEF_APP_CAPI_H_
 #define CEF_INCLUDE_CAPI_CEF_APP_CAPI_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/capi/cef_base_capi.h"
-#include "Weteoes/More/CEF/include/capi/cef_browser_process_handler_capi.h"
-#include "Weteoes/More/CEF/include/capi/cef_command_line_capi.h"
-#include "Weteoes/More/CEF/include/capi/cef_render_process_handler_capi.h"
-#include "Weteoes/More/CEF/include/capi/cef_resource_bundle_handler_capi.h"
-#include "Weteoes/More/CEF/include/capi/cef_scheme_capi.h"
+#include "include/capi/cef_base_capi.h"
+#include "include/capi/cef_browser_process_handler_capi.h"
+#include "include/capi/cef_command_line_capi.h"
+#include "include/capi/cef_render_process_handler_capi.h"
+#include "include/capi/cef_resource_bundle_handler_capi.h"
+#include "include/capi/cef_scheme_capi.h"
 
 #ifdef __cplusplus
 extern "C" {

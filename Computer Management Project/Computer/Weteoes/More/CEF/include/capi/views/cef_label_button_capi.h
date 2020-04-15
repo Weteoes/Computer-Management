@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Marshall A. Greenblatt. All rights reserved.
+// Copyright (c) 2020 Marshall A. Greenblatt. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,16 +33,16 @@
 // by hand. See the translator.README.txt file in the tools directory for
 // more information.
 //
-// $hash=6c88144cb4388bd640b52d35d78fc45c682cb333$
+// $hash=d947a566036f44439f352aea45098dfb46043b9a$
 //
 
 #ifndef CEF_INCLUDE_CAPI_VIEWS_CEF_LABEL_BUTTON_CAPI_H_
 #define CEF_INCLUDE_CAPI_VIEWS_CEF_LABEL_BUTTON_CAPI_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/capi/cef_image_capi.h"
-#include "Weteoes/More/CEF/include/capi/views/cef_button_capi.h"
-#include "Weteoes/More/CEF/include/capi/views/cef_button_delegate_capi.h"
+#include "include/capi/cef_image_capi.h"
+#include "include/capi/views/cef_button_capi.h"
+#include "include/capi/views/cef_button_delegate_capi.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -148,16 +148,11 @@ typedef struct _cef_label_button_t {
 ///
 // Create a new LabelButton. A |delegate| must be provided to handle the button
 // click. |text| will be shown on the LabelButton and used as the default
-// accessible name. If |with_frame| is true (1) the button will have a visible
-// frame at all times, center alignment, additional padding and a default
-// minimum size of 70x33 DIP. If |with_frame| is false (0) the button will only
-// have a visible frame on hover/press, left alignment, less padding and no
-// default minimum size.
+// accessible name.
 ///
 CEF_EXPORT cef_label_button_t* cef_label_button_create(
     struct _cef_button_delegate_t* delegate,
-    const cef_string_t* text,
-    int with_frame);
+    const cef_string_t* text);
 
 #ifdef __cplusplus
 }

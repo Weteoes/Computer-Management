@@ -37,11 +37,11 @@
 #define CEF_INCLUDE_WRAPPER_CEF_MESSAGE_ROUTER_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/base/cef_ref_counted.h"
-#include "Weteoes/More/CEF/include/cef_base.h"
-#include "Weteoes/More/CEF/include/cef_browser.h"
-#include "Weteoes/More/CEF/include/cef_process_message.h"
-#include "Weteoes/More/CEF/include/cef_v8.h"
+#include "include/base/cef_ref_counted.h"
+#include "include/cef_base.h"
+#include "include/cef_browser.h"
+#include "include/cef_process_message.h"
+#include "include/cef_v8.h"
 
 // The below classes implement support for routing aynchronous messages between
 // JavaScript running in the renderer process and C++ running in the browser
@@ -360,6 +360,7 @@ class CefMessageRouterBrowserSide
   ///
   virtual bool OnProcessMessageReceived(
       CefRefPtr<CefBrowser> browser,
+      CefRefPtr<CefFrame> frame,
       CefProcessId source_process,
       CefRefPtr<CefProcessMessage> message) = 0;
 
@@ -415,6 +416,7 @@ class CefMessageRouterRendererSide
   ///
   virtual bool OnProcessMessageReceived(
       CefRefPtr<CefBrowser> browser,
+      CefRefPtr<CefFrame> frame,
       CefProcessId source_process,
       CefRefPtr<CefProcessMessage> message) = 0;
 

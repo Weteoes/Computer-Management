@@ -41,8 +41,8 @@
 #define CEF_INCLUDE_CEF_TRACE_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/cef_base.h"
-#include "Weteoes/More/CEF/include/cef_callback.h"
+#include "include/cef_base.h"
+#include "include/cef_callback.h"
 
 ///
 // Implement this interface to receive notification when tracing has completed.

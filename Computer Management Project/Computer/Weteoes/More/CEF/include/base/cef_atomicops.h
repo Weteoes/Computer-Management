@@ -69,7 +69,7 @@
 
 #include <stdint.h>
 
-#include "Weteoes/More/CEF/include/base/cef_build.h"
+#include "include/base/cef_build.h"
 
 #if defined(OS_WIN) && defined(ARCH_CPU_64_BITS)
 // windows.h #defines this (only on x64). This causes problems because the
@@ -177,13 +177,17 @@ Atomic64 Release_Load(volatile const Atomic64* ptr);
 
 // Include our platform specific implementation.
 #if defined(OS_WIN) && defined(COMPILER_MSVC) && defined(ARCH_CPU_X86_FAMILY)
-#include "Weteoes/More/CEF/include/base/internal/cef_atomicops_x86_msvc.h"
+#include "include/base/internal/cef_atomicops_x86_msvc.h"
+#elif defined(OS_WIN) && (defined(__ARM_ARCH_ISA_A64) || defined(_M_ARM64))
+#include "include/base/internal/cef_atomicops_arm64_msvc.h"
 #elif defined(OS_MACOSX)
-#include "Weteoes/More/CEF/include/base/internal/cef_atomicops_mac.h"
+#include "include/base/internal/cef_atomicops_mac.h"
 #elif defined(COMPILER_GCC) && defined(ARCH_CPU_X86_FAMILY)
-#include "Weteoes/More/CEF/include/base/internal/cef_atomicops_x86_gcc.h"
+#include "include/base/internal/cef_atomicops_x86_gcc.h"
+#elif defined(COMPILER_GCC) && defined(__ARM_ARCH_ISA_A64)
+#include "include/base/internal/cef_atomicops_arm64_gcc.h"
 #elif defined(COMPILER_GCC) && defined(__ARM_ARCH)
-#include "Weteoes/More/CEF/include/base/internal/cef_atomicops_arm_gcc.h"
+#include "include/base/internal/cef_atomicops_arm_gcc.h"
 #else
 #error "Atomic operations are not supported on your platform"
 #endif
@@ -191,7 +195,7 @@ Atomic64 Release_Load(volatile const Atomic64* ptr);
 // On some platforms we need additional declarations to make
 // AtomicWord compatible with our other Atomic* types.
 #if defined(OS_MACOSX) || defined(OS_OPENBSD)
-#include "Weteoes/More/CEF/include/base/internal/cef_atomicops_atomicword_compat.h"
+#include "include/base/internal/cef_atomicops_atomicword_compat.h"
 #endif
 
 #endif  // !USING_CHROMIUM_INCLUDES

@@ -37,7 +37,7 @@
 #ifndef CEF_INCLUDE_CEF_TASK_H_
 #define CEF_INCLUDE_CEF_TASK_H_
 
-#include "Weteoes/More/CEF/include/cef_base.h"
+#include "include/cef_base.h"
 
 typedef cef_thread_id_t CefThreadId;
 
@@ -49,7 +49,7 @@ typedef cef_thread_id_t CefThreadId;
 // the target thread. For this reason be cautious when performing work in the
 // task object destructor.
 ///
-/*--cef(source=client)--*/
+/*--cef(source=client,no_debugct_check)--*/
 class CefTask : public virtual CefBaseRefCounted {
  public:
   ///

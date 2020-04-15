@@ -38,9 +38,9 @@
 #define CEF_INCLUDE_SCOPED_TEMP_DIR_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/base/cef_build.h"
-#include "Weteoes/More/CEF/include/base/cef_macros.h"
-#include "Weteoes/More/CEF/include/cef_base.h"
+#include "include/base/cef_build.h"
+#include "include/base/cef_macros.h"
+#include "include/cef_base.h"
 
 ///
 // An object representing a temporary / scratch directory that should be cleaned

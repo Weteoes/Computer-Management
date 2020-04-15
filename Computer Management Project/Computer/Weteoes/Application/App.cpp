@@ -2,7 +2,6 @@
 #include <thread>
 #include <pch.h>
 #include <Resource.h>
-#include <Weteoes/Application/Dlg.h>
 #include <Weteoes/Application/AppConfig.h>
 #include <Weteoes/Dll/WeteoesDll.h>
 #include <Weteoes/Dlg/Dlg_Main.h>
@@ -10,9 +9,9 @@
 #include <Weteoes/Dll/ConfigDll.h>
 
 void AppClass::Login_Success() {
-	AppConfigClass::IsLogin = true;
+	//AppConfigClass::IsLogin = true;
 	PD_Config(); //先判断配置是否存在
-	DlgClass().Dlg_Mini();
+	VariableClass::appDlgClass.Minimize();
 	std::thread Main(&AppClass::Dlg_Main_Start, this); Main.detach(); //Create Thread
 }
 void AppClass::Start_SRW(int type) {
@@ -20,7 +19,7 @@ void AppClass::Start_SRW(int type) {
 }
 
 void AppClass::SRW(int type) {
-	if (!SRWDll().Loading()) { DlgClass().Dlg_Close(); }
+	if (!SRWDll().Loading()) { VariableClass::appDlgClass.Close(); }
 	switch (type) {
 		case 0: { // UI 服务
 			std::string a = WeteoesDll::Basics_GetNowFilePath() + std::string("UI");
@@ -38,14 +37,15 @@ void AppClass::SRW(int type) {
 }
 void AppClass::Dlg_Main_Start() {
 	Dlg_Main dlg;
-	if (AppConfigClass::IsMiniStartMain) {
-		dlg.Create(IDD_Dlg_Main);
-		dlg.ShowWindow(SW_HIDE);
-		dlg.RunModalLoop();
-	}
-	else {
-		dlg.DoModal();
-	}
+	dlg.DoModal();
+	//if (AppConfigClass::IsMiniStartMain) {
+	//	dlg.Create(IDD_Dlg_Main);
+	//	dlg.ShowWindow(SW_HIDE);
+	//	dlg.RunModalLoop();
+	//}
+	//else {
+	//	dlg.DoModal();
+	//}
 }
 void AppClass::PD_Config() {
 	ConfigDll().Loading();
@@ -57,8 +57,7 @@ void AppClass::PD_Config() {
 		ConfigDll::Config_CreateComputer((char*)a.c_str(),"Default");
 	}
 }
-std::string AppClass::Random_Character(int len)
-{
+std::string AppClass::Random_Character(int len) {
 	std::string result = "";
 	srand((unsigned int)time(NULL));
 	for (int i = 0; i < len; ++i)

@@ -38,16 +38,16 @@
 #define CEF_INCLUDE_CEF_BROWSER_PROCESS_HANDLER_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/cef_base.h"
-#include "Weteoes/More/CEF/include/cef_command_line.h"
-#include "Weteoes/More/CEF/include/cef_print_handler.h"
-#include "Weteoes/More/CEF/include/cef_values.h"
+#include "include/cef_base.h"
+#include "include/cef_command_line.h"
+#include "include/cef_print_handler.h"
+#include "include/cef_values.h"
 
 ///
 // Class used to implement browser process callbacks. The methods of this class
 // will be called on the browser process main thread unless otherwise indicated.
 ///
-/*--cef(source=client)--*/
+/*--cef(source=client,no_debugct_check)--*/
 class CefBrowserProcessHandler : public virtual CefBaseRefCounted {
  public:
   ///
@@ -84,7 +84,7 @@ class CefBrowserProcessHandler : public virtual CefBaseRefCounted {
   // provided then printing will not be supported on the Linux platform.
   ///
   /*--cef()--*/
-  virtual CefRefPtr<CefPrintHandler> GetPrintHandler() { return NULL; }
+  virtual CefRefPtr<CefPrintHandler> GetPrintHandler() { return nullptr; }
 
   ///
   // Called from any thread when work has been scheduled for the browser process

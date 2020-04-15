@@ -38,8 +38,8 @@
 #define CEF_INCLUDE_CEF_FIND_HANDLER_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/cef_base.h"
-#include "Weteoes/More/CEF/include/cef_browser.h"
+#include "include/cef_base.h"
+#include "include/cef_browser.h"
 
 ///
 // Implement this interface to handle events related to find results. The

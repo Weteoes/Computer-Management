@@ -38,11 +38,11 @@
 
 #include <stddef.h>
 
-#include "Weteoes/More/CEF/include/base/cef_atomic_ref_count.h"
-#include "Weteoes/More/CEF/include/base/cef_macros.h"
-#include "Weteoes/More/CEF/include/base/cef_ref_counted.h"
-#include "Weteoes/More/CEF/include/base/cef_scoped_ptr.h"
-#include "Weteoes/More/CEF/include/base/cef_template_util.h"
+#include "include/base/cef_atomic_ref_count.h"
+#include "include/base/cef_macros.h"
+#include "include/base/cef_ref_counted.h"
+#include "include/base/cef_scoped_ptr.h"
+#include "include/base/cef_template_util.h"
 
 template <typename T>
 class ScopedVector;

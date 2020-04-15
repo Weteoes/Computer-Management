@@ -24,12 +24,6 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\More\CEF\Application\simple_app.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\More\CEF\Application\simple_handler.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_atomicops_x86_msvc.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -753,34 +747,16 @@
     <ClInclude Include="Weteoes\More\CEF\Config.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Application\Icon.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\Application\Dlg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\Application\AppConfig.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Weteoes\Application\App.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Dlg\ComputerDlg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\Dlg\Dlg_Main.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Application\AppCef.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\More\CEF\Application\V8\V8Handler.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\Loading.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Weteoes\Dll\ConfigDll.h">
@@ -798,24 +774,96 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\ChangePassword\CEF_ChangePassword_App.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\ChangePassword\CEF_ChangePassword_V8Handler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Init\CEF_Init_App.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Init\CEF_Init_V8Handler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_App.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_V8Handler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_App.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_V8Handler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\Ready\CEF_App_Ready.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\CEF_App.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\CEF_Handler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\CEF_V8Handler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\Application\CEF_WindowDelegate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_atomicops_arm64_msvc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\include\base\internal\cef_net_error_list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\include\capi\cef_request_callback_capi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\include\capi\cef_resource_request_handler_capi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\include\cef_api_hash.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\include\cef_config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\include\cef_request_callback.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\More\CEF\include\cef_resource_request_handler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Variable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\AppDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\AppIcon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\CreateDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Dlg\INIT_DLG.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\Dll\APP_Dll_SWR.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\CEF\AppCef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Application\CEF\AppCefBasic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Computer.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\More\CEF\Application\simple_app.cc">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\More\CEF\Application\simple_handler.cc">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\More\CEF\Application\simple_handler_win.cc">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\Application\Icon.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\Application\Dlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Application\AppConfig.cpp">
@@ -824,16 +872,7 @@
     <ClCompile Include="Weteoes\Application\App.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Dlg\ComputerDlg.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Weteoes\Dlg\Dlg_Main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\Application\AppCef.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\More\CEF\Application\V8\V8Handler.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp">
@@ -852,6 +891,66 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\ChangePassword\CEF_ChangePassword_App.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\ChangePassword\CEF_ChangePassword_V8Handler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Init\CEF_Init_App.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Init\CEF_Init_V8Handler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_App.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_V8Handler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_App.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_V8Handler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\Ready\CEF_App_Ready.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\CEF_App.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\CEF_Handler.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\More\CEF\Application\CEF_V8Handler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Variable.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\AppDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\AppIcon.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\CreateDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Dlg\INIT_DLG.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\Dll\APP_Dll_SWR.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\CEF\AppCef.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Application\CEF\AppCefBasic.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

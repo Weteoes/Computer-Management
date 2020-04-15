@@ -40,8 +40,8 @@
 
 #include <vector>
 
-#include "Weteoes/More/CEF/include/cef_base.h"
-#include "Weteoes/More/CEF/include/cef_values.h"
+#include "include/cef_base.h"
+#include "include/cef_values.h"
 
 ///
 // Parse the specified |url| into its component parts.

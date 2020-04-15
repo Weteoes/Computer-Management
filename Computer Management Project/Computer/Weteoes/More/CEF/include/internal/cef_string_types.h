@@ -38,8 +38,8 @@
 
 #include <stddef.h>
 
-#include "Weteoes/More/CEF/include/base/cef_basictypes.h"
-#include "Weteoes/More/CEF/include/internal/cef_export.h"
+#include "include/base/cef_basictypes.h"
+#include "include/internal/cef_export.h"
 
 #ifdef __cplusplus
 extern "C" {

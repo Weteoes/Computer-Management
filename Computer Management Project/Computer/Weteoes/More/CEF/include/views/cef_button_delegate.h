@@ -38,7 +38,7 @@
 #define CEF_INCLUDE_VIEWS_CEF_BUTTON_DELEGATE_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/views/cef_view_delegate.h"
+#include "include/views/cef_view_delegate.h"
 
 class CefButton;
 
@@ -59,7 +59,7 @@ class CefButtonDelegate : public CefViewDelegate {
   // Called when the state of |button| changes.
   ///
   /*--cef()--*/
-  virtual void OnButtonStateChanged(CefRefPtr<CefButton> button){};
+  virtual void OnButtonStateChanged(CefRefPtr<CefButton> button) {}
 };
 
 #endif  // CEF_INCLUDE_VIEWS_CEF_BUTTON_DELEGATE_H_

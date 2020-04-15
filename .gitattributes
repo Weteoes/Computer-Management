@@ -1,0 +1,2 @@
+* text=auto
+libcef_dll_wrapper_d.lib filter=lfs diff=lfs merge=lfs -text

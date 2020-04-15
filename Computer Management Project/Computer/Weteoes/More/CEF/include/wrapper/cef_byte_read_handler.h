@@ -37,10 +37,10 @@
 #define CEF_INCLUDE_WRAPPER_CEF_BYTE_READ_HANDLER_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/base/cef_lock.h"
-#include "Weteoes/More/CEF/include/base/cef_macros.h"
-#include "Weteoes/More/CEF/include/cef_base.h"
-#include "Weteoes/More/CEF/include/cef_stream.h"
+#include "include/base/cef_lock.h"
+#include "include/base/cef_macros.h"
+#include "include/cef_base.h"
+#include "include/cef_stream.h"
 
 ///
 // Thread safe implementation of the CefReadHandler class for reading an

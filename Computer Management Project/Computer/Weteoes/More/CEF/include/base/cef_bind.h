@@ -45,8 +45,8 @@
 // If the Chromium implementation diverges the below implementation should be
 // updated to match.
 
-#include "Weteoes/More/CEF/include/base/internal/cef_bind_internal.h"
-#include "Weteoes/More/CEF/include/base/internal/cef_callback_internal.h"
+#include "include/base/internal/cef_bind_internal.h"
+#include "include/base/internal/cef_callback_internal.h"
 
 // -----------------------------------------------------------------------------
 // Usage documentation

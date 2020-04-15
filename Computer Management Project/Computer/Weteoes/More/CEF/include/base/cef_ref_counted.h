@@ -48,10 +48,10 @@
 
 #include <cassert>
 
-#include "Weteoes/More/CEF/include/base/cef_atomic_ref_count.h"
-#include "Weteoes/More/CEF/include/base/cef_build.h"
-#include "Weteoes/More/CEF/include/base/cef_logging.h"
-#include "Weteoes/More/CEF/include/base/cef_macros.h"
+#include "include/base/cef_atomic_ref_count.h"
+#include "include/base/cef_build.h"
+#include "include/base/cef_logging.h"
+#include "include/base/cef_macros.h"
 
 namespace base {
 

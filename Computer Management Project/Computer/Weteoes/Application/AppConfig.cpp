@@ -1,23 +1,29 @@
 #include <pch.h>
+
+#ifndef AppConfigClass_Cpp
+#define AppConfigClass_Cpp
+
 #include "AppConfig.h"
-#include <Weteoes/Dll/ManagementDll.h>
 
-bool AppConfigClass::IsLogin = false;
-bool AppConfigClass::IsMiniStartMain = true;
 std::string AppConfigClass::SoftwareName;
+std::string AppConfigClass::Version;
 
-// 获取版本
+std::string AppConfigClass::Get_SoftwareName() {
+	if (!SoftwareName.empty()) { return SoftwareName; }
+	AppConfigClass::SoftwareName = ManagementDll::Get("Software_Name");
+	return SoftwareName;
+}
+
 std::string AppConfigClass::Get_Version() {
-	if (!ManagementDll().Loading()) { return ""; }
-	std::string Version = ManagementDll::Get("Version");
-	if (Version.empty()) { return ""; }
+	if (!Version.empty()) { return Version; }
+	AppConfigClass::Version = ManagementDll::Get("Version");
 	return Version;
 }
 
-// 获取临时数据位置
 std::string AppConfigClass::Get_TempPath() {
 	char Temp[MAX_PATH];
-	GetTempPath(MAX_PATH, Temp);
-	std::string TempHome = (std::string)Temp + "Weteoes\\Computer Management\\";
+	GetTempPath(sizeof(Temp), Temp);
+	std::string TempHome = (std::string)Temp + "Weteoes\\PasswordBox\\";
 	return TempHome;
 }
+#endif

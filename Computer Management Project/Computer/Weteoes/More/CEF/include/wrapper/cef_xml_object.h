@@ -40,11 +40,11 @@
 #include <map>
 #include <vector>
 
-#include "Weteoes/More/CEF/include/base/cef_lock.h"
-#include "Weteoes/More/CEF/include/base/cef_macros.h"
-#include "Weteoes/More/CEF/include/base/cef_ref_counted.h"
-#include "Weteoes/More/CEF/include/cef_base.h"
-#include "Weteoes/More/CEF/include/cef_xml_reader.h"
+#include "include/base/cef_lock.h"
+#include "include/base/cef_macros.h"
+#include "include/base/cef_ref_counted.h"
+#include "include/cef_base.h"
+#include "include/cef_xml_reader.h"
 
 class CefStreamReader;
 

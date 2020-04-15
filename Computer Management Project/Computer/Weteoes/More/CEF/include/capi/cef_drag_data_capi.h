@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Marshall A. Greenblatt. All rights reserved.
+// Copyright (c) 2020 Marshall A. Greenblatt. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,16 +33,16 @@
 // by hand. See the translator.README.txt file in the tools directory for
 // more information.
 //
-// $hash=b72ebf98f79f28a18366c037e65e98326d4a350a$
+// $hash=6c8c654be3e69d872b3cfa6bdfb1adf615bff3ac$
 //
 
 #ifndef CEF_INCLUDE_CAPI_CEF_DRAG_DATA_CAPI_H_
 #define CEF_INCLUDE_CAPI_CEF_DRAG_DATA_CAPI_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/capi/cef_base_capi.h"
-#include "Weteoes/More/CEF/include/capi/cef_image_capi.h"
-#include "Weteoes/More/CEF/include/capi/cef_stream_capi.h"
+#include "include/capi/cef_base_capi.h"
+#include "include/capi/cef_image_capi.h"
+#include "include/capi/cef_stream_capi.h"
 
 #ifdef __cplusplus
 extern "C" {

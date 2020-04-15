@@ -68,7 +68,7 @@
 #include <stdio.h>
 #include <string>
 
-#include "Weteoes/More/CEF/include/base/cef_basictypes.h"
+#include "include/base/cef_basictypes.h"
 
 #if defined(WCHAR_T_IS_UTF16)
 
@@ -84,7 +84,7 @@ typedef std::char_traits<wchar_t> string16_char_traits;
 
 #include <stdint.h>  // For uint16_t
 
-#include "Weteoes/More/CEF/include/base/cef_macros.h"
+#include "include/base/cef_macros.h"
 
 namespace cef {
 namespace base {

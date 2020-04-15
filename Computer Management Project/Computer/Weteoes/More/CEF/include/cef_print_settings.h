@@ -40,7 +40,7 @@
 
 #include <vector>
 
-#include "Weteoes/More/CEF/include/cef_base.h"
+#include "include/cef_base.h"
 
 ///
 // Class representing print settings.
@@ -71,12 +71,6 @@ class CefPrintSettings : public virtual CefBaseRefCounted {
   ///
   /*--cef()--*/
   virtual bool IsReadOnly() = 0;
-
-  ///
-  // Returns a writable copy of this object.
-  ///
-  /*--cef()--*/
-  virtual CefRefPtr<CefPrintSettings> Copy() = 0;
 
   ///
   // Set the page orientation.

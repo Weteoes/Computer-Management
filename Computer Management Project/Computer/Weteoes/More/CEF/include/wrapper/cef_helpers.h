@@ -41,10 +41,10 @@
 #include <string>
 #include <vector>
 
-#include "Weteoes/More/CEF/include/base/cef_bind.h"
-#include "Weteoes/More/CEF/include/base/cef_logging.h"
-#include "Weteoes/More/CEF/include/base/cef_macros.h"
-#include "Weteoes/More/CEF/include/cef_task.h"
+#include "include/base/cef_bind.h"
+#include "include/base/cef_logging.h"
+#include "include/base/cef_macros.h"
+#include "include/cef_task.h"
 
 #define CEF_REQUIRE_UI_THREAD() DCHECK(CefCurrentlyOn(TID_UI));
 #define CEF_REQUIRE_IO_THREAD() DCHECK(CefCurrentlyOn(TID_IO));
@@ -97,8 +97,9 @@ class CefScopedArgArray {
   CefScopedArgArray(int argc, char* argv[]) {
     // argv should have (argc + 1) elements, the last one always being NULL.
     array_ = new char*[argc + 1];
+    values_.resize(argc);
     for (int i = 0; i < argc; ++i) {
-      values_.push_back(argv[i]);
+      values_[i] = argv[i];
       array_[i] = const_cast<char*>(values_[i].c_str());
     }
     array_[argc] = NULL;

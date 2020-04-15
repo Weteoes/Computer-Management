@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Marshall A. Greenblatt. All rights reserved.
+// Copyright (c) 2020 Marshall A. Greenblatt. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,16 +33,16 @@
 // by hand. See the translator.README.txt file in the tools directory for
 // more information.
 //
-// $hash=3aae2c2e717093121c6236d799cd4d7334cb153c$
+// $hash=badaadcff4641fea876fb626b8ffe5a6f34a376c$
 //
 
 #ifndef CEF_INCLUDE_CAPI_CEF_SSL_INFO_CAPI_H_
 #define CEF_INCLUDE_CAPI_CEF_SSL_INFO_CAPI_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/capi/cef_base_capi.h"
-#include "Weteoes/More/CEF/include/capi/cef_values_capi.h"
-#include "Weteoes/More/CEF/include/capi/cef_x509_certificate_capi.h"
+#include "include/capi/cef_base_capi.h"
+#include "include/capi/cef_values_capi.h"
+#include "include/capi/cef_x509_certificate_capi.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -71,15 +71,9 @@ typedef struct _cef_sslinfo_t {
 } cef_sslinfo_t;
 
 ///
-// Returns true (1) if the certificate status has any error, major or minor.
+// Returns true (1) if the certificate status represents an error.
 ///
 CEF_EXPORT int cef_is_cert_status_error(cef_cert_status_t status);
-
-///
-// Returns true (1) if the certificate status represents only minor errors (e.g.
-// failure to verify certificate revocation).
-///
-CEF_EXPORT int cef_is_cert_status_minor_error(cef_cert_status_t status);
 
 #ifdef __cplusplus
 }

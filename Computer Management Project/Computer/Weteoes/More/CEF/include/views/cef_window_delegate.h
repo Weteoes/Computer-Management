@@ -38,7 +38,7 @@
 #define CEF_INCLUDE_VIEWS_CEF_WINDOW_DELEGATE_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/views/cef_panel_delegate.h"
+#include "include/views/cef_panel_delegate.h"
 
 class CefWindow;
 
@@ -75,7 +75,7 @@ class CefWindowDelegate : public CefPanelDelegate {
   virtual CefRefPtr<CefWindow> GetParentWindow(CefRefPtr<CefWindow> window,
                                                bool* is_menu,
                                                bool* can_activate_menu) {
-    return NULL;
+    return nullptr;
   }
 
   ///

@@ -144,9 +144,9 @@
 
 // Always define the DCHECK_IS_ON macro which is used from other CEF headers.
 #if defined(NDEBUG) && !defined(DCHECK_ALWAYS_ON)
-#define DCHECK_IS_ON() 0
+#define DCHECK_IS_ON() false
 #else
-#define DCHECK_IS_ON() 1
+#define DCHECK_IS_ON() true
 #endif
 
 #elif defined(USING_CHROMIUM_INCLUDES)
@@ -162,9 +162,9 @@
 #include <sstream>
 #include <string>
 
-#include "Weteoes/More/CEF/include/base/cef_build.h"
-#include "Weteoes/More/CEF/include/base/cef_macros.h"
-#include "Weteoes/More/CEF/include/internal/cef_logging_internal.h"
+#include "include/base/cef_build.h"
+#include "include/base/cef_macros.h"
+#include "include/internal/cef_logging_internal.h"
 
 namespace cef {
 namespace logging {

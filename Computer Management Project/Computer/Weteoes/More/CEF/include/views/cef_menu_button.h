@@ -38,9 +38,9 @@
 #define CEF_INCLUDE_VIEWS_CEF_MENU_BUTTON_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/cef_menu_model.h"
-#include "Weteoes/More/CEF/include/views/cef_label_button.h"
-#include "Weteoes/More/CEF/include/views/cef_menu_button_delegate.h"
+#include "include/cef_menu_model.h"
+#include "include/views/cef_label_button.h"
+#include "include/views/cef_menu_button_delegate.h"
 
 ///
 // MenuButton is a button with optional text, icon and/or menu marker that shows
@@ -58,15 +58,12 @@ class CefMenuButton : public CefLabelButton {
   // have a visible frame at all times, center alignment, additional padding and
   // a default minimum size of 70x33 DIP. If |with_frame| is false the button
   // will only have a visible frame on hover/press, left alignment, less padding
-  // and no default minimum size. If |with_menu_marker| is true a menu marker
-  // will be added to the button.
+  // and no default minimum size.
   ///
   /*--cef(optional_param=text)--*/
   static CefRefPtr<CefMenuButton> CreateMenuButton(
       CefRefPtr<CefMenuButtonDelegate> delegate,
-      const CefString& text,
-      bool with_frame,
-      bool with_menu_marker);
+      const CefString& text);
 
   ///
   // Show a menu with contents |menu_model|. |screen_point| specifies the menu

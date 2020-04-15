@@ -31,11 +31,11 @@
 #define CEF_INCLUDE_INTERNAL_CEF_TYPES_WIN_H_
 #pragma once
 
-#include "Weteoes/More/CEF/include/base/cef_build.h"
+#include "include/base/cef_build.h"
 
 #if defined(OS_WIN)
 #include <windows.h>
-#include "Weteoes/More/CEF/include/internal/cef_string.h"
+#include "include/internal/cef_string.h"
 
 // Handle types.
 #define cef_cursor_handle_t HCURSOR
