@@ -24,4 +24,5 @@
     手机软件UI 
 
 ## 依赖性
-    Weteoes_C-Model 项目 (Private) 
+    Weteoes_C-Model 项目 (辅助Dll)
+    ComputerManagementControl 项目(远程桌面控制)
