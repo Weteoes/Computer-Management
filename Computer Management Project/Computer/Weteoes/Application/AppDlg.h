@@ -4,6 +4,7 @@
 class AppDlgClass {
 
 public:
+	void Exit(); // 退出程序
 	void Close(); // 关闭窗口
 	void Minimize(); // 最小化窗口
 	void Show(bool moveCenter = false); // 显示窗口

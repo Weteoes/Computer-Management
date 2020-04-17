@@ -5,13 +5,13 @@
 
 #include "AppConfig.h"
 
-std::string AppConfigClass::SoftwareName;
+std::string AppConfigClass::SoftwareTitle;
 std::string AppConfigClass::Version;
 
-std::string AppConfigClass::Get_SoftwareName() {
-	if (!SoftwareName.empty()) { return SoftwareName; }
-	AppConfigClass::SoftwareName = ManagementDll::Get("Software_Name");
-	return SoftwareName;
+std::string AppConfigClass::Get_SoftwareTitle() {
+	if (!SoftwareTitle.empty()) { return SoftwareTitle; }
+	AppConfigClass::SoftwareTitle = ManagementDll::Get("Software_Title");
+	return SoftwareTitle;
 }
 
 std::string AppConfigClass::Get_Version() {
@@ -23,7 +23,7 @@ std::string AppConfigClass::Get_Version() {
 std::string AppConfigClass::Get_TempPath() {
 	char Temp[MAX_PATH];
 	GetTempPath(sizeof(Temp), Temp);
-	std::string TempHome = (std::string)Temp + "Weteoes\\PasswordBox\\";
+	std::string TempHome = (std::string)Temp + "Weteoes\\" + Get_SoftwareTitle() + "\\";
 	return TempHome;
 }
 #endif

@@ -20,6 +20,7 @@ public:
 private:
 	bool Dlg_Mouse_Down_Status = false;
 	int Dlg_Mouse_Down_X = -1, Dlg_Mouse_Down_Y = -1;
+	void Dlg_CreateThread(string url);
 	void Dlg_Mouse_Down(int x, int y);
 	void Dlg_Mouse_Move(int x, int y);
 	void Dlg_Mouse_Up();

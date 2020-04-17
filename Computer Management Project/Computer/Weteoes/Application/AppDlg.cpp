@@ -2,9 +2,16 @@
 
 AppDlgClass::Dlg AppDlgClass::Dlg_; // 记录窗口位置
 
-void AppDlgClass::Close() {
+void AppDlgClass::Exit() {
 	VariableClass::appIconClass.Icon_Remove(); // 移除托盘图标
 	exit(0);
+}
+
+void AppDlgClass::Close() {
+	dlg_HWND = VariableClass::dlg_HWND; // 获取当前活动句柄
+	SetWindowText(dlg_HWND, "Close");
+	PostMessage(dlg_HWND, WM_CLOSE, 0, 0);
+	VariableClass::dlg_HWND = NULL; // 清空句柄
 }
 
 void AppDlgClass::Minimize() {
@@ -32,6 +39,9 @@ void AppDlgClass::Show(bool moveCenter) {
 void AppDlgClass::SetSize(int width, int height) {
 	// 设置窗口大小
 	dlg_HWND = VariableClass::dlg_HWND; // 获取当前活动句柄
+	if (dlg_HWND == NULL) {
+		SetSize(width, height);
+	}
 	Dlg_SetNowRect(); // 保存现在的窗口信息
 	SetWindowPos(dlg_HWND, NULL, Dlg_.x, Dlg_.y, width, height, 0);
 	MoveCenter(); // 窗口移动到中间

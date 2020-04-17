@@ -15,9 +15,7 @@ public:
 #include <Weteoes/Dll/ConfigDll.h>
 
 void SoftwareClass::RebootSoftware() {
-	ConfigDll().Loading();
-	ManagementDll().Loading();
-	ConfigDll::Config_CreateUser((char*)""); //«Âø’≈‰÷√
+	ConfigDll::Config_CreateUser(""); //«Âø’≈‰÷√
 	std::string Software_Name = ManagementDll::Get((char*)"Software_Name");
 	if (Software_Name.empty()) { return; }
 	std::string ApplictionPath = WeteoesDll::Basics_GetNowFilePath();

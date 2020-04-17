@@ -78,11 +78,19 @@ void MainClass::startSoftware() {
 		MessageClass::WriteFileLog("Application is Find\nStart up to Application");
 
 		std::string result; //结果
+		int i = 0;
 		while (true) {
 			result = WeteoesDll::Process_AsUser((char*)Appliction.c_str(), (char*)SoftwareName.c_str());
 			MessageClass::WriteFileLog("Process_AsUser is " + result);
 			if (result == "Success" || result == "Find Process") { break; }
-			else { Sleep(1000); }
+			else { 
+				Sleep(1000); 
+				i++;
+				if (i >= 10) {
+					MessageClass::WriteFileLog("启动失败，尝试次数10");
+					break;
+				}
+			}
 		}
 	}
 	else { MessageClass::WriteFileLog("Application is Not Find");  }

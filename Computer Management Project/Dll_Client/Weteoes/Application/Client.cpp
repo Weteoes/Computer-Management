@@ -7,7 +7,7 @@
 #include <Weteoes/Application/Action/School.h>
 #include <Weteoes/Application/Action/Control.h>
 
-bool ClientClass::Entrance(char* data_c) { //Music_163|F5
+bool ClientClass::Entrance(char* data_c) { //Weteoes_Music_163|F5
 	std::string data = data_c;
 	std::string header = ConfigClass::use.GetConfig(&data); // 去掉头部信息
 	if (header != ConfigClass::Socket_Header) { return false; } // 头部不一致

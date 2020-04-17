@@ -35,6 +35,7 @@ protected:
 
 private:
 	void Ready();
+	void ReadyDlg();
 	bool CreateDlg();
 	void ReadyVariable();
 	void ReadyIcon();

@@ -12,5 +12,12 @@ void APP_Dll_SWR::Start_thread(int type) {
 			SRWDll::Web_Entrance(a.c_str());
 			break;
 		}
+		case 1: { // Socket ·þÎñ
+			while (1) {
+				SRWDll::Socket_Entrance();
+				Sleep(1000);
+			}
+			break;
+		}
 	}
 }

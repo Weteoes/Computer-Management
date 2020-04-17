@@ -15,5 +15,5 @@ bool CEF_Init_V8Handler::Execute(
 }
 
 void CEF_Init_V8Handler::ShowMainDlg() {
-	VariableClass::createDlgClass.main();
+
 }

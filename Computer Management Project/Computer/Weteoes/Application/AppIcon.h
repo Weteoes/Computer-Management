@@ -8,7 +8,9 @@ class AppIconClass
 public:
 	static NOTIFYICONDATA m_NotifyIcon;
 
+public:
 	bool Icon_Add(HWND, HINSTANCE);
 	void Icon_Remove();
+
 };
 #endif // !AppIconClass_

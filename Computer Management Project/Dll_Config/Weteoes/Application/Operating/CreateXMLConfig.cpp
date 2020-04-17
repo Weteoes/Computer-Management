@@ -28,7 +28,11 @@ bool CreateXMLConfigClass::UserConfig(const char* w) {
 		// 找不到root节点
 		root = xml.NewElement(VariableClass::xmlClass.RootElementName.c_str());
 	}
-	tinyxml2::XMLElement* w_ = xml.NewElement("w");
+	tinyxml2::XMLElement* w_ = root->FirstChildElement("w");
+	if (!w_ || w_->FirstChild() == NULL) { 
+		// 找不到该行
+		w_ = xml.NewElement("w");
+	}
 	w_->SetText(w);
 	root->InsertEndChild(w_);
 	xml.InsertEndChild(root);

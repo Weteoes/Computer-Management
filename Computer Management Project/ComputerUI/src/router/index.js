@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import ControllerPasswordBox from '@/w/controller/passwordBox'
+import ControllerComputerManagement from '@/w/controller/computerManagement'
 import controllerError from '@/w/controller/error'
 
 Vue.use(VueRouter)
 
 const routes = [
-  ControllerPasswordBox.router,
+  ControllerComputerManagement.router,
   controllerError.router
 ]
 

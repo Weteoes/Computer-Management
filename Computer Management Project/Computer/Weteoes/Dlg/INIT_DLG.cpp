@@ -90,21 +90,29 @@ void INIT_DLG::OnPaint() {
 // 初始化
 void INIT_DLG::Ready() {
 	ReadyVariable();
+	ReadyDlg();
 	ReadyIcon();
 	VariableClass::appCefClass.Init_CEF(); // 初始化CEF
 	VariableClass::app_Dll_SWR.Start(0);  // 启动UI
 	CreateDlg();
+	VariableClass::appDlgClass.Exit();
+}
+
+void INIT_DLG::ReadyDlg() {
+	// 用于dll读取窗口句柄
+	SetWindowText(VariableClass::appConfigClass.Get_SoftwareTitle().c_str());
 }
 
 bool INIT_DLG::CreateDlg() {
 	ConfigDll::Struct_UserConfig a = ConfigDll::Config_ReadUser(); // 读取用户
 	if (strlen(a.w) != 0) { 
 		// 已经登录
+		VariableClass::createDlgClass.main(true);
 	}
 	else {
 		// 未登录
+		VariableClass::createDlgClass.login();
 	}
-	VariableClass::createDlgClass.main();
 	return true;
 }
 
@@ -122,7 +130,7 @@ LRESULT INIT_DLG::OnNotifyMsg(WPARAM wparam, LPARAM lparam) {
 	if (wparam != IDI_ICON1) { return -1; }
 	switch (lparam) {
 	case WM_LBUTTONDOWN:
-		VariableClass::appDlgClass.Show();
+		VariableClass::appDlgClass.Show(true);
 		break;
 	case WM_RBUTTONDOWN: 
 		// 注意：菜单是弹出式菜单，菜单索引项是弹出式菜单，子菜单不是
@@ -148,7 +156,7 @@ LRESULT INIT_DLG::OnTaskBarRestart(WPARAM wParam, LPARAM lParam) {
 
 // 托盘事件-退出
 void INIT_DLG::IconMenu_Exit() {
-	VariableClass::appDlgClass.Close();
+	VariableClass::appDlgClass.Exit();
 }
 
 //当用户拖动最小化窗口时系统调用此函数取得光标

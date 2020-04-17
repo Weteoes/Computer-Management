@@ -39,14 +39,30 @@ bool CEF_V8Handler::Execute(
 		VariableClass::appDlgClass.Minimize();
 		return true;
 	}
+	else if (name == "Dlg_Exit") {
+		VariableClass::appDlgClass.Exit();
+		return true;
+	}
 	else if (name == "Dlg_Close") {
 		VariableClass::appDlgClass.Close();
+		return true;
+	}
+	else if (name == "Dlg_Create") {
+		string url = arguments[0]->GetStringValue();
+		if (!url.empty()) { 
+			thread a(&CEF_V8Handler::Dlg_CreateThread, this, url);
+			a.detach();
+		}
 		return true;
 	}
 	else if (name == "App") {
 		return App(name, object, arguments, retval, exception);
 	}
 	return false;
+}
+
+void CEF_V8Handler::Dlg_CreateThread(string url) {
+	VariableClass::createDlgClass.browser(url);
 }
 
 void CEF_V8Handler::Dlg_Mouse_Down(int x, int y) {
@@ -84,10 +100,8 @@ bool CEF_V8Handler::App(
 		argsDict = jsonObject->GetDictionary();
 	}
 	if (app.empty() || fun.empty()) { return false; }
-	if (app == "Init") { return VariableClass::cef_Init_V8Handler.Execute(fun, argsDict, retval, exception); }
 	if (app == "Login") { return VariableClass::cef_Login_V8Handler.Execute(fun, argsDict, retval, exception); }
 	if (app == "Main") { return VariableClass::cef_Main_V8Handler.Execute(fun, argsDict, retval, exception); }
-	if (app == "ChangePassword") { return VariableClass::cef_ChangePassword_V8Handler.Execute(fun, argsDict, retval, exception); }
 	return false;
 }
 #endif
