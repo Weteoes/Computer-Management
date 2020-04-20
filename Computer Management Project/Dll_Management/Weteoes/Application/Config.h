@@ -1,4 +1,5 @@
-#ifdef _DEBUG
+//#define W_DEBUG
+#ifdef W_DEBUG
 #define Config_Software_UI_Port "8080"
 #else
 #define Config_Software_UI_Port "23330"
@@ -8,4 +9,4 @@
 #define Config_Socket_Port "6666"
 #define Config_Software_Title "Computer Management"
 #define Config_Software_Name "Computer" // 主程序运行进程名称
-#define Config_Version "4.1.2020417.1929"
+#define Config_Version "4.1.2020420.2302"

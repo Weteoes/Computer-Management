@@ -229,7 +229,7 @@ export default {
           if (resultData.code === 0) {
             // success
             this.w.softwareApi.app('Login', 'Signin', { w: resultData.w })
-            this.w.softwareApi.app('Login', 'createMainDlg') // 创建窗口
+            this.w.softwareApi.app('Main', 'CreateMainDlg') // 创建窗口
             ffFinished(true)
           } else {
             ffError('Username or Password Error')

@@ -10,19 +10,18 @@ bool CEF_Login_V8Handler::Execute(
 	if (name == "Signin") {
 		string w = arguments->GetString("w");
 		bool result = false;
-		if (!w.empty()) {
-			result = ConfigDll::Config_CreateUser(w.c_str());
-		}
+		// ‘ –Ìø’,ø’ ««Â≥˝≈‰÷√
+		result = ConfigDll::Config_CreateUser(w.c_str());
 		retval = CefV8Value::CreateBool(result);
 		return true;
 	} 
-	else if (name == "createMainDlg") {
-		thread a(&CEF_Login_V8Handler::createMainDlg, this);
+	else if (name == "ShowLoginDlg") {
+		thread a(&CEF_Login_V8Handler::CreateLoginDlg, this);
 		a.detach();
 	}
 	return false;
 }
 
-void CEF_Login_V8Handler::createMainDlg() {
-	VariableClass::createDlgClass.main();
+void CEF_Login_V8Handler::CreateLoginDlg() {
+	VariableClass::createDlgClass.Login();
 }

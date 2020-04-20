@@ -4,7 +4,6 @@
 #include <Resource.h>
 #include <Weteoes/Application/AppConfig.h>
 #include <Weteoes/Dll/WeteoesDll.h>
-#include <Weteoes/Dlg/Dlg_Main.h>
 #include <Weteoes/Dll/SRWDll.h>
 #include <Weteoes/Dll/ConfigDll.h>
 

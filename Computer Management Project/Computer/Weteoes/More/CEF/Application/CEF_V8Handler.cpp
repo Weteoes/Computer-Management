@@ -62,7 +62,7 @@ bool CEF_V8Handler::Execute(
 }
 
 void CEF_V8Handler::Dlg_CreateThread(string url) {
-	VariableClass::createDlgClass.browser(url);
+	VariableClass::createDlgClass.Browser(url);
 }
 
 void CEF_V8Handler::Dlg_Mouse_Down(int x, int y) {

@@ -13,6 +13,6 @@ public:
 		);
 
 private:
-	void createMainDlg(); // 创建main窗口
+	void CreateLoginDlg(); // 创建Login窗口
 };
 #endif

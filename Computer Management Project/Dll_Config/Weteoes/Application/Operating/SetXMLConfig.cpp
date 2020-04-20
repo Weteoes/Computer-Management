@@ -14,9 +14,7 @@ bool SetXMLConfigClass::ComputerConfig(const char* element, const char* data) {
 		// 找不到root节点
 		return false;
 	}
-	tinyxml2::XMLElement* XML_menu = root->FirstChildElement(element);
-	if (!XML_menu || XML_menu->FirstChild() == NULL) { return false; } //找不到该行
-	XML_menu->SetText(data);
+	VariableClass::xmlClass.SetElementValue(xml, root, element, data);
 	VariableClass::xmlClass.SaveXML(xml, XmlFile);
 	return true;
 }

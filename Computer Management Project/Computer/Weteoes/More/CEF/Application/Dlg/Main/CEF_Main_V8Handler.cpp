@@ -42,5 +42,13 @@ bool CEF_Main_V8Handler::Execute(
 		}
 		return true;
 	}
+	else if (name == "CreateMainDlg") {
+		thread a(&CEF_Main_V8Handler::CreateMainDlg, this);
+		a.detach();
+	}
 	return false;
+}
+
+void CEF_Main_V8Handler::CreateMainDlg() {
+	VariableClass::createDlgClass.Main();
 }

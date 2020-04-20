@@ -753,9 +753,6 @@
     <ClInclude Include="Weteoes\Application\App.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Dlg\Dlg_Main.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\Dll\WeteoesDll.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -774,13 +771,7 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_App.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_V8Handler.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_App.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_V8Handler.h">
@@ -837,9 +828,6 @@
     <ClInclude Include="Weteoes\Application\CreateDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Weteoes\Dlg\INIT_DLG.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Weteoes\Application\Dll\APP_Dll_SWR.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -847,6 +835,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Weteoes\Application\CEF\AppCefBasic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Dlg\BrowserDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Weteoes\Dlg\initDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -858,9 +852,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Application\App.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\Dlg\Dlg_Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Dll\WeteoesDll.cpp">
@@ -881,13 +872,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_App.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_V8Handler.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_App.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_V8Handler.cpp">
@@ -917,9 +902,6 @@
     <ClCompile Include="Weteoes\Application\CreateDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Weteoes\Dlg\INIT_DLG.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Weteoes\Application\Dll\APP_Dll_SWR.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -927,6 +909,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Weteoes\Application\CEF\AppCefBasic.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Dlg\BrowserDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Weteoes\Dlg\initDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

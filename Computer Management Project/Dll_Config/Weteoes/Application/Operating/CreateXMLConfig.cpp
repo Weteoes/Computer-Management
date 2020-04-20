@@ -28,14 +28,7 @@ bool CreateXMLConfigClass::UserConfig(const char* w) {
 		// 找不到root节点
 		root = xml.NewElement(VariableClass::xmlClass.RootElementName.c_str());
 	}
-	tinyxml2::XMLElement* w_ = root->FirstChildElement("w");
-	if (!w_ || w_->FirstChild() == NULL) { 
-		// 找不到该行
-		w_ = xml.NewElement("w");
-	}
-	w_->SetText(w);
-	root->InsertEndChild(w_);
-	xml.InsertEndChild(root);
+	VariableClass::xmlClass.SetElementValue(xml, root, "w", w);
 	return VariableClass::xmlClass.SaveXML(xml, a);
 }
 
@@ -50,10 +43,7 @@ bool CreateXMLConfigClass::ComputerConfig(const char* ComputerName, const char* 
 		// 找不到root节点
 		root = xml.NewElement(VariableClass::xmlClass.RootElementName.c_str());
 	}
-	tinyxml2::XMLElement* XML_ComputerName = xml.NewElement("ComputerName"); XML_ComputerName->SetText(ComputerName);
-	tinyxml2::XMLElement* XML_Language = xml.NewElement("Language"); XML_Language->SetText(Language);
-	root->InsertEndChild(XML_ComputerName);
-	root->InsertEndChild(XML_Language);
-	xml.InsertEndChild(root);
+	VariableClass::xmlClass.SetElementValue(xml, root, "ComputerName", ComputerName);
+	VariableClass::xmlClass.SetElementValue(xml, root, "Language", Language);
 	return VariableClass::xmlClass.SaveXML(xml, a);
 }

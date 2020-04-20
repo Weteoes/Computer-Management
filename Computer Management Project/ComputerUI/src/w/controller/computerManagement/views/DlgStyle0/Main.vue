@@ -16,6 +16,7 @@
                   v-text="languageConfig.id.Language_top_title_one"
                 >Login User:</span>
                 <span id="User" v-text="basic_user"></span>
+                <span id="SignOut" @click="basicSignOutClick">退出登录</span>
               </div>
               <div
                 class="top_title_two success"
@@ -202,6 +203,11 @@
   bottom: 0;
   left: 0;
 }
+#SignOut {
+  font-size: 14px;
+  margin: 0 10px;
+  cursor: pointer;
+}
 </style>
 
 <script>
@@ -347,6 +353,16 @@ export default {
           this.basic_user = resultData.user // 设置用户
         }
       )
+    },
+    // 退出登录
+    basicSignOutClick: function () {
+      this.$confirm('将要退出当前用户, 是否继续?', '', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消'
+      }).then(() => {
+        this.w.softwareApi.app('Login', 'Signin', { w: '' }) // 清空配置
+        this.w.softwareApi.app('Login', 'ShowLoginDlg') // 打开登录窗口
+      }).catch(() => {})
     },
     msg: function (title, client, type) {
       this.w.function.msg(title, client, type)

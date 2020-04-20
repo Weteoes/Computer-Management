@@ -206,13 +206,13 @@
     <ClInclude Include="Weteoes\Application\CEF\AppCefBasic.h" />
     <ClInclude Include="Weteoes\Application\CreateDlg.h" />
     <ClInclude Include="Weteoes\Application\Dll\APP_Dll_SWR.h" />
-    <ClInclude Include="Weteoes\Dlg\Dlg_Main.h" />
+    <ClInclude Include="Weteoes\Dlg\BrowserDlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Weteoes\Application\App.h" />
     <ClInclude Include="Weteoes\Application\AppConfig.h" />
-    <ClInclude Include="Weteoes\Dlg\INIT_DLG.h" />
+    <ClInclude Include="Weteoes\Dlg\initDlg.h" />
     <ClInclude Include="Weteoes\Dll\ConfigDll.h" />
     <ClInclude Include="Weteoes\Dll\ManagementDll.h" />
     <ClInclude Include="Weteoes\Dll\SRWDll.h" />
@@ -222,9 +222,7 @@
     <ClInclude Include="Weteoes\More\CEF\Application\CEF_Handler.h" />
     <ClInclude Include="Weteoes\More\CEF\Application\CEF_V8Handler.h" />
     <ClInclude Include="Weteoes\More\CEF\Application\CEF_WindowDelegate.h" />
-    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_App.h" />
     <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_V8Handler.h" />
-    <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_App.h" />
     <ClInclude Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_V8Handler.h" />
     <ClInclude Include="Weteoes\More\CEF\Application\Ready\CEF_App_Ready.h" />
     <ClInclude Include="Weteoes\More\CEF\Config.h" />
@@ -486,7 +484,7 @@
     <ClCompile Include="Weteoes\Application\CEF\AppCefBasic.cpp" />
     <ClCompile Include="Weteoes\Application\CreateDlg.cpp" />
     <ClCompile Include="Weteoes\Application\Dll\APP_Dll_SWR.cpp" />
-    <ClCompile Include="Weteoes\Dlg\Dlg_Main.cpp" />
+    <ClCompile Include="Weteoes\Dlg\BrowserDlg.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -495,7 +493,7 @@
     </ClCompile>
     <ClCompile Include="Weteoes\Application\App.cpp" />
     <ClCompile Include="Weteoes\Application\AppConfig.cpp" />
-    <ClCompile Include="Weteoes\Dlg\INIT_DLG.cpp" />
+    <ClCompile Include="Weteoes\Dlg\initDlg.cpp" />
     <ClCompile Include="Weteoes\Dll\ConfigDll.cpp" />
     <ClCompile Include="Weteoes\Dll\ManagementDll.cpp" />
     <ClCompile Include="Weteoes\Dll\SRWDll.cpp" />
@@ -504,9 +502,7 @@
     <ClCompile Include="Weteoes\More\CEF\Application\CEF_App.cc" />
     <ClCompile Include="Weteoes\More\CEF\Application\CEF_Handler.cc" />
     <ClCompile Include="Weteoes\More\CEF\Application\CEF_V8Handler.cpp" />
-    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_App.cpp" />
     <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Login\CEF_Login_V8Handler.cpp" />
-    <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_App.cpp" />
     <ClCompile Include="Weteoes\More\CEF\Application\Dlg\Main\CEF_Main_V8Handler.cpp" />
     <ClCompile Include="Weteoes\More\CEF\Application\Ready\CEF_App_Ready.cpp" />
     <ClCompile Include="Weteoes\Variable.cpp" />

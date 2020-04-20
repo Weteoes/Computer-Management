@@ -5,8 +5,8 @@
 #define CreateDlgClass_H
 class CreateDlgClass {
 public:
-	void browser(string url, bool minimize = false);
-	void login();
-	void main(bool minimize = false);
+	void Browser(string url, bool minimize = false);
+	void Login();
+	void Main(bool minimize = false);
 };
 #endif

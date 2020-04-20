@@ -41,9 +41,6 @@ class CEF_App :
  private:
   // Include the default reference counting implementation.
   IMPLEMENT_REFCOUNTING(CEF_App);
-public:
-	static HWND CEF_HWND;
-	static CRect CEF_CRect;
 
 private:
     virtual void OnWebKitInitialized_() = 0;

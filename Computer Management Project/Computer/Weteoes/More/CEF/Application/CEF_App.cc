@@ -14,8 +14,6 @@
 #include <Weteoes/More/CEF/Application/CEF_WindowDelegate.h>
 
 CEF_App::CEF_App() {}
-CRect CEF_App::CEF_CRect; // ÊÓÍ¼×ø±ê
-HWND CEF_App::CEF_HWND; // ´°¿Ú¾ä±ú
 
 void CEF_App::OnBeforeCommandLineProcessing(const CefString & process_type, CefRefPtr<CefCommandLine> command_line) {
 #ifdef cef_single_process
@@ -32,48 +30,12 @@ void CEF_App::OnBeforeCommandLineProcessing(const CefString & process_type, CefR
 
 void CEF_App::OnContextInitialized() {
   CEF_REQUIRE_UI_THREAD();
-  CefRefPtr<CefCommandLine> command_line =
-      CefCommandLine::GetGlobalCommandLine();
-#if defined(OS_WIN) || defined(OS_LINUX)
-  // Create the browser using the Views framework if "--use-views" is specified
-  // via the command-line. Otherwise, create the browser using the native
-  // platform framework. The Views framework is currently only supported on
-  // Windows and Linux.
-  const bool use_views = command_line->HasSwitch("use-views");
-#else
-  const bool use_views = false;
-#endif
-  // SimpleHandler implements browser-level callbacks.
-  CefRefPtr<CEF_Handler> CEF_handler = new CEF_Handler(use_views);
-
-  // Specify CEF browser settings here.
-  CefBrowserSettings browser_settings;
-  std::string url;
-  // Check if a "--url=" value was provided via the command-line. If so, use
-  // that instead of the default URL.
-  //url = command_line->GetSwitchValue("url");
-
-  if (use_views) {
-    // Create the BrowserView.
-    CefRefPtr<CefBrowserView> browser_view = CefBrowserView::CreateBrowserView(
-		CEF_handler, url, browser_settings, NULL, NULL, NULL);
-
-    // Create the Window. It will show itself after creation.
-    CefWindow::CreateTopLevelWindow(new CEF_WindowDelegate(browser_view));
-  } else {
-    // Information used when creating the native window.
-    CefWindowInfo window_info;
-#if defined(OS_WIN)
-    // On Windows we need to specify certain flags that will be passed to
-    // CreateWindowEx().
-    //window_info.SetAsPopup(NULL, "cefsimple");
-#endif
-	window_info.SetAsChild(CEF_HWND,CEF_CRect);
-
-    // Create the first browser window.
-    CefBrowserHost::CreateBrowser(window_info, CEF_handler, url, browser_settings,
-                                  NULL, NULL);
-  }
+//    CefRefPtr<CefCommandLine> command_line = CefCommandLine::GetGlobalCommandLine();
+//#if defined(OS_WIN) || defined(OS_LINUX)
+//  const bool use_views = command_line->HasSwitch("use-views");
+//#else
+//  const bool use_views = false;
+//#endif
 }
 
 
