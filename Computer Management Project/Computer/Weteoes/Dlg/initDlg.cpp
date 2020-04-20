@@ -3,6 +3,7 @@
 //
 
 #include <pch.h>
+#include "framework.h"
 #include <Computer.h>
 #include "initDlg.h"
 #include "afxdialogex.h"

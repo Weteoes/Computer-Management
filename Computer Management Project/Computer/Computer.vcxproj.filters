@@ -843,6 +843,9 @@
     <ClInclude Include="Weteoes\Dlg\initDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Computer.cpp">
