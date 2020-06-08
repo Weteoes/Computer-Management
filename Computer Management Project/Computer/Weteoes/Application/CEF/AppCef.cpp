@@ -14,7 +14,7 @@ bool AppCefClass::Init_CEF() {
 	CefMainArgs mainArgs(AfxGetInstanceHandle());
 	CefRefPtr<CEF_App_Ready> app(new CEF_App_Ready);
 	CefExecuteProcess(mainArgs, app.get(), NULL);
-	CefSettings settings = AppCefClass().GetSetting();
+	CefSettings settings = GetSetting();
 	CefInitialize(mainArgs, settings, app.get(), NULL);
 	return true;
 }
