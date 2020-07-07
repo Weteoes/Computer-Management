@@ -20,7 +20,7 @@ class LoginClass {
     public function isExpired($i) {
         // 0 电脑
         // 1 手机
-        if($i == 0 || $i == 1){ return true; }
+        if($i == "0" || $i == "1"){ return true; }
         return false;
     }
     public function sumbit($user, $pass) { //登录
