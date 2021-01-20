@@ -53,7 +53,7 @@ void Music_163::play() {
 	if (!Loading()) { return; };
 	RECT a; GetWindowRect(Music_163_Window, &a); //获取窗口上下左右
 	int height = a.bottom - a.top, width = a.right - a.left; //计算出窗口大小
-	UINT x = 100, y = (UINT)height - 15; //点击位置
+	UINT x = width / 2, y = (UINT)height - 40; //点击位置
 	UINT xy = (y << 16) | x; //算出值
 	PostMessage(Music_163_Window, WM_LBUTTONDOWN, 0, xy);
 	PostMessage(Music_163_Window, WM_LBUTTONUP, 0, xy);
@@ -62,7 +62,7 @@ void Music_163::last() {
 	if (!Loading()) { return; };
 	RECT a; GetWindowRect(Music_163_Window, &a); //获取窗口上下左右
 	int height = a.bottom - a.top, width = a.right - a.left; //计算出窗口大小
-	UINT x = 43, y = (UINT)height - 15; //点击位置
+	UINT x = width / 2 - 50, y = (UINT)height - 40; //点击位置
 	UINT xy = (y << 16) | x; //算出值
 	PostMessage(Music_163_Window, WM_LBUTTONDOWN, 0, xy);
 	PostMessage(Music_163_Window, WM_LBUTTONUP, 0, xy);
@@ -71,7 +71,7 @@ void Music_163::next() {
 	if (!Loading()) { return; };
 	RECT a; GetWindowRect(Music_163_Window, &a); //获取窗口上下左右
 	int height = a.bottom - a.top, width = a.right - a.left; //计算出窗口大小
-	UINT x = 155, y = (UINT)height - 15; //点击位置
+	UINT x = width / 2 + 50, y = (UINT)height - 40; //点击位置
 	UINT xy = (y << 16) | x; //算出值
 	PostMessage(Music_163_Window, WM_LBUTTONDOWN, 0, xy);
 	PostMessage(Music_163_Window, WM_LBUTTONUP, 0, xy);
@@ -80,7 +80,7 @@ void Music_163::like() {
 	if (!Loading()) { return; };
 	RECT a; GetWindowRect(Music_163_Window, &a); //获取窗口上下左右
 	int height = a.bottom - a.top, width = a.right - a.left; //计算出窗口大小
-	UINT x = 180, y = (UINT)height - 88; //点击位置
+	UINT x = 263, y = (UINT)height - 43; //点击位置
 	UINT xy = (y << 16) | x; //算出值
 	PostMessage(Music_163_Window, WM_LBUTTONDOWN, 0, xy);
 	PostMessage(Music_163_Window, WM_LBUTTONUP, 0, xy);
